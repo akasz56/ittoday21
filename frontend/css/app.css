@@ -1,20 +1,16 @@
-@import url('./main.css');
 @import url('/node_modules/bootstrap-icons/font/bootstrap-icons.css');
 @import url('/node_modules/hamburgers/dist/hamburgers.css');
 @import url('/node_modules/hamburgers/dist/hamburgers.min.css');
 @import url('/node_modules/aos/dist/aos.css');
-@import url('./home.css');
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap'); */
-
-.outline {
-    color: #f1f1f1;
-    font-weight: bold;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1px;
-}
+@import url('./fonts.css');
+@import url('./main.css');
+@import url('./navbar.css');
+@import url('./jumbotron.css');
+@import url('./welcome-and-timeline.css');
+@import url('./total-price.css');
+@import url('./footer.css');
+@import url('./sponsors.css');
+@import url('./card.css');
 
 * {
     font-family: 'Montserrat', sans-serif;
@@ -30,163 +26,4 @@
 html,
 body {
     height: 100% !important;
-}
-
-p {
-    line-height: 250%;
-}
-
-/* Navbar */
-#collNavbar {
-    transition: .3s ease-in-out;
-}
-
-._bg-color-purple,
-.dropdown-item.active {
-    background-color: var(--purple) !important;
-}
-
-.navbar-toggler {
-    border: 0px;
-    padding: 0.30rem;
-}
-
-.hamburger {
-    padding: .3rem;
-}
-
-.hamburger-box {
-    width: 30px;
-}
-
-.hamburger-inner,
-.hamburger-inner:after,
-.hamburger-inner:before {
-    height: 2.9px;
-    width: 28px;
-    border-radius: 10px;
-    background-color: white;
-}
-
-.hamburger.is-active .hamburger-inner,
-.hamburger.is-active .hamburger-inner:after,
-.hamburger.is-active .hamburger-inner:before {
-    height: 2.6px;
-    width: 28px;
-    border-radius: 10px;
-    background-color: var(--red);
-}
-
-.hamburger-inner:before {
-    padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
-}
-
-.dropdown-toggle::after {
-    display: none;
-}
-
-/* skip to main content */
-.skip-link {
-    position: absolute;
-    top: -50px;
-    left: 0;
-    padding: 8px;
-    z-index: 100;
-    transition: .3s ease-in-out;
-}
-
-.skip-link:focus {
-    top: 0;
-}
-
-@media (max-width: 991px) {
-    .full-navbar-mobile {
-        padding-bottom: 100vh;
-    }
-
-    ._m-nav-mobile {
-        margin-top: 20px !important;
-    }
-
-    /* dropdown icon rotate when mobile */
-    [data-bs-toggle="dropdown"][aria-expanded="true"]>.icon-rotates::before {
-        transform: rotate(180deg) !important;
-    }
-
-    .icon-rotates::before {
-        transition: .2s ease-in-out;
-        float: right;
-    }
-
-    .register,
-    .auth {
-        margin-top: 15px;
-        border-top: 1px solid #68667b;
-    }
-}
-
-@media (min-width: 992px) {
-    .nav-link:hover {
-        color: white !important;
-    }
-
-    .hamburger {
-        display: none;
-    }
-
-    .navbar .nav-item .dropdown-menu {
-        display: none;
-    }
-
-    .navbar .nav-item:hover .nav-link {
-        color: white;
-    }
-
-    .navbar .nav-item:hover .dropdown-menu {
-        display: block;
-    }
-
-    .navbar .nav-item .dropdown-menu {
-        margin-top: 0;
-    }
-
-    /* rotate dropdown icon */
-    .navbar .nav-item:hover .icon-rotates::before {
-        transform: rotate(180deg) !important;
-    }
-
-    .icon-rotates::before {
-        transition: .2s ease-in-out;
-    }
-
-    .calendarHide,
-    .trophyHide,
-    .infoHide {
-        display: none;
-    }
-}
-
-/* Sponsor */
-
-.sponsors {
-    margin-top: 150px !important;
-}
-
-.sponsors-list {
-    border-radius: 20px;
-    height: 350px;
-}
-
-/* Footer */
-
-.link-list-footer{
-    color: var(--grey-custom);
-}
-
-@media (min-width: 768px) {
-    .link-list-footer:hover{
-        color: white !important;
-        transition: ease-in-out .1s;
-    }
 }

@@ -1,0 +1,200 @@
+.card-img-wrap {
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img-wrap:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    transition: opacity .25s;
+}
+
+.card-img-wrap img {
+    transition: transform .25s;
+    width: 100%;
+}
+
+.card-img-wrap:hover img {
+    transform: scale(1.2);
+}
+
+.card-img-wrap:hover:after {
+    opacity: 1;
+}
+
+/* total prize */
+.bg-total-price {
+    background-image: url('../assets/images/bg-price.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100% !important;
+    height: 100vw;
+}
+
+.bg-blur-total-prize {
+    width: 75%;
+    height: 30%;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 32px 0 rgba(31, 38, 135, 0.10);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.bg-hero-total-prize {
+    height: inherit;
+}
+
+.h1-prize{
+    font-size: 45px;
+}
+
+.h2-prize{
+    font-size: 60px;
+}
+
+@media (max-width:992px) {
+    .h1-prize {
+        font-size: 30px;
+    }
+
+    .h2-prize {
+        font-size: 40px;
+    }
+}
+
+@media (max-width:768px) {
+    .h1-prize {
+        font-size: 24px;
+    }
+
+    .h2-prize {
+        font-size: 32px;
+    }
+}
+
+@media (max-width:576px) {
+    .h1-prize {
+        font-size: 4vw;
+    }
+
+    .h2-prize {
+        font-size: 6vw;
+    }
+}
+
+
+/* welcome timeline */
+.container-welcome {
+    margin-bottom: 150px;
+}
+
+.stroke-welcome {
+    position: absolute;
+    font-size: 110pt;
+    z-index: -10;
+}
+
+.it-today-2021-tittle,
+.welcome-logo {
+    margin-top: 110px;
+}
+
+.timeline-left,
+.timeline-right {
+    font-size: 110pt;
+    z-index: -10;
+}
+
+.timeline-left {
+    margin-top: -100px;
+}
+
+.timeline-right {
+    margin-top: -100px;
+}
+
+@media (max-width:576px) {
+    .stroke-welcome {
+        font-size: 15vw !important;
+    }
+
+    .it-today-2021-tittle {
+        margin-top: 50px !important;
+    }
+}
+
+@media(max-width: 768px) {
+    .it-today-2021-tittle {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 992px) {
+    .stroke-welcome {
+        font-size: 12vw;
+    }
+
+    .it-today-2021-tittle {
+        margin-top: 40px;
+    }
+
+    .timeline-left,
+    .timeline-right {
+        font-size: 16vw;
+    }
+
+    .it-today-2021-tittle {
+        margin-top: 80px;
+    }
+}
+
+/* jumbotron */
+#bg-jumbotron {
+    background-image: url('../assets/images/bg-gradient-jumbotron.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+    width: 100% !important;
+    /* margin-top: 58px; */
+}
+
+.bg-hero-container {
+    height: inherit;
+}
+
+.bg-blur-hero {
+    width: 60%;
+    height: 45%;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 32px 0 rgba(31, 38, 135, 0.10);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+@media (max-width: 768px) {
+    #bg-jumbotron {
+        height: 565px;
+    }
+
+    .bg-blur-hero {
+        width: 100%;
+        height: 50%;
+    }
+
+    .jumbotron-logo {
+        width: 200px;
+        height: 100px;
+    }
+}

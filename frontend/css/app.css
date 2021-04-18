@@ -1,0 +1,29 @@
+@import url('/node_modules/bootstrap-icons/font/bootstrap-icons.css');
+@import url('/node_modules/hamburgers/dist/hamburgers.css');
+@import url('/node_modules/hamburgers/dist/hamburgers.min.css');
+@import url('/node_modules/aos/dist/aos.css');
+@import url('./fonts.css');
+@import url('./main.css');
+@import url('./navbar.css');
+@import url('./jumbotron.css');
+@import url('./welcome-and-timeline.css');
+@import url('./total-price.css');
+@import url('./footer.css');
+@import url('./sponsors.css');
+@import url('./card.css');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --purple: #22203F;
+    --red: #DB4437;
+    --dark-green: #005260;
+    --grey-custom: #9594a7;
+}
+
+html,
+body {
+    height: 100% !important;
+}

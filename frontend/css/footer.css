@@ -1,0 +1,10 @@
+.link-list-footer{
+    color: var(--grey-custom);
+}
+
+@media (min-width: 768px) {
+    .link-list-footer:hover{
+        color: white !important;
+        transition: ease-in-out .1s;
+    }
+}

@@ -1,0 +1,63 @@
+.container-welcome {
+    margin-bottom: 150px;
+}
+
+.stroke-welcome {
+    position: absolute;
+    font-size: 110pt;
+    z-index: -10;
+}
+
+.it-today-2021-tittle,
+.welcome-logo {
+    margin-top: 110px;
+}
+
+.timeline-left,
+.timeline-right {
+    font-size: 110pt;
+    z-index: -10;
+}
+
+.timeline-left {
+    margin-top: -100px;
+}
+
+.timeline-right {
+    margin-top: -100px;
+}
+
+@media (max-width:576px) {
+    .stroke-welcome {
+        font-size: 15vw !important;
+    }
+
+    .it-today-2021-tittle {
+        margin-top: 50px !important;
+    }
+}
+
+@media(max-width: 768px) {
+    .it-today-2021-tittle {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 992px) {
+    .stroke-welcome {
+        font-size: 12vw;
+    }
+
+    .it-today-2021-tittle {
+        margin-top: 40px;
+    }
+
+    .timeline-left,
+    .timeline-right {
+        font-size: 16vw;
+    }
+
+    .it-today-2021-tittle {
+        margin-top: 80px;
+    }
+}

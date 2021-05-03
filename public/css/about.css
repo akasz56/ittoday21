@@ -1,0 +1,129 @@
+.about-hero {
+    width: 100%;
+    height: max-content;
+}
+
+.bg-visimisi {
+    background-image: url('../assets/images/bg-price.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100% !important;
+    height: max-content;
+    margin: 10vh 0;
+}
+
+@media (max-width: 768px) {
+    .bg-visimisi {
+        flex-direction: column;
+    }
+}
+
+.about-box {
+    width: 30%;
+    margin: 12vw 10vw;
+    text-align: center;
+
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 32px 0 rgba(31, 38, 135, 0.10);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+@media (min-width: 1440px) {
+    .about-box {
+        width: 400px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .about-box {
+        width: 40%;
+        margin: 8vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-box {
+        height: max-content;
+        width: 70%;
+        margin-left: 15%;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-box {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+.about-box-text {
+    padding: 3em;
+    padding-bottom: 4em;
+}
+
+.about-box-title {
+    width: 100%;
+    padding: .1em 0em;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    background: linear-gradient(90deg, #2E847B, #2A9CBE, #A6B651);
+    border-radius: 0 0 20px 20px;
+}
+
+@media (max-width: 576px) {
+    .about-box-title {
+        position: relative;
+        padding: 0;
+    }
+}
+
+.cperson {
+    position: relative;
+    margin: 10% 0;
+    height: max-content;
+}
+
+.cperson-outline {
+    position: absolute;
+    font-size: 110pt;
+    margin-top: -4vw;
+    z-index: -10;
+}
+
+@media (max-width: 992px) {
+    .cperson-outline {
+        margin-top: -7vw;
+        font-size: 16vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .cperson-outline {
+        margin-top: -10vw;
+    }
+}
+
+.cperson-content {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.docs {
+    max-width: 50%;
+    margin: auto;
+}
+
+.docs-car {
+    margin-top: 2em;
+    border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+    .docs {
+        max-width: 80%;
+    }
+}

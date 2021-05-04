@@ -1,19 +1,25 @@
 @extends('layouts.app')
 
 @section('title')
-    Event - IT Today 2021
+    Workshop | IT Today 2021
 @endsection
 
 @section('content')
 <main class="bg-content">
-    <section data-aos="fade-up" class="bg-blur-main">
+    <section data-aos="fade-up" class="bg-blur-main event-main">
 
 
 
         <div class="py-5 event-title">
+            <div class="ittsmall"></div>
             <h1 class="txt-heading1 text-center">Workshop</h1>
-            <div class="txt-subtitle">Nama Acara</div>
+            {{-- <div class="txt-subtitle">To Be Announced</div> --}}
         </div>
+
+
+        <div style="height: 5vh;"></div>
+        <h3 class="text-center px-5">Speakers To Be Announced</h3>
+        <div style="height: 10vh;"></div>
 
 
 
@@ -36,31 +42,41 @@
         </div> --}}
 
 
+
+        <div class="ittsection">
+            <div class="ittthin"></div>
+            <div class="itttri">
+                <div class="ittsmall itt-top"></div>
+                <div class="ittsmall itt-bottom"></div>
+                <div class="ittsmallrect"></div>
+            </div>
+        </div>
+
+
         
-        <div style="height: 20vh;"></div>
         <div class="container event-actions">
             <div class="desc">
-                <!-- Sunday, March 28th 2021 <br> 09.00 - 12.00 WIB <br> @ Zoom Meetings -->
-                To Be Announced
+                <div>Sunday, September 5th 2021</div>
+                <div>@ Video Conference Platform</div>
             </div>
-            <!-- <a href="#" class="btn btn-primary txt-caption">Buy Ticket</a> -->
+            {{-- <a href="#" class="btn btn-primary txt-caption">Buy Ticket</a> --}}
         </div>
-        <div style="height: 20vh;"></div>
 
         
 
         <div class="event-desc">
-            <div class="d-flex justify-content-center">
-                <div class="ittsmall ittbox-left"></div>
-                <div class="ittsmall ittbox-right"></div>
+            <div class="d-flex justify-content-center" style="position: initial">
+                <div class="ittsmall itt-left"></div>
+                <div class="ittsmall itt-right"></div>
             </div>
             <div class="my-5">
                 <h1 class="txt-heading1">About Workshop</h1>
-                <P class="mt-4">
-                    Merupakan Workshop sebagai sarana pelatihan dalam bidang IT.
-                    Memungkinkan peserta berinteraksi kepada pemateri terkait topik Workshop selama kegiatan berlangsung.
+                {{-- <div class="ittthin"></div> --}}
+                <p class="mt-4">
+                    Merupakan Workshop sebagai sarana pelatihan dalam bidang IT. Memungkinkan peserta
+                    berinteraksi kepada pemateri terkait topik Workshop selama kegiatan berlangsung.
                     Kegiatan ini memberikan pelatihan singkat dengan estimasi 50 peserta.
-                </P>
+                </p>
             </div>
             <div class="d-flex justify-content-end">
                 <div class="ittlarge"></div>

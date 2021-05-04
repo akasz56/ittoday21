@@ -10,7 +10,7 @@
         <div class="container d-flex align-items-center justify-content-center bg-hero-container">
             <div class="bg-blur-hero">
                 <div class="p-5 h-100 d-flex flex-column align-items-center justify-content-center">
-                    <img src={{ asset("./assets/icons/logo-ITTodayHero.svg") }} class="img-fluid mx-auto d-block jumbotron-logo"
+                    <img src={{ asset("./assets/icons/logo-ittodayhero.svg") }} class="img-fluid mx-auto d-block jumbotron-logo"
                         alt="logo-it-today-hero" width="300px" height="150px">
                     <h6 class="mt-3 txt-subtitle" style="color: var(--dark-green);">The Synergy Between Technology
                         and Agro-Maritime 5.0</h6>
@@ -31,14 +31,11 @@
                 <h1 data-aos="fade-up" class="txt-outline stroke-welcome">WELCOME</h1>
                 <h1 data-aos="fade-up" class="txt-heading1 it-today-2021-title">IT TODAY 2021</h1>
                 <P data-aos="fade-up" class="mt-5">
-                    IT Today 2021 merupakan acara internasional bertemakan teknologi yang pada tahun ini mengusung
-                    tema
-                    “The synergy between technology and agro-maritime 5.0” dipersembahkan oleh Departemen Ilmu
-                    Komputer
+                    IT Today 2021 merupakan acara internasional bertemakan teknologi yang pada tahun ini mengusung tema
+                    “The Synergy Between Technology and Agro-Maritime 5.0” dipersembahkan oleh Departemen Ilmu Komputer
                     FMIPA IPB bersama dengan Himpunan Mahasiswa Ilmu Komputer. Tahun ini, kegiatan IT Today 2021
                     menyelenggarakan berbagai rangkaian acara, yaitu Kompetisi (UX Design Competition, Hack Today,
-                    Data
-                    Science Competition) Seminar Komunitas, Seminar Internasional, dan juga Workshop.
+                    IT Business Competition) Seminar Komunitas, Seminar Internasional, dan juga Workshop.
                 </P>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6 welcome-logo">

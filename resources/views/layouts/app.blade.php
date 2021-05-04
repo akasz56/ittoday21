@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="It Today Web App">
     <meta name="author" content="dewasemadi@apps.ipb.ac.id">
+    <meta name="author2" content="indo14nurfath@apps.ipb.ac.id">
     <title>@yield('title', 'IT TODAY 2021 | The Synergy Berween Technology and Agro-Maritime 5.0')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- favicon -->
@@ -85,9 +86,9 @@
         </nav>
     </header>
 
-    <!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+    {{-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA --}}
     @yield('content')
-    <!-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+    {{-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA --}}
 
     <section class="container sponsors">
         <h1 data-aos="fade-up" class="text-center fw-bold">Sponsors</h1>
@@ -106,18 +107,18 @@
         <div class="container pt-5">
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-6">
-                    <img src=/assets/icons/brand.svg alt="IT Today Logo" class="img-fluid"
+                    <img src={{ asset("/assets/icons/brand.svg") }} alt="IT Today Logo" class="img-fluid"
                         height="150px" width="150px">
                     <p class="text-white mt-3 fw-light">The Synergy Between Technology and Agro-Maritime 5.0</p>
 
                     <!-- social media -->
                     <div class="d-flex mb-4">
                         <a href="https://www.facebook.com/ipbittoday/">
-                            <img src=/assets/icons/fb.svg
+                            <img src={{ asset("/assets/icons/fb.svg") }}
                             alt="facebook" class="img-fluid" height="30px" width="30px">
                         </a>
                         <a href="https://www.instagram.com/ittoday_ipb/">
-                            <img src=/assets/icons/ig.svg
+                            <img src={{ asset("/assets/icons/ig.svg") }}
                             alt="instagram" class="img-fluid ms-3" height="30px" width="30px">
                         </a>
                         <a href="#">
@@ -125,11 +126,11 @@
                             alt="line" class="img-fluid ms-3" height="30px" width="30px">
                         </a>
                         <a href="https://twitter.com/ittoday_ipb?lang=en">
-                            <img src=/assets/icons/twitter.svg
+                            <img src={{ asset("/assets/icons/twitter.svg") }}
                             alt="twitter" class="img-fluid ms-3" height="30px" width="30px">
                         </a>
                         <a href="https://www.youtube.com/c/ITTodayIPB/videos">
-                            <img src=/assets/icons/youtube.svg
+                            <img src={{ asset("/assets/icons/youtube.svg") }}
                             alt="youtube" class="img-fluid ms-3" height="30px" width="30px">
                         </a>
                     </div>
@@ -139,7 +140,7 @@
                     <h6 class="text-white fw-bold">Competition</h6>
                     <ul class="list-unstyled text-small">
                         <li><a href="{{ route('comp.hack') }}" class="text-decoration-none link-list-footer">Hacktoday</a></li>
-                        <li><a href="{{ route('comp.ux') }}" class="text-decoration-none link-list-footer">UX Design</a></li>
+                        <li><a href="{{ route('comp.ux') }}" class="text-decoration-none link-list-footer">UX Today</a></li>
                         <li><a href="{{ route('comp.busy') }}" class="text-decoration-none link-list-footer">IT Business Competition</a></li>
                     </ul>
                 </div>

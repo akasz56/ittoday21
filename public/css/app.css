@@ -205,7 +205,10 @@ body {
     padding-top: 5rem;
     position: relative;
     background:
-        radial-gradient(circle at 75% 25%,
+        radial-gradient(circle at 20% 20%,
+            rgba(42, 156, 190, .75),
+            rgba(255, 255, 255, 0) 35%),
+      radial-gradient(circle at 75% 25%,
             rgba(46, 132, 123, 1),
             rgba(255, 255, 255, 0) 35%),
         radial-gradient(circle at 65% 85%,
@@ -223,7 +226,7 @@ body {
 
 /* -------------------------------Texts------------------------------- */
 .txt-outline {
-    color: #f1f1f1;
+    color: #e7e7e7;
     font-weight: bold;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;

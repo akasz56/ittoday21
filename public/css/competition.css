@@ -103,18 +103,24 @@
 
 
 /* -------------------------------IT Today 21 Boxes------------------------------- */
-@media (max-width: 576px) {
-    .bg-blur-main .ittsmall,
-    .ittrect, .ittlarge,
-    .ittsmallrect, .ittthin {
-        visibility: hidden;
-    }
+.competition-main .ittsmall,
+.competition-main .ittrect,
+.competition-main .ittlarge,
+.competition-main .ittsmallrect,
+.competition-main .ittthin {
+    position: absolute;
 }
 
-.competition-main .ittsmall,
-.ittrect, .ittlarge,
-.ittsmallrect, .ittthin {
-    position: absolute;
+.competition-main .ittthin {
+    left: -5em;
+}
+
+.competition-main .itt-top {
+    margin-bottom: 3em;
+}
+
+.competition-main .itt-bottom {
+    margin-top: 3em;
 }
 
 .competition-title .ittsmall {
@@ -131,7 +137,8 @@
     width: 100%;
 }
 
-.itttri .ittsmallrect, .ittsmall {
+.itttri .ittsmallrect,
+.itttri .ittsmall {
     right: -3em;
 }
 
@@ -139,23 +146,25 @@
     margin-top: 6em;
 }
 
-.bg-blur-main .ittthin {
-    left: -5em;
-}
-
 .competition-hadiah .ittsmall {
     left: -3em;
-}
-
-.bg-blur-main .itt-top {
-    margin-bottom: 3em;
-}
-
-.bg-blur-main .itt-bottom {
-    margin-top: 3em;
 }
 
 .competition-hadiah .ittthin {
     left: initial;
     right: -5em;
+}
+
+@media (max-width: 576px) {
+    .competition-main .ittsmall,
+    .competition-main .ittrect,
+    .competition-main .ittlarge,
+    .competition-main .ittsmallrect,
+    .competition-main .ittthin {
+        visibility: hidden;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
 }

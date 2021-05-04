@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Competition - IT Today 2021
+    Hacktoday | IT Today 2021
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
         <div class="py-5 competition-title">
             <div class="ittsmall"></div>
             <div class="ittsmall ittoutr"></div>
-            <img src={{ asset("/assets/icons/logo-Hack.svg") }} alt="Logo Hacktoday">
+            <img src={{ asset("/assets/icons/logo-hack.svg") }} alt="Logo Hacktoday">
         </div>
 
 
@@ -30,7 +30,7 @@
                 </p>
                 <p><span class="fw-bold">Kategori :</span> Siswa SLTA/sederajat, Mahasiswa, dan Umum</p>
                 <p><span class="fw-bold">Biaya Registrasi :</span> Rp 60.000/Tim</p>
-                <a href="#" class="btn btn-success">Register your team</a>
+                {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
                 <a href="#" class="btn btn-outline-success">Rulebook</a>
                 <p class="fw-bold mt-4">Contact Person :</p>
                 <p style="line-height: 1em;">Rizal : <a href="https://wa.me/+6289644417286" target="_blank">0896-4441-7286</a> (WhatsApp)</p>
@@ -38,7 +38,7 @@
                 <p style="line-height: 1em;">Patar : <a href="https://t.me/patarisac" target="_blank">t.me/patarisac</a> (Telegram)</p>
             </div>
             <div class="mx-5">
-                <img src={{ asset("/assets/illust/Comp_hack.svg") }} alt="Illustration">
+                <img src={{ asset("/assets/illust/comp_hack.svg" ) }} alt="Illustration">
             </div>
         </div>
         <div class="ittthin"></div>

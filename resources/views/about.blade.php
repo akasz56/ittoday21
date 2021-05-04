@@ -2,15 +2,15 @@
 
 @section('content')
 <section class="about-hero">
-    <img src={{ asset("/assets/illust/About.svg") }} alt="Theme Illustration">
+    <img src={{ asset("/assets/illust/about.svg") }} alt="Theme Illustration">
 </section>
 
 
 
 <section class="container mt-5 container-welcome">
     <div class="d-flex justify-content-center">
-        <div class="ittbox2 ittbox2-left"></div>
-        <div class="ittbox2 ittbox2-right"></div>
+        <div class="ittsmall itt-left"></div>
+        <div class="ittsmall itt-right"></div>
     </div>
     <div class="row g-0 flex-column-reverse flex-lg-row">
         <div class="col-sm-12 col-md-12 col-lg-6">
@@ -18,20 +18,19 @@
             <h1 data-aos="fade-up" class="txt-heading1 it-today-2021-title">IT TODAY 2021</h1>
             <P data-aos="fade-up" class="mt-5">
                 IT Today 2021 merupakan acara internasional bertemakan teknologi yang pada tahun ini mengusung tema
-                “The synergy between technology and agro-maritime 5.0”
-                dipersembahkan oleh Departemen Ilmu Komputer FMIPA IPB bersama dengan Himpunan Mahasiswa Ilmu
-                Komputer. Tahun ini, kegiatan IT Today 2021
-                menyelenggarakan berbagai rangkaian acara, yaitu Kompetisi (UX Design Competition, Hack Today, Data
-                Science Competition) Seminar Komunitas, Seminar Internasional, dan juga Workshop.
+                “The Synergy Between Technology and Agro-Maritime 5.0” dipersembahkan oleh Departemen Ilmu Komputer
+                FMIPA IPB bersama dengan Himpunan Mahasiswa Ilmu Komputer. Tahun ini, kegiatan IT Today 2021
+                menyelenggarakan berbagai rangkaian acara, yaitu Kompetisi (UX Design Competition, Hack Today,
+                IT Business Competition) Seminar Komunitas, Seminar Internasional, dan juga Workshop.
             </P>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6 welcome-logo">
-            <img data-aos="fade-up" src={{ asset('/assets/icons/logo-green-it-today.svg') }}
+            <img data-aos="fade-up" src={{ asset("/assets/icons/logo-green-it-today.svg") }}
                 class="img-fluid mx-auto d-block h-100 mb-5" alt="it-today-logo" width="50%" height="50%">
         </div>
     </div>
     <div class="d-flex justify-content-end">
-        <div class="ittbox3"></div>
+        <div class="ittlarge"></div>
     </div>
 </section>
 
@@ -77,13 +76,34 @@
     <div id="carouselExampleControls" class="carousel slide docs" data-bs-ride="carousel">
         <div class="carousel-inner docs-car">
             <div class="carousel-item active">
-                <img src={{ asset("./assets/images/bg-test.jpg") }} class="d-block w-100" alt="Dokumentasi1">
+                <img src={{ asset("./assets/images/2018_1.jpg") }} class="d-block w-100" alt="Dokumentasi1">
             </div>
             <div class="carousel-item">
-                <img src={{ asset("./assets/images/docs1 (1).JPG") }} class="d-block w-100" alt="Dokumentasi2">
+                <img src={{ asset("./assets/images/2018_2.jpg") }} class="d-block w-100" alt="Dokumentasi1">
             </div>
             <div class="carousel-item">
-                <img src={{ asset("./assets/images/docs1 (2).JPG") }} class="d-block w-100" alt="Dokumentasi3">
+                <img src={{ asset("./assets/images/2018_3.jpg") }} class="d-block w-100" alt="Dokumentasi1">
+            </div>
+            <div class="carousel-item">
+                <img src={{ asset("./assets/images/2019_1.jpg") }} class="d-block w-100" alt="Dokumentasi1">
+            </div>
+            <div class="carousel-item">
+                <img src={{ asset("./assets/images/2019_2.jpg") }} class="d-block w-100" alt="Dokumentasi1">
+            </div>
+            <div class="carousel-item">
+                <img src={{ asset("./assets/images/2019_3.jpg") }} class="d-block w-100" alt="Dokumentasi1">
+            </div>
+            <div class="carousel-item">
+                <img src={{ asset("./assets/images/2020_1.jpg") }} class="d-block w-100" alt="Dokumentasi1">
+            </div>
+            <div class="carousel-item">
+                <img src={{ asset("./assets/images/2020_2.jpg") }} class="d-block w-100" alt="Dokumentasi1">
+            </div>
+            <div class="carousel-item">
+                <img src={{ asset("./assets/images/2020_3.jpg") }} class="d-block w-100" alt="Dokumentasi1">
+            </div>
+            <div class="carousel-item">
+                <img src={{ asset("./assets/images/2020_4.jpg") }} class="d-block w-100" alt="Dokumentasi1">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"

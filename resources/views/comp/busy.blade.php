@@ -28,9 +28,13 @@
                     kontribusinya dalam permasalahan bisnis di masa mendatang.
                 </p>
                 <p><span class="fw-bold">Kategori           :</span> Mahasiswa</p>
-                <p><span class="fw-bold">Biaya Registrasi   :</span> IDR 60.000/Tim</p>
+                <p><span class="fw-bold">Biaya Registrasi :</span></p>
+                <p>IDR 60.000/Tim (Batch 1)</p>
+                <p>IDR 90.000/Tim (Batch 2)</p>
+
                 {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
                 <a href="#" class="btn btn-outline-success">Rulebook</a>
+                
             </div>
             <div class="mx-5">
                 <img src={{ ("/assets/illust/comp_ux.svg") }} alt="Illustration">

@@ -29,9 +29,29 @@
                     yang ada di negaranya sendiri dengan masing-masing tim beranggotakan maksimal tiga orang.
                 </p>
                 <p><span class="fw-bold">Kategori :</span> Mahasiswa</p>
-                <p><span class="fw-bold">Biaya Registrasi :</span> IDR 60.000/Tim</p>
+                <p><span class="fw-bold">Biaya Registrasi :</span></p>
+                <p>IDR 60.000/Tim (Batch 1)</p>
+                <p>IDR 90.000/Tim (Batch 2)</p>
+                
                 {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
                 <a href="#" class="btn btn-outline-success">Rulebook</a>
+
+                <p class="fw-bold mt-4">Contact Person :</p>
+                <p style="line-height: 1em;">Amelia :
+                    <a href="https://wa.me/+6289620766791" target="_blank">WhatsApp</a> |
+                    <a href="https://line.me/ti/p/~amelia16hernawan" target="_blank">Line ID</a>
+                </p>
+                <p style="line-height: 1em;">Zulfa :
+                    <a href="https://wa.me/+6287867008071" target="_blank">WhatsApp</a> |
+                    <a href="https://line.me/ti/p/~zulfameilida" target="_blank">Line ID</a>
+                </p>
+
+                <p style="line-height: 1em;">Ahmed :
+                    <a href="https://wa.me/+6282213666601" target="_blank">WhatsApp</a>
+                </p>
+
+
+               
             </div>
             <div class="mx-5">
                 <img src={{ asset("/assets/illust/comp_ux.svg" ) }} alt="Illustration">
@@ -58,12 +78,12 @@
                     <p>11 Juli - 1 Agustus 2021</p>
                 </div>
                 <div class=" flex-fill time">
-                    <h3>Pemberian Tema</h3>
-                    <p>13 Agustus 2021</p>
+                    <h3>Pengajuan Proposal</h3>
+                    <p> 2 Agustus - 16 Agustus 2021</p>
                 </div>
                 <div class=" flex-fill time">
-                    <h3>Pengumpulan Proposal</h3>
-                    <p>14 - 21 Agustus 2021</p>
+                    <h3>Pengiriman Video Demo</h3>
+                    <p> 2 Agustus - 18 Agustus 2021</p>
                 </div>
                 <div class=" flex-fill time">
                     <h3>Pengumuman Finalis</h3>
@@ -71,7 +91,11 @@
                 </div>
                 <div class=" flex-fill time">
                     <h3>Pengiriman Video Presentasi</h3>
-                    <p>4 - 11 September 2021</p>
+                    <p>4 - 10 September 2021</p>
+                </div>
+                <div class=" flex-fill time">
+                    <h3>Finals</h3>
+                    <p>12 September 2021</p>
                 </div>
             </div>
         </div>
@@ -104,7 +128,7 @@
                     <h2 class="fw-bold"> Sertifikat + Uang Pelatihan</h2>
                 </div>
                 <div class="flex-fill main">
-                    <h3>Juara Harapan</h3>
+                    <h3>Pemenang Favorit</h3>
                     <h2 class="fw-bold"> Sertifikat + Uang Pelatihan</h2>
                 </div>
             </div>

@@ -30,27 +30,18 @@
             
             <div class="d-flex ilkommunity-unit">
                 <div class="info">
-                    <p class="fw-bold">To Be Announced</p>
+                    <p class="fw-bold">Preparing Career in Data Science World</p>
                     <p class="fw-bold fst-italic" style="color: gray;">Data Mining</p>
                     <p>Sabtu, 28 Agustus 2021</p>
                     {{-- <a href="#" class="btn btn-primary">Buy Ticket</a> --}}
                 </div>
-                <div class="d-flex ilk-speakers">
-                    <div class="ilk-spk">
+                <div class="d-flex justify-content-center align-items-center ilk-speakers">
+                    <div class="fw-bold fst-italic">Speakers To Be Announced</div>
+                    {{-- <div class="ilk-spk">
                         <div class="ilk-spk-img"><img src="/assets/images/speaker.jpg" alt="speaker"></div>
                         <p class="fw-bold">Nama Pembicara</p>
                         <p>Jabatan</p>
-                    </div>
-                    <div class="ilk-spk">
-                        <div class="ilk-spk-img"><img src="/assets/images/speaker.jpg" alt="speaker"></div>
-                        <p class="fw-bold">Nama Pembicara</p>
-                        <p>Jabatan</p>
-                    </div>
-                    <div class="ilk-spk">
-                        <div class="ilk-spk-img"><img src="/assets/images/speaker.jpg" alt="speaker"></div>
-                        <p class="fw-bold">Nama Pembicara</p>
-                        <p>Jabatan</p>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             
@@ -61,12 +52,13 @@
                     <p>Minggu, 29 Agustus 2021</p>
                     {{-- <a href="#" class="btn btn-primary">Buy Ticket</a> --}}
                 </div>
-                <div class="d-flex ilk-speakers">
-                    <div class="ilk-spk">
+                <div class="d-flex justify-content-center align-items-center ilk-speakers">
+                    <div class="fw-bold fst-italic">Speakers To Be Announced</div>
+                    {{-- <div class="ilk-spk">
                         <div class="ilk-spk-img"><img src="/assets/images/speaker.jpg" alt="speaker"></div>
                         <p class="fw-bold">Nama Pembicara</p>
                         <p>Jabatan</p>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             
@@ -79,12 +71,13 @@
                     <p>Sabtu, 4 September 2021</p>
                     {{-- <a href="#" class="btn btn-primary">Buy Ticket</a> --}}
                 </div>
-                <div class="d-flex ilk-speakers">
-                    <div class="ilk-spk">
+                <div class="d-flex justify-content-center align-items-center ilk-speakers">
+                    <div class="fw-bold fst-italic">Speakers To Be Announced</div>
+                    {{-- <div class="ilk-spk">
                         <div class="ilk-spk-img"><img src="/assets/images/speaker.jpg" alt="speaker"></div>
                         <p class="fw-bold">Nama Pembicara</p>
                         <p>Jabatan</p>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 
@@ -97,12 +90,13 @@
                     <p>Sabtu, 11 September 2021</p>
                     {{-- <a href="#" class="btn btn-primary">Buy Ticket</a> --}}
                 </div>
-                <div class="d-flex ilk-speakers">
-                    <div class="ilk-spk">
+                <div class="d-flex justify-content-center align-items-center ilk-speakers">
+                    <div class="fw-bold fst-italic">Speakers To Be Announced</div>
+                    {{-- <div class="ilk-spk">
                         <div class="ilk-spk-img"><img src="/assets/images/speaker.jpg" alt="speaker"></div>
                         <p class="fw-bold">Nama Pembicara</p>
                         <p>Jabatan</p>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 

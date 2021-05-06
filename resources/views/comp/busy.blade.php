@@ -89,20 +89,20 @@
             <h1 class="txt-heading1 text-center">Hadiah</h1>
             <div class="text-center main">
                 <h3>Total Hadiah</h3>
-                <h2 class="txt-heading2">Rp 10.000.000</h2>
+                <h2 class="txt-heading2">Rp 10.000.000,-</h2>
             </div>
             <div class="d-flex">
                 <div class="flex-fill main">
                     <h3>Juara 1</h3>
-                    <h2 class="fw-bold"> Sertifikat + Rp 5.000.000</h2>
+                    <h2 class="fw-bold"> Sertifikat + Rp 5.000.000,-</h2>
                 </div>
                 <div class="flex-fill main">
                     <h3>Juara 2</h3>
-                    <h2 class="fw-bold"> Sertifikat + Rp 3.500.000</h2>
+                    <h2 class="fw-bold"> Sertifikat + Rp 3.500.000,-</h2>
                 </div>
                 <div class="flex-fill main">
                     <h3>Juara 3</h3>
-                    <h2 class="fw-bold"> Sertifikat + Rp 1.500.000</h2>
+                    <h2 class="fw-bold"> Sertifikat + Rp 1.500.000,-</h2>
                 </div>
             </div>
             <div class="ittthin"></div>

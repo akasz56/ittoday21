@@ -4,11 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
     function index(){
         return view('dashboard');
+    }
+
+    public function rulebook($id) {
+        if(Storage::exists('rulebook/'. $id .'.pdf')){
+            return Storage::disk('local')->download('rulebook/'. $id .'.pdf');
+        }
+        return back();
     }
 
     function upload(Request $request){

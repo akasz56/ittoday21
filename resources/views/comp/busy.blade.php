@@ -14,7 +14,7 @@
             <div class="ittsmall"></div>
             <div class="ittsmall ittoutr"></div>
             <img src={{ ("/assets/icons/logo-busy.svg") }} alt="Logo IT Business Competition">
-            {{-- <div class="txt-subtitle">Tema Kompetisi</div> --}}
+            <div class="txt-subtitle">Nasional</div>
         </div>
 
 
@@ -29,15 +29,15 @@
                 </p>
                 <p><span class="fw-bold">Kategori           :</span> Mahasiswa</p>
                 <p><span class="fw-bold">Biaya Registrasi :</span></p>
-                <p>IDR 60.000/Tim (Batch 1)</p>
-                <p>IDR 90.000/Tim (Batch 2)</p>
+                <p>Rp 60.000,-/Tim (Batch 1)</p>
+                <p>Rp 90.000,-/Tim (Batch 2)</p>
 
                 {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
-                <a href="#" class="btn btn-outline-success">Rulebook</a>
+                <a href="/rulebook/busy" class="btn btn-outline-success">Rulebook</a>
                 
             </div>
             <div class="mx-5">
-                <img src={{ ("/assets/illust/comp_ux.svg") }} alt="Illustration">
+                <img src={{ ("/assets/illust/comp_busy.svg") }} alt="Illustration">
             </div>
         </div>
         <div class="ittthin"></div>

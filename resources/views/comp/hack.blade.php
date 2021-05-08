@@ -14,6 +14,7 @@
             <div class="ittsmall"></div>
             <div class="ittsmall ittoutr"></div>
             <img src={{ asset("/assets/icons/logo-hack.svg") }} alt="Logo Hacktoday">
+            <div class="txt-subtitle">Nasional</div>
         </div>
 
 
@@ -27,10 +28,10 @@
                     tim beranggotakan maksimal tiga orang.
                 </p>
                 <p><span class="fw-bold">Kategori :</span> Siswa SLTA/sederajat, Mahasiswa, dan Umum</p>
-                <p><span class="fw-bold">Biaya Registrasi :</span> Rp 60.000/Tim</p>
+                <p><span class="fw-bold">Biaya Registrasi :</span> Rp 60.000,-/Tim</p>
                 
                 {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
-                <a href="#" class="btn btn-outline-success">Rulebook</a>
+                <a href="/rulebook/hack" class="btn btn-outline-success">Rulebook</a>
 
                 <p class="fw-bold mt-4">Contact Person :</p>
                 <p style="line-height: 1em;">Rizal : <a href="https://wa.me/+6289644417286" target="_blank">WhatsApp</a></p>
@@ -82,7 +83,7 @@
             <h1 class="txt-heading1 text-center">Hadiah</h1>
             <div class="text-center main">
                 <h3>Total Hadiah</h3>
-                <h2 class="txt-heading2">Rp 10.000.000,-</h2>
+                <h2 class="txt-heading2">Up to Rp 10.000.000,-</h2>
             </div>
             <div class="d-flex">
                 <div class="flex-fill main">

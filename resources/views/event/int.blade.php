@@ -18,9 +18,9 @@
 
 
 
-        <div style="height: 5vh;"></div>
+        <div style="height: 15vh;"></div>
         <h3 class="text-center px-5">Speakers To Be Announced</h3>
-        <div style="height: 10vh;"></div>
+        <div style="height: 20vh;"></div>
 
 
 
@@ -57,7 +57,7 @@
 
         <div class="container event-actions">
             <div class="desc">
-                <div>Saturday, September 18th 2021</div>
+                <div>Saturday, 18th September 2021</div>
                 <div>@ Video Conference Platform</div>
             </div>
             {{-- <a href="#" class="btn btn-primary txt-caption">Buy Ticket</a> --}}

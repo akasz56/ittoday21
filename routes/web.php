@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
-use App\Models\Team;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,6 +43,11 @@ Route::view('/uxdesign', 'comp.ux')
     ->name('comp.ux');
 Route::view('/itbusiness', 'comp.busy')
     ->name('comp.busy');
+
+//Rulebooks
+Route::get('/rulebook/{id}', [TeamController::class, 'rulebook']);
+
+
 
 // //UserController
 // Route::middleware(['guest'])->group(function () {

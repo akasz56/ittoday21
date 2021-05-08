@@ -85,8 +85,8 @@
             
             <div class="d-flex ilkommunity-unit">
                 <div class="info">
-                    <p class="fw-bold">AFTER HOURS : DEVTALKS</p>
-                    <p class="fw-bold fst-italic" style="color: gray;">After Hours Dev Talks</p>
+                    <p class="fw-bold">After Hours Dev Talks</p>
+                    <p class="fw-bold fst-italic" style="color: gray;">AFTER HOURS : DEVTALKS</p>
                     <p>Sabtu, 11 September 2021</p>
                     {{-- <a href="#" class="btn btn-primary">Buy Ticket</a> --}}
                 </div>

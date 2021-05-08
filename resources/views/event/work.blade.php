@@ -17,9 +17,9 @@
         </div>
 
 
-        <div style="height: 5vh;"></div>
+        <div style="height: 15vh;"></div>
         <h3 class="text-center px-5">Speakers To Be Announced</h3>
-        <div style="height: 10vh;"></div>
+        <div style="height: 20vh;"></div>
 
 
 
@@ -56,8 +56,8 @@
         
         <div class="container event-actions">
             <div class="desc">
-                <div>Sunday, September 5th 2021</div>
-                <div>@ Video Conference Platform</div>
+                <div>Minggu, 5 September 2021</div>
+                <div>@ Platform Daring</div>
             </div>
             {{-- <a href="#" class="btn btn-primary txt-caption">Buy Ticket</a> --}}
         </div>
@@ -70,7 +70,7 @@
                 <div class="ittsmall itt-right"></div>
             </div>
             <div class="my-5">
-                <h1 class="txt-heading1">About Workshop</h1>
+                <h1 class="txt-heading1">Tentang Workshop</h1>
                 {{-- <div class="ittthin"></div> --}}
                 <p class="mt-4">
                     Merupakan Workshop sebagai sarana pelatihan dalam bidang IT. Memungkinkan peserta

@@ -86,9 +86,9 @@
         </nav>
     </header>
 
-    {{-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA --}}
+    {{-- -----------------------------------------C O N T E N T S----------------------------------------- --}}
     @yield('content')
-    {{-- YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA --}}
+    {{-- -----------------------------------------C O N T E N T S----------------------------------------- --}}
 
     <section class="container sponsors">
         <h1 data-aos="fade-up" class="text-center fw-bold">Sponsors</h1>
@@ -113,23 +113,23 @@
 
                     <!-- social media -->
                     <div class="d-flex mb-4">
-                        <a href="https://www.facebook.com/ipbittoday/">
+                        <a href="https://www.facebook.com/ipbittoday/" target="_blank">
                             <img src={{ asset("/assets/icons/fb.svg") }}
                             alt="facebook" class="img-fluid" height="30px" width="30px">
                         </a>
-                        <a href="https://www.instagram.com/ittoday_ipb/">
+                        <a href="https://www.instagram.com/ittoday_ipb/" target="_blank">
                             <img src={{ asset("/assets/icons/ig.svg") }}
                             alt="instagram" class="img-fluid ms-3" height="30px" width="30px">
                         </a>
-                        <a href="#">
+                        <a href="http://line.me/ti/p/@ukd0443x" target="_blank">
                             <img src=assets/icons/line.svg
                             alt="line" class="img-fluid ms-3" height="30px" width="30px">
                         </a>
-                        <a href="https://twitter.com/ittoday_ipb?lang=en">
+                        <a href="https://twitter.com/ittoday_ipb?lang=en" target="_blank">
                             <img src={{ asset("/assets/icons/twitter.svg") }}
                             alt="twitter" class="img-fluid ms-3" height="30px" width="30px">
                         </a>
-                        <a href="https://www.youtube.com/c/ITTodayIPB/videos">
+                        <a href="https://www.youtube.com/c/ITTodayIPB/videos" target="_blank">
                             <img src={{ asset("/assets/icons/youtube.svg") }}
                             alt="youtube" class="img-fluid ms-3" height="30px" width="30px">
                         </a>
@@ -158,10 +158,10 @@
                     <h6 class="text-white fw-bold">Contact Us</h6>
                     <ul class="list-unstyled text-small">
                         <li>
-                            <a href="mailto:admin@ittoday.id" class="text-decoration-none link-list-footer">admin@ittoday.id</a>
+                            <a href="mailto:admin@ittoday.id" class="text-decoration-none link-list-footer" target="_blank">admin@ittoday.id</a>
                         </li>
                         <li>
-                            <a href="https://wa.me/+6285398553879" class="text-decoration-none link-list-footer">Risda Awalia <br>+62 853-9855-3879</a>
+                            <a href="https://wa.me/+6285398553879" class="text-decoration-none link-list-footer" target="_blank">Risda Awalia <br>+62 853-9855-3879</a>
                         </li>
                     </ul>
                 </div>

@@ -63,7 +63,7 @@
         <div data-aos="fade-up" class="cperson-content">
             <div class="txt-heading1">CONTACT PERSON</div>
             <div class="txt-heading2">Risda Awalia</div>
-            <a href="https://wa.me/+6285398553879" class="txt-heading2">+62 853-9855-3879</a>
+            <a href="https://wa.me/+6285398553879" class="txt-heading2" target="_blank">+62 853-9855-3879</a>
         </div>
         <h1 data-aos="fade-up" class="txt-outline cperson-outline">PERSON</h1>
     </div>

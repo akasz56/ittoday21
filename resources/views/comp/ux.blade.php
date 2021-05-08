@@ -14,7 +14,7 @@
             <div class="ittsmall"></div>
             <div class="ittsmall ittoutr"></div>
             <img src={{ asset("/assets/icons/logo-ux.svg") }} alt="Logo UXtoday">
-            {{-- <div class="txt-subtitle">Tema Kompetisi</div> --}}
+            <div class="txt-subtitle">International</div>
         </div>
 
 
@@ -34,7 +34,7 @@
                 <p>IDR 90.000/Tim (Batch 2)</p>
                 
                 {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
-                <a href="#" class="btn btn-outline-success">Rulebook</a>
+                <a href="/rulebook/ux" class="btn btn-outline-success">Rulebook</a>
 
                 <p class="fw-bold mt-4">Contact Person :</p>
                 <p style="line-height: 1em;">Amelia :

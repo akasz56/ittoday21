@@ -122,7 +122,7 @@
                             alt="instagram" class="img-fluid ms-3" height="30px" width="30px">
                         </a>
                         <a href="http://line.me/ti/p/@ukd0443x" target="_blank">
-                            <img src=assets/icons/line.svg
+                            <img src={{ asset("assets/icons/line.svg") }}
                             alt="line" class="img-fluid ms-3" height="30px" width="30px">
                         </a>
                         <a href="https://twitter.com/ittoday_ipb?lang=en" target="_blank">
@@ -161,7 +161,7 @@
                             <a href="mailto:admin@ittoday.id" class="text-decoration-none link-list-footer" target="_blank">admin@ittoday.id</a>
                         </li>
                         <li>
-                            <a href="https://wa.me/+6285398553879" class="text-decoration-none link-list-footer" target="_blank">Risda Awalia <br>+62 853-9855-3879</a>
+                            <a href="https://wa.me/+6285398553879" class="text-decoration-none link-list-footer" target="_blank">Risda Awalia<br>+62 853-9855-3879</a>
                         </li>
                     </ul>
                 </div>

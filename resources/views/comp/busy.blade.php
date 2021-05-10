@@ -13,7 +13,7 @@
         <div class="py-5 competition-title">
             <div class="ittsmall"></div>
             <div class="ittsmall ittoutr"></div>
-            <img src={{ ("/assets/icons/logo-busy.svg") }} alt="Logo IT Business Competition">
+            <img src={{ asset("/assets/icons/logo-busy.svg") }} alt="Logo IT Business Competition">
             <div class="txt-subtitle">Nasional</div>
         </div>
 
@@ -33,7 +33,8 @@
                 <p>Rp 90.000,-/Tim (Batch 2)</p>
 
                 {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
-                <a href="/rulebook/busy" class="btn btn-outline-success">Rulebook</a>
+                {{-- <a href="/rulebook/busy" class="btn btn-outline-success">Rulebook</a> --}}
+                <a href="#" class="btn btn-outline-success">Rulebook Coming Soon</a>
                 
             </div>
             <div class="mx-5">
@@ -89,7 +90,7 @@
             <h1 class="txt-heading1 text-center">Hadiah</h1>
             <div class="text-center main">
                 <h3>Total Hadiah</h3>
-                <h2 class="txt-heading2">Rp 10.000.000,-</h2>
+                <h2 class="txt-heading2">Up to Rp 10.000.000,-</h2>
             </div>
             <div class="d-flex">
                 <div class="flex-fill main">
@@ -98,7 +99,7 @@
                 </div>
                 <div class="flex-fill main">
                     <h3>Juara 2</h3>
-                    <h2 class="fw-bold"> Sertifikat + Rp 3.500.000,-</h2>
+                    <h2 class="fw-bold"> Sertifikat + Rp 3.000.000,-</h2>
                 </div>
                 <div class="flex-fill main">
                     <h3>Juara 3</h3>

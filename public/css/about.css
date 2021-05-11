@@ -61,7 +61,7 @@
 
 .about-box-text {
     padding: 3em;
-    padding-bottom: 4em;
+    padding-bottom: 7em;
 }
 
 .about-box-title {
@@ -75,6 +75,10 @@
 }
 
 @media (max-width: 576px) {
+    .about-box-text {
+        padding-bottom: initial;
+        padding: 2.5em;
+    }
     .about-box-title {
         position: relative;
         padding: 0;

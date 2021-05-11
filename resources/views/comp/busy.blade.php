@@ -14,7 +14,7 @@
             <div class="ittsmall"></div>
             <div class="ittsmall ittoutr"></div>
             <img src={{ asset("/assets/icons/logo-busy.svg") }} alt="Logo IT Business Competition">
-            <div class="txt-subtitle">Nasional</div>
+            <div class="txt-subtitle">National</div>
         </div>
 
 
@@ -22,15 +22,14 @@
         <div class="d-flex justify-content-center competition-desc">
             <div class="mx-5">
                 <p>
-                    Kompetisi bertaraf nasional dalam pemecahan dari suatu masalah yang akan menghasilkan suatu
-                    ide-ide bisnis yang inovatif yang dapat menyesuaikan keadaan baru. Peserta diharapkan dapat
-                    mengasah pola pikir yang kritis dan mampu mencetuskan ide-ide cemerlang sebagai bentuk
-                    kontribusinya dalam permasalahan bisnis di masa mendatang.
+                    Nationally held competition to bring up solutions as innovative business ideas for currently
+                    challenging situation. Participants are expected to hone a critical mindset and be able to
+                    come up with bright ideas as a form of contribution to future business problems.
                 </p>
-                <p><span class="fw-bold">Kategori           :</span> Mahasiswa</p>
-                <p><span class="fw-bold">Biaya Registrasi :</span></p>
-                <p>Rp 60.000,-/Tim (Batch 1)</p>
-                <p>Rp 90.000,-/Tim (Batch 2)</p>
+                <p><span class="fw-bold">Category           :</span> Undergrad Students</p>
+                <p><span class="fw-bold">Registration Fee   :</span></p>
+                <p>IDR 60.000,-/Team (Batch 1)</p>
+                <p>IDR 90.000,-/Team (Batch 2)</p>
 
                 {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
                 {{-- <a href="/rulebook/busy" class="btn btn-outline-success">Rulebook</a> --}}
@@ -54,28 +53,28 @@
             <h1 class="txt-heading1 text-center">Timeline</h1>
             <div class="d-flex">
                 <div class=" flex-fill time">
-                    <h3>Pendaftaran Batch 1</h3>
-                    <p>1 Juni - 10 Juli 2021</p>
+                    <h3>Batch 1 Registration</h3>
+                    <p>1st June - 10th July 2021</p>
                 </div>
                 <div class=" flex-fill time">
-                    <h3>Pendaftaran Batch 2</h3>
-                    <p>11 Juli - 1 Agustus 2021</p>
+                    <h3>Batch 2 Registration</h3>
+                    <p>11th July - 1th August 2021</p>
                 </div>
                 <div class=" flex-fill time">
-                    <h3>Pemberian Tema</h3>
-                    <p>13 Agustus 2021</p>
+                    <h3>Theme Announcement</h3>
+                    <p>13th August 2021</p>
                 </div>
                 <div class=" flex-fill time">
-                    <h3>Pengumpulan Proposal</h3>
-                    <p>14 - 21 Agustus 2021</p>
+                    <h3>Proposal Submission</h3>
+                    <p>14th - 21st August 2021</p>
                 </div>
                 <div class=" flex-fill time">
-                    <h3>Pengumuman Finalis</h3>
-                    <p>3 September 2021</p>
+                    <h3>Finalist Announcement</h3>
+                    <p>3rd September 2021</p>
                 </div>
                 <div class=" flex-fill time">
-                    <h3>Pengiriman Video Presentasi</h3>
-                    <p>4 - 11 September 2021</p>
+                    <h3>Presentation Video Submission</h3>
+                    <p>4th - 11th September 2021</p>
                 </div>
             </div>
         </div>
@@ -87,23 +86,23 @@
                 <div class="ittsmall itt-top"></div>
                 <div class="ittsmall itt-bottom"></div>
             </div>
-            <h1 class="txt-heading1 text-center">Hadiah</h1>
+            <h1 class="txt-heading1 text-center">Prize</h1>
             <div class="text-center main">
-                <h3>Total Hadiah</h3>
-                <h2 class="txt-heading2">Up to Rp 10.000.000,-</h2>
+                <h3>Total Prize</h3>
+                <h2 class="txt-heading2">Up to IDR 10.000.000,-</h2>
             </div>
             <div class="d-flex">
                 <div class="flex-fill main">
                     <h3>Juara 1</h3>
-                    <h2 class="fw-bold"> Sertifikat + Rp 5.000.000,-</h2>
+                    <h2 class="fw-bold"> Certificate + IDR 5.000.000,-</h2>
                 </div>
                 <div class="flex-fill main">
                     <h3>Juara 2</h3>
-                    <h2 class="fw-bold"> Sertifikat + Rp 3.000.000,-</h2>
+                    <h2 class="fw-bold"> Certificate + IDR 3.000.000,-</h2>
                 </div>
                 <div class="flex-fill main">
                     <h3>Juara 3</h3>
-                    <h2 class="fw-bold"> Sertifikat + Rp 1.500.000,-</h2>
+                    <h2 class="fw-bold"> Certificate + IDR 1.500.000,-</h2>
                 </div>
             </div>
             <div class="ittthin"></div>

@@ -22,16 +22,16 @@
         <div class="d-flex justify-content-center competition-desc">
             <div class="mx-5">
                 <p>
-                    UX Today adalah kompetisi online internasional yang berfokus pada desain pengalaman pengguna pada kenyamanan,
-                    kepuasan, dan efisiensi pengguna. Kompetisi terbuka untuk mahasiswa sarjana dari seluruh dunia. Dalam lomba
-                    ini yang menjadi fokus utama adalah pengalaman yang dirasakan pengguna ketika sedang menggunakan aplikasi
-                    tersebut secara menyeluruh. Peserta diharapkan untuk memberikan solusi atau ide yang berkaitan dengan masalah
-                    yang ada di negaranya sendiri dengan masing-masing tim beranggotakan maksimal tiga orang.
+                    UX Today is an international online competition that focuses on user experience design on user comfort,
+                    satisfaction and efficiency. The competition is open to undergraduate students from all over the world.
+                    In this competition, the main focus is the experience felt by the user while using the application as a
+                    whole. Participants are expected to provide solutions and ideas related to problems in their own country,
+                    with each team consisting of three people maximum.
                 </p>
-                <p><span class="fw-bold">Kategori :</span> Mahasiswa</p>
-                <p><span class="fw-bold">Biaya Registrasi :</span></p>
-                <p>IDR 60.000/Tim (Batch 1)</p>
-                <p>IDR 90.000/Tim (Batch 2)</p>
+                <p><span class="fw-bold">Category :</span> Mahasiswa</p>
+                <p><span class="fw-bold">Registration Fee :</span></p>
+                <p>IDR 60.000,-/Team (Batch 1)</p>
+                <p>IDR 90.000,-/Team (Batch 2)</p>
                 
                 {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
                 <a href="#" class="btn btn-outline-success">Rulebook Coming Soon</a>
@@ -71,32 +71,32 @@
             <h1 class="txt-heading1 text-center">Timeline</h1>
             <div class="d-flex">
                 <div class=" flex-fill time">
-                    <h3>Pendaftaran Batch 1</h3>
-                    <p>1 Juni - 10 Juli 2021</p>
+                    <h3>Batch 1 Registration</h3>
+                    <p>1st June - 10th July 2021</p>
                 </div>
                 <div class=" flex-fill time">
-                    <h3>Pendaftaran Batch 2</h3>
-                    <p>11 Juli - 1 Agustus 2021</p>
+                    <h3>Batch 2 Registration</h3>
+                    <p>11th July - 1st August 2021</p>
                 </div>
                 <div class=" flex-fill time">
-                    <h3>Pengajuan Proposal</h3>
-                    <p> 2 Agustus - 16 Agustus 2021</p>
+                    <h3>Proposal Submission</h3>
+                    <p> 2nd August - 16th August 2021</p>
                 </div>
                 <div class=" flex-fill time">
-                    <h3>Pengiriman Video Demo</h3>
-                    <p> 2 Agustus - 18 Agustus 2021</p>
+                    <h3>Demo Video Submission</h3>
+                    <p> 2nd August - 18th August 2021</p>
                 </div>
                 <div class=" flex-fill time">
-                    <h3>Pengumuman Finalis</h3>
-                    <p>3 September 2021</p>
+                    <h3>Finalist Announcement</h3>
+                    <p>3rd September 2021</p>
                 </div>
                 <div class=" flex-fill time">
-                    <h3>Pengiriman Video Presentasi</h3>
-                    <p>4 - 10 September 2021</p>
+                    <h3>Presentation Video Submission</h3>
+                    <p>4th - 10th September 2021</p>
                 </div>
                 <div class=" flex-fill time">
                     <h3>Finals</h3>
-                    <p>12 September 2021</p>
+                    <p>12th September 2021</p>
                 </div>
             </div>
         </div>
@@ -108,29 +108,29 @@
                 <div class="ittsmall itt-top"></div>
                 <div class="ittsmall itt-bottom"></div>
             </div>
-            <h1 class="txt-heading1 text-center">Hadiah</h1>
+            <h1 class="txt-heading1 text-center">Prize</h1>
             <div class="text-center main">
-                <h3>Total Hadiah</h3>
-                <h2 class="txt-heading2">Rp 10.000.000</h2>
+                <h3>Total Prize</h3>
+                <h2 class="txt-heading2">IDR 10.000.000,-</h2>
             </div>
             <div class="d-flex">
                 <div class="flex-fill main">
-                    <h3>Juara 1</h3>
-                    <h2 class="fw-bold"> Sertifikat + Uang Pelatihan</h2>
+                    <h3>1st Winner</h3>
+                    <h2 class="fw-bold"> Certificate + Coaching Money</h2>
                 </div>
                 <div class="flex-fill main">
-                    <h3>Juara 2</h3>
-                    <h2 class="fw-bold"> Sertifikat + Uang Pelatihan</h2>
+                    <h3>2nd Winner</h3>
+                    <h2 class="fw-bold"> Certificate + Coaching Money</h2>
                 </div>
             </div>
             <div class="d-flex">
                 <div class="flex-fill main">
-                    <h3>Juara 3</h3>
-                    <h2 class="fw-bold"> Sertifikat + Uang Pelatihan</h2>
+                    <h3>3rd Winner</h3>
+                    <h2 class="fw-bold"> Certificate + Coaching Money</h2>
                 </div>
                 <div class="flex-fill main">
-                    <h3>Pemenang Favorit</h3>
-                    <h2 class="fw-bold"> Sertifikat + Uang Pelatihan</h2>
+                    <h3>Honorable Mention</h3>
+                    <h2 class="fw-bold"> Certificate + Coaching Money</h2>
                 </div>
             </div>
             <div class="ittthin"></div>

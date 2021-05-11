@@ -17,11 +17,11 @@
             <h1 data-aos="fade-up" class="txt-outline stroke-welcome">WELCOME</h1>
             <h1 data-aos="fade-up" class="txt-heading1 it-today-2021-title">IT TODAY 2021</h1>
             <P data-aos="fade-up" class="mt-5">
-                IT Today 2021 merupakan acara internasional bertemakan teknologi yang pada tahun ini mengusung tema
-                “The Synergy Between Technology and Agro-Maritime 5.0” dipersembahkan oleh Departemen Ilmu Komputer
-                FMIPA IPB bersama dengan Himpunan Mahasiswa Ilmu Komputer. Tahun ini, kegiatan IT Today 2021
-                menyelenggarakan berbagai rangkaian acara, yaitu Kompetisi (UX Design Competition, Hack Today,
-                IT Business Competition) Seminar Komunitas, Seminar Internasional, dan juga Workshop.
+                IT Today 2021 is an international technology event held by the Department of Computer Science IPB
+                collaborating with IPB University Computer Science Student Association. This year, IT Today brings
+                "The Synergy Between Technology and Agro-Maritime 5.0" as a theme. Presenting various events such
+                as International Seminar, Community Seminars, and  Workshop along with Competition such as HackToday,
+                UXToday, and IT Business Competition.
             </P>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6 welcome-logo">
@@ -39,19 +39,19 @@
 <section class="bg-visimisi d-flex justify-content-center">
     <div class="about-box">
         <p class="txt-paragraph about-box-text">
-            Mewujudkan IT Today sebagai sarana dan wadah untuk para peminat dan penikmat teknologi
-            serta memberikan persiapan kepada generasi masa kini untuk dapat bertahan dan memajukan
-            industri IT di Indonesia.
+            Creating IT Today as a platform for technology enthusiast as well to provide
+            preliminaries for those future generation leaders to strive and to be resilient
+            in the IT industry of Indonesia.
         </p>
-        <div class="txt-heading1 about-box-title">VISI</div>
+        <div class="txt-heading1 about-box-title">VISION</div>
     </div>
     <div class="about-box">
         <div class="about-box-text">
-            <p>Membuat wadah untuk menyalurkan dan membantu dalam mengembangkan minat dan bakat pada bidang IT.</p>
-            <p>Mengadakan kompetisi sebagai wadah positif dan kompetitif dalam menyalurkan kemampuan secara sehat.</p>
-            <p>Memberikan edukasi dan wawasan tentang peluang-peluang yang bisa diambil berdasarkan potensi serta minat bakat yang dimiliki.</p>
+            <p>Creating a platform to channel and assist in developing interests and talents around IT.</p>
+            <p>Organizing competitions as a competitive forum to channel abilities in a positive manner.</p>
+            <p>Providing information and education around potential opportunities aligns with the talents interest.</p>
         </div>
-        <div class="txt-heading1 about-box-title">MISI</div>
+        <div class="txt-heading1 about-box-title">MISSION</div>
     </div>
 </section>
 

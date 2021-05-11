@@ -56,8 +56,8 @@
         
         <div class="container event-actions">
             <div class="desc">
-                <div>Minggu, 5 September 2021</div>
-                <div>@ Platform Daring</div>
+                <div>Sunday, 5th September 2021</div>
+                <div>@ Online Platform</div>
             </div>
             {{-- <a href="#" class="btn btn-primary txt-caption">Buy Ticket</a> --}}
         </div>
@@ -70,12 +70,12 @@
                 <div class="ittsmall itt-right"></div>
             </div>
             <div class="my-5">
-                <h1 class="txt-heading1">Tentang Workshop</h1>
+                <h1 class="txt-heading1">About Workshop</h1>
                 {{-- <div class="ittthin"></div> --}}
                 <p class="mt-4">
-                    Merupakan Workshop sebagai sarana pelatihan dalam bidang IT. Memungkinkan peserta
-                    berinteraksi kepada pemateri terkait topik Workshop selama kegiatan berlangsung.
-                    Kegiatan ini memberikan pelatihan singkat dengan estimasi 50 peserta.
+                    A Workshop to provide a training platform around IT field. Enables interaction among
+                    the speakers and the trainees around the related topic. This Workshop is held with
+                    around 50 participants.
                 </p>
             </div>
             <div class="d-flex justify-content-end">

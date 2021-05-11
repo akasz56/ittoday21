@@ -31,11 +31,11 @@
                 <h1 data-aos="fade-up" class="txt-outline stroke-welcome">WELCOME</h1>
                 <h1 data-aos="fade-up" class="txt-heading1 it-today-2021-title">IT TODAY 2021</h1>
                 <P data-aos="fade-up" class="mt-5">
-                    IT Today 2021 merupakan acara internasional bertemakan teknologi yang pada tahun ini mengusung tema
-                    “The Synergy Between Technology and Agro-Maritime 5.0” dipersembahkan oleh Departemen Ilmu Komputer
-                    FMIPA IPB bersama dengan Himpunan Mahasiswa Ilmu Komputer. Tahun ini, kegiatan IT Today 2021
-                    menyelenggarakan berbagai rangkaian acara, yaitu Kompetisi (UX Design Competition, Hack Today,
-                    IT Business Competition) Seminar Komunitas, Seminar Internasional, dan juga Workshop.
+                    IT Today 2021 is an international technology event held by the Department of Computer Science IPB
+                    collaborating with IPB University Computer Science Student Association. This year, IT Today brings
+                    "The Synergy Between Technology and Agro-Maritime 5.0" as a theme. Presenting various events such
+                    as International Seminar, Community Seminars, and  Workshop along with Competition such as HackToday,
+                    UXToday, and IT Business Competition.
                 </P>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6 welcome-logo">
@@ -83,7 +83,7 @@
 
     
     <section data-aos="fade-up" class="container mt-5">
-        <h1 class="text-start fw-bold">Core of Values</h1>
+        <h1 class="text-start fw-bold">Our Core of Values</h1>
         <div class="container overflow-auto row d-flex flex-nowrap">
             <img class="core" src={{ asset("./assets/images/core_1.jpg") }} alt="Critical Thinking">
             <img class="core" src={{ asset("./assets/images/core_2.jpg") }} alt="Complex Problem Solving">

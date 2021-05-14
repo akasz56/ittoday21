@@ -1,0 +1,170 @@
+.competition-title img {
+    max-width: 65vw;
+    width: auto;
+    height: auto;
+    padding-left: 16vw;
+    margin: initial;
+}
+
+@media (min-width: 1400px) {
+    .competition-title img {
+        max-width: 45vw;
+        display: block;
+        margin: 0 auto;
+        padding: initial;
+    }
+}
+
+@media (max-width: 576px) {
+    .competition-title img {
+        max-width: 75vw;
+        padding-left: 6vw;
+    }
+}
+
+.competition-desc div {
+    margin: 0 1rem;
+    width: 50%;
+}
+
+.competition-desc img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    margin: auto 0;
+}
+
+@media (max-width: 991px) {
+    .competition-desc {
+        flex-direction: column-reverse;
+    }
+
+    .competition-desc div {
+        width: initial;
+        margin: 1rem 0;
+    }
+
+    .competition-desc img {
+        max-width: 100%;
+        margin: initial;
+    }
+}
+
+.competition-desc .btn-success {
+    width: 50%;
+}
+
+.competition-desc .btn-outline-success {
+    width: 45%;
+}
+
+@media (max-width: 1200px) {
+    .competition-desc .btn {
+        width: initial;
+        display: block;
+        margin: 1em 0;
+    }
+}
+
+.competition-timeline {
+    margin: 5rem 0;    
+}
+
+.competition-hadiah {
+    margin: 5rem 0;
+}
+
+.competition-timeline .d-flex {
+    flex-wrap: wrap;
+}
+
+.competition-timeline .time {
+    margin: 1em;
+    padding: 1em;
+    padding-bottom: 0em;
+    min-width: 20%;
+    border-radius: 20px;
+    border: solid 1px #198754;
+}
+
+.competition-hadiah .main {
+    margin: 1em;
+    padding: 1em;
+    border-radius: 20px;
+    border: solid 1px #198754;
+}
+
+@media (max-width: 992px) {
+    .competition-hadiah .d-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+/* -------------------------------IT Today 21 Boxes------------------------------- */
+.competition-main .ittsmall,
+.competition-main .ittrect,
+.competition-main .ittlarge,
+.competition-main .ittsmallrect,
+.competition-main .ittthin {
+    position: absolute;
+}
+
+.competition-main .ittthin {
+    left: -5em;
+}
+
+.competition-main .itt-top {
+    margin-bottom: 3em;
+}
+
+.competition-main .itt-bottom {
+    margin-top: 3em;
+}
+
+.competition-title .ittsmall {
+    left: -3em;
+}
+
+.competition-title .ittoutr {
+    left: initial;
+    right: -3em;
+    top: 15em;
+}
+
+.itttri {
+    width: 100%;
+}
+
+.itttri .ittsmallrect,
+.itttri .ittsmall {
+    right: -3em;
+}
+
+.itttri .ittsmallrect{
+    margin-top: 6em;
+}
+
+.competition-hadiah .ittsmall {
+    left: -3em;
+}
+
+.competition-hadiah .ittthin {
+    left: initial;
+    right: -5em;
+}
+
+@media (max-width: 576px) {
+    .competition-main .ittsmall,
+    .competition-main .ittrect,
+    .competition-main .ittlarge,
+    .competition-main .ittsmallrect,
+    .competition-main .ittthin {
+        visibility: hidden;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+}

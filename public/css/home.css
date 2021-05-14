@@ -1,0 +1,239 @@
+.card-img-wrap {
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img-wrap:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    transition: opacity .25s;
+}
+
+.card-img-wrap img {
+    transition: transform .25s;
+    width: 100%;
+}
+
+.card-img-wrap:hover img {
+    transform: scale(1.2);
+}
+
+.card-img-wrap:hover:after {
+    opacity: 1;
+}
+
+/* total prize */
+.bg-total-price {
+    background-image: url('../assets/images/bg-price.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100% !important;
+    height: 60vw;
+}
+
+.bg-blur-total-prize {
+    width: 75%;
+    height: 30%;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 32px 0 rgba(31, 38, 135, 0.10);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@media (min-width: 576px) {
+    .bg-hero-total-prize {
+        height: inherit;
+    }
+}
+
+@media (max-width: 576px) {
+    .bg-hero-total-prize {
+        margin-top: 3em;
+    }
+}
+
+.hero-content {
+    box-sizing: border-box;
+}
+
+/* welcome timeline */
+.container-welcome {
+    margin-bottom: 150px;
+}
+
+.stroke-welcome {
+    position: absolute;
+    z-index: -10;
+}
+
+.it-today-2021-title,
+.welcome-logo {
+    margin-top: 110px;
+}
+
+.timeline-left,
+.timeline-right {
+    font-size: 110pt;
+    z-index: -10;
+}
+
+.timeline-left {
+    margin-top: -100px;
+}
+
+.timeline-right {
+    margin-top: -100px;
+}
+
+@media (max-width:576px) {
+    .it-today-2021-title {
+        margin-top: 50px !important;
+    }
+}
+
+@media(max-width: 768px) {
+    .it-today-2021-title {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 992px) {
+    .it-today-2021-title {
+        margin-top: 40px;
+    }
+
+    .timeline-left,
+    .timeline-right {
+        font-size: 16vw;
+    }
+
+    .it-today-2021-title {
+        margin-top: 80px;
+    }
+}
+
+/* jumbotron */
+#bg-jumbotron {
+    background-image: url('../assets/images/bg-gradient-jumbotron.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100% !important;
+    /* margin-top: 58px; */
+}
+
+.bg-hero-container {
+    height: inherit;
+}
+
+.bg-blur-hero {
+    width: 60%;
+    height: 45%;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 32px 0 rgba(31, 38, 135, 0.10);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+@media (max-width: 768px) {
+    #bg-jumbotron {
+        height: 565px;
+    }
+
+    .bg-blur-hero {
+        width: 100%;
+        height: 50%;
+    }
+
+    .jumbotron-logo {
+        width: 200px;
+        height: 100px;
+    }
+}
+
+.core {
+    max-width: 360px;
+    height: 100%;
+}
+
+/* IT Today 2021 Boxes */
+.itthero {
+    position: absolute;
+    left: 16vw;
+    top: 16vh;
+}
+
+.ittsmall-footer {
+    margin-left: -50px;
+}
+
+.ittsmall-timeline {
+    top: -90px;
+}
+
+.ittsmall-prize {
+    position: absolute;
+    left: -12vw;
+}
+
+.ittlarge-prize {
+    position: absolute;
+    right: -12vw;
+}
+
+.ittsmall-values {
+    margin-top: 5rem;
+    margin-right: 5rem;
+}
+
+@media (max-width: 1440px) {
+    .itthero {
+        left: 9vw;
+    }
+    
+    .ittlarge-prize {
+        right: -8vw;
+    }
+
+    .ittsmall-prize {
+        left: -8vw;
+    }
+}
+
+@media (max-width: 992px) {
+    .itthero {
+        left: 6em;
+    }
+
+    .ittsmall-footer {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 768px) {
+    .itthero {
+        visibility: hidden;
+    }
+
+    .ittsmall-prize {
+        visibility: hidden;
+        left: 0;
+    }
+
+    .ittlarge-prize {
+        visibility: hidden;
+        right: 0;
+    }
+}

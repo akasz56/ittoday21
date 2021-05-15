@@ -13,7 +13,7 @@
         <div class="py-5 competition-title">
             <div class="ittsmall"></div>
             <div class="ittsmall ittoutr"></div>
-            <img src={{ asset("/assets/icons/logo-busy.svg") }} alt="Logo IT Business Competition">
+            <img src={{ asset("./assets/icons/logo-busy.svg") }} alt="Logo IT Business Competition">
             <div class="txt-subtitle">National</div>
         </div>
 
@@ -37,7 +37,7 @@
                 
             </div>
             <div class="mx-5">
-                <img src={{ ("/assets/illust/comp_busy.svg") }} alt="Illustration">
+                <img src={{ asset("./assets/illust/comp_busy.svg") }} alt="Illustration">
             </div>
         </div>
         <div class="ittthin"></div>

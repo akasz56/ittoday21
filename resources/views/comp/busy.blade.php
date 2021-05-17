@@ -32,8 +32,8 @@
                 <p>IDR 90.000,-/Team (Batch 2)</p>
 
                 {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
-                {{-- <a href="/rulebook/busy" class="btn btn-outline-success">Rulebook</a> --}}
-                <a href="#" class="btn btn-outline-success">Rulebook Coming Soon</a>
+                <a href="/rulebook/busy" class="btn btn-outline-success">Rulebook</a>
+                {{-- <a href="#" class="btn btn-outline-success">Rulebook Coming Soon</a> --}}
                 
             </div>
             <div class="mx-5">

@@ -30,8 +30,8 @@
                 <p><span class="fw-bold">Registration Fee :</span> IDR 60.000,-/Team</p>
                 
                 {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
-                <a href="#" class="btn btn-outline-success">Rulebook Coming Soon</a>
-                {{-- <a href="/rulebook/hack" class="btn btn-outline-success">Rulebook</a> --}}
+                <a href="/rulebook/hack" class="btn btn-outline-success">Rulebook</a>
+                {{-- <a href="#" class="btn btn-outline-success">Rulebook Coming Soon</a> --}}
 
                 <p class="fw-bold mt-4">Contact Person :</p>
                 <p style="line-height: 1em;">Rizal : <a href="https://wa.me/+6289644417286" target="_blank">WhatsApp</a></p>

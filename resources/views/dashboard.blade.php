@@ -39,6 +39,8 @@
     
     
     <hr>
+    <h3>{{ Auth::user()->jenis_lomba }}</h3>
+
     {{-- Biodata --}}
     <h3>Ketua</h3>
     <div>Nama Ketua : {{ Auth::user()->leader->name }}</div>

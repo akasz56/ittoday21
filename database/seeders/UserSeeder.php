@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Amember;
+use App\Models\Bmember;
+use App\Models\Leader;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -21,18 +24,45 @@ class UserSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@ittoday.id',
             'password' => Hash::make('admin123'),
+            'jenis_lomba' => 'hack',
+        ]);
+
+        Leader::create([
+            'name' => 'akas1',
+        ]);
+
+        Amember::create([
+            'name' => 'akas2',
+        ]);
+
+        Bmember::create([
+            'name' => 'akas3',
         ]);
         
         User::create([
             'name' => 'test',
             'email' => 'test@example.com',
             'password' => Hash::make('test123'),
+            'jenis_lomba' => 'ux_1',
+        ]);
+
+        Leader::create([
+            'name' => 'falya1',
+        ]);
+
+        Amember::create([
+            'name' => 'falya2',
+        ]);
+
+        Bmember::create([
+            'name' => 'falya3',
         ]);
 
         // User::create([
         //     'name' => 'admin',
         //     'email' => 'admin@ittoday.id',
         //     'password' => Hash::make('kest4r11tt0day'),
+        //     'jenis_lomba' => Hash::make('kest4r11tt0day'),
         // ]);
         }
     }

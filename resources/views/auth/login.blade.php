@@ -5,28 +5,34 @@
 @endsection
 
 @section('content')
-    <h1>Login Page</h1>
-    <form action="{{ route('auth.check') }}" method="POST">
-        @csrf
+<h1>Login Page</h1>
+<form action="{{ route('auth.login') }}" method="POST">
+    @csrf
+    <div>
+        @if (session()->has('fail'))
+            <div>
+                <div class="alert alert-danger">{{ session()->get('fail') }}</div>
+            </div>
+        @endif
+
         <div>
-            <div>
-                @if (session()->has('fail'))
-                    <div>{{ session()->get('fail') }}</div>
-                @endif
-            </div>
-            <div>
-                <label for="email">Email address</label>
-                <input type="email" name="email">
-                <span>@error('email'){{ $message }}@enderror</span>
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" name="password">
-                <span>@error('password'){{ $message }}@enderror</span>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-primary">Login</button>
-            </div>
+            <label for="email">Email address</label>
+            <input type="email" name="email">
+            <span>@error('email'){{ $message }}@enderror</span>
         </div>
-    </form>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password">
+            <span>@error('password'){{ $message }}@enderror</span>
+        </div>
+        <div>
+            <label for="rememberme">Remember Me</label>
+            <input type="checkbox" name="rememberme" value="True">
+            <span>@error('rememberme'){{ $message }}@enderror</span>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </div>
+</form>
 @endsection

@@ -70,7 +70,7 @@
                             Us</a>
                     </div>
 
-                    {{-- <div class="navbar-nav full-navbar-mobile ms-auto auth">
+                    <div class="navbar-nav full-navbar-mobile ms-auto auth">
                         @auth
                             <a class="nav-link m-auto me-lg-2" href="{{ route('dashboard') }}">Dashboard</a>
                             <a class="nav-link m-auto me-lg-2" href="{{ route('logout') }}">Logout</a>
@@ -79,7 +79,7 @@
                             <a class="nav-link m-auto me-lg-2" href="{{ route('login') }}">Login</a>
                             <a class="btn btn-primary" href="{{ route('register') }}">Register</a>
                         @endguest
-                    </div> --}}
+                    </div>
 
                 </div>
             </div>

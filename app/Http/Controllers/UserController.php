@@ -2,106 +2,97 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Leader;
+use App\Models\Amember;
+use App\Models\Bmember;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    function login() {
+    public function indexLogin()
+    {
         return view('auth.login');
     }
 
-    function register() {
+    public function indexRegister()
+    {
+        // if ( Carbon::now('Asia/Jakarta') > Carbon::parse('01-08-2021','Asia/Jakarta') ) {
+        //     return view('auth.register');
+        // }
+        // return view('auth.closereg');
         return view('auth.register');
     }
 
-    function check(Request $request) {
+    public function login(Request $request)
+    {
         $request->validate([
-            'email'=>'required|email',
+            'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
-
-        Auth::attempt($request->only('email','password'));
-
-        if(Auth::attempt($request->only('email','password'))){
-            return redirect()->route('dashboard');
-        }else{
-            return back()->with('fail','Invalid Login Details');
+        if ($request->rememberme) {
+            $remember = $request->rememberme;
+        } else {
+            $remember = false;
         }
-        
-        //---------
 
-        // $credentials = $request->only('email', 'password');
+        if (User::where('email', '=', $request->email)->first() === null) {
+            return back()->with('fail','Email belum terdaftar');
+        }
 
-        // if (Auth::attempt($credentials)) {
-        //     $request->session()->regenerate();
+        Auth::attempt($request->only('email', 'password'), $remember);
 
-        //     return redirect()->intended('dashboard');
-        // }
-
-        // return back()->withErrors([
-        //     'email' => 'The provided credentials do not match our records.',
-        // ]);
-
-        //---------
-
-        // $request->validate([
-        //     'email'=>'required|email',
-        //     'password' => 'required|min:6',
-        // ]);
-
-        // $user = User::where('email', '=', $request->email)->first();
-        // if($user){
-        //     if(Hash::check($request->password, $user->password)){
-        //         $request->session()->put('LoggedUser',$user->id);
-        //         return redirect('/');
-        //     }
-        //     else{
-        //         return back()->with('fail','Wrong Password');
-        //     }
-        // }
-        // else{
-        //     return back()->with('fail','Email is not Registered');
-        // }
+        if (Auth::attempt($request->only('email', 'password'), $remember)) {
+            return redirect()->route('dashboard');
+        } else {
+            return back()->with('fail', 'Password Salah');
+        }
     }
 
-    function create(Request $request) {
+    public function register(Request $request)
+    {
         $request->validate([
-            'name'=>'required',
-            'email'=>'required|email|unique:users',
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:6|confirmed',
-            'password_confirmation' => 'required|min:6'
+            'password_confirmation' => 'required|min:6',
+            'comp' => 'required',
         ]);
+        // Jenis Lomba yg diikuti - enum - hack/ux/bistik
 
         User::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>Hash::make($request->password),
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'jenis_lomba' => $request->comp,
         ]);
 
-        Auth::attempt($request->only('email','password'));
+        Leader::create([
+            'name' => 'Leader Name',
+        ]);
 
-        if(Auth::attempt($request->only('email','password'))){
+        Amember::create([
+            'name' => 'Member 1 Name',
+        ]);
+
+        Bmember::create([
+            'name' => 'Member 2 Name',
+        ]);
+
+        Auth::attempt($request->only('email', 'password'));
+
+        if (Auth::attempt($request->only('email', 'password'))) {
             return redirect()->route('dashboard');
-        }else{
-            return back()->with('fail','Something went wrong with registration');
+        } else {
+            return back()->with('fail', 'Terjadi Kesalahan, Mohon kontak Contact Person');
         }
-        // $user = new User;
-        // $user->name = $request->name;
-        // $user->email = $request->email;
-        // $user->password = Hash::make($request->password);
-        // $query = $user->save();
-
-        // if($query){
-        //     return back()->with('success','You have been successfully Registered');
-        // }else{
-        //     return back()->with('fail','Something went wrong with registration');
-        // }
     }
 
-    function logout() {
+    public function logout()
+    {
         Auth::logout();
         return redirect()->route('home');
     }

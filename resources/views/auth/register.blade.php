@@ -1,21 +1,31 @@
 @extends('layouts.app')
 
 @section('title')
-    Login
+    Register
 @endsection
 
 @section('content')
 <h1>Register Page</h1>
-<form action="{{ route('auth.create') }}" method="POST">
+<form action="{{ route('auth.register') }}" method="POST">
     @csrf
     <div>
+        @if (session()->has('fail'))
+            <div>
+                <div class="alert alert-danger">{{ session()->get('fail') }}</div>
+            </div>
+        @endif
+
         <div>
-            @if (session()->has('fail'))
-                <div>{{ session()->get('fail') }}</div>
-            @endif
+            <label for="comp">Competition</label>
+            <select name="comp" id="comp">
+                <option value="hack">HackToday</option>
+                <option value="ux">UXToday</option>
+                <option value="busy">IT Business</option>
+            </select>
+            <span>@error('comp'){{ $message }}@enderror</span>
         </div>
         <div>
-            <label for="name">Name</label>
+            <label for="name">Team Name</label>
             <input type="text" name="name" value="{{ old('name') }}">
             <span>@error('name'){{ $message }}@enderror</span>
         </div>

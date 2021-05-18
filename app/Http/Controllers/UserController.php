@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Leader;
 use App\Models\Amember;
 use App\Models\Bmember;
-use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +20,7 @@ class UserController extends Controller
 
     public function indexRegister()
     {
-        // if ( Carbon::now('Asia/Jakarta') > Carbon::parse('01-08-2021','Asia/Jakarta') ) {
+        // if ( Carbon::now('Asia/Jakarta') < Carbon::parse('01-08-2021','Asia/Jakarta') ) {
         //     return view('auth.register');
         // }
         // return view('auth.closereg');
@@ -54,32 +54,49 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
+        // dd($request->comp);
+
+        // Jenis Lomba yg diikuti - enum - hack/ux/bistik
+        switch ($request->comp) {
+            case "hack":
+                $jenis = 'hack';
+                break;
+            case "ux":
+                if ( Carbon::now('Asia/Jakarta') < Carbon::parse('11-07-2021','Asia/Jakarta') ) {
+                    $jenis = 'ux_1'; } else { $jenis = 'ux_2'; } break;
+            case "busy":
+                if ( Carbon::now('Asia/Jakarta') < Carbon::parse('11-07-2021','Asia/Jakarta') ) {
+                    $jenis = 'busy_1'; } else { $jenis = 'busy_2'; } break;
+            default:
+                return back()->with('fail', 'Kompetisi Tidak tersedia, Mohon kontak Contact Person');
+                break;
+        }
+
+        // Validate Form
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|confirmed',
             'password_confirmation' => 'required|min:6',
-            'comp' => 'required',
         ]);
-        // Jenis Lomba yg diikuti - enum - hack/ux/bistik
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'jenis_lomba' => $request->comp,
+            'jenis_lomba' => $jenis,
         ]);
 
         Leader::create([
-            'name' => 'Leader Name',
+            'name' => $request->name . ' Leader Name',
         ]);
 
         Amember::create([
-            'name' => 'Member 1 Name',
+            'name' => $request->name . ' Member 1 Name',
         ]);
 
         Bmember::create([
-            'name' => 'Member 2 Name',
+            'name' => $request->name . ' Member 2 Name',
         ]);
 
         Auth::attempt($request->only('email', 'password'));

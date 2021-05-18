@@ -28,15 +28,15 @@ class UserSeeder extends Seeder
         ]);
 
         Leader::create([
-            'name' => 'akas1',
+            'name' => 'Admin Leader Name',
         ]);
 
         Amember::create([
-            'name' => 'akas2',
+            'name' => 'Admin Member 1 Name',
         ]);
 
         Bmember::create([
-            'name' => 'akas3',
+            'name' => 'Admin Member 2 Name',
         ]);
         
         User::create([
@@ -47,15 +47,15 @@ class UserSeeder extends Seeder
         ]);
 
         Leader::create([
-            'name' => 'falya1',
+            'name' => 'test Leader Name',
         ]);
 
         Amember::create([
-            'name' => 'falya2',
+            'name' => 'test Member 1 Name',
         ]);
 
         Bmember::create([
-            'name' => 'falya3',
+            'name' => 'test Member 2 Name',
         ]);
 
         // User::create([

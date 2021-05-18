@@ -17,11 +17,23 @@
 
         <div>
             <label for="comp">Competition</label>
-            <select name="comp" id="comp">
+            <div>
+                <input type="radio" id="hack" name="comp" value="hack">
+                <label for="hack">HackToday</label>
+            </div>
+            <div>
+                <input type="radio" id="ux" name="comp" value="ux">
+                <label for="ux">UXToday</label>
+            </div>
+            <div>
+                <input type="radio" id="busy" name="comp" value="busy">
+                <label for="busy">IT Business</label>
+            </div>
+            {{-- <select name="comp" id="comp">
                 <option value="hack">HackToday</option>
                 <option value="ux">UXToday</option>
                 <option value="busy">IT Business</option>
-            </select>
+            </select> --}}
             <span>@error('comp'){{ $message }}@enderror</span>
         </div>
         <div>

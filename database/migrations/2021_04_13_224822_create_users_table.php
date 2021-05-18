@@ -20,10 +20,10 @@ class CreateUsersTable extends Migration
             $table->text('password');
             $table->rememberToken();
             $table->string('bank')->nullable();
-            $table->timestamp('tgl_bayar')->nullable();
+            // $table->timestamp('tgl_bayar')->nullable();
             $table->text('file_bayar')->nullable();
             $table->boolean('verified_bayar')->nullable();
-            $table->enum('jenis_lomba', [ 'hack', 'ux_1', 'ux_2', 'busy_1', 'busy_2']);
+            $table->string('jenis_lomba');
             $table->timestamps();
         });
     }

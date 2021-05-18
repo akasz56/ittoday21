@@ -20,6 +20,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'bank',
+        'tgl_bayar',
+        'verified_bayar',
+        'jenis_lomba',
     ];
 
     /**

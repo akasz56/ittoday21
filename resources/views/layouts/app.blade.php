@@ -170,8 +170,8 @@
         </div>
     </footer>
 
-    <script src="./js/app.js" type="module"></script>
-    <script src="./node_modules/aos/dist/aos.js"></script>
+    <script src="/js/app.js" type="module"></script>
+    <script src="/node_modules/aos/dist/aos.js"></script>
     <script>
         AOS.init({
             once: true

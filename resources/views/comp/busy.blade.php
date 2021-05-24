@@ -31,9 +31,13 @@
                 <p>IDR 60.000,-/Team (Batch 1)</p>
                 <p>IDR 90.000,-/Team (Batch 2)</p>
 
-                {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
+                @auth
+                    <a href={{ route('dashboard') }} class="btn btn-success">Go to Dashboard</a>
+                @endauth
+                @guest
+                    <a href={{ route('auth.register') }} class="btn btn-success">Register your team</a>
+                @endguest
                 <a href="/rulebook/busy" class="btn btn-outline-success">Rulebook</a>
-                {{-- <a href="#" class="btn btn-outline-success">Rulebook Coming Soon</a> --}}
                 
             </div>
             <div class="mx-5">

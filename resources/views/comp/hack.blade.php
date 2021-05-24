@@ -29,9 +29,13 @@
                 <p><span class="fw-bold">Category :</span> High School Students, Undergrad Students, and the General Public</p>
                 <p><span class="fw-bold">Registration Fee :</span> IDR 60.000,-/Team</p>
                 
-                {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
+                @auth
+                    <a href={{ route('dashboard') }} class="btn btn-success">Go to Dashboard</a>
+                @endauth
+                @guest
+                    <a href={{ route('auth.register') }} class="btn btn-success">Register your team</a>
+                @endguest
                 <a href="/rulebook/hack" class="btn btn-outline-success">Rulebook</a>
-                {{-- <a href="#" class="btn btn-outline-success">Rulebook Coming Soon</a> --}}
 
                 <p class="fw-bold mt-4">Contact Person :</p>
                 <p style="line-height: 1em;">Rizal : <a href="https://wa.me/+6289644417286" target="_blank">WhatsApp</a></p>

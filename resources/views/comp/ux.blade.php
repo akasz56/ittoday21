@@ -28,14 +28,18 @@
                     whole. Participants are expected to provide solutions and ideas related to problems in their own country,
                     with each team consisting of three people maximum.
                 </p>
-                <p><span class="fw-bold">Category :</span> Mahasiswa</p>
+                <p><span class="fw-bold">Category :</span> Undergrad Students</p>
                 <p><span class="fw-bold">Registration Fee :</span></p>
                 <p>IDR 60.000,-/Team (Batch 1)</p>
                 <p>IDR 90.000,-/Team (Batch 2)</p>
                 
-                {{-- <a href="#" class="btn btn-success">Register your team</a> --}}
+                @auth
+                    <a href={{ route('dashboard') }} class="btn btn-success">Go to Dashboard</a>
+                @endauth
+                @guest
+                    <a href={{ route('auth.register') }} class="btn btn-success">Register your team</a>
+                @endguest
                 <a href="/rulebook/ux" class="btn btn-outline-success">Rulebook</a>
-                {{-- <a href="#" class="btn btn-outline-success">Rulebook Coming Soon</a> --}}
 
                 <p class="fw-bold mt-4">Contact Person :</p>
                 <p style="line-height: 1em;">Amelia :

@@ -13,17 +13,3 @@ hamburger.onclick = () => {
 //     (prevScrollPos > currentScrollPos || mobileAppBarVer == 'true') ? appBar.style.top = "0": appBar.style.top = '-65px';
 //     prevScrollPos = currentScrollPos;
 // }
-
-// custom components
-class AppBar extends HTMLElement {
-    connectedCallback() {
-        this.render();
-    }
-    render() {
-        this.innerHTML = `
-            
-        `;
-    }
-}
-
-customElements.define("app-bar", AppBar);

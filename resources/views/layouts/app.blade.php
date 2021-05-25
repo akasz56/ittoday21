@@ -8,15 +8,15 @@
     <meta name="description" content="It Today Web App">
     <meta name="author" content="dewasemadi@apps.ipb.ac.id">
     <meta name="author2" content="indo14nurfath@apps.ipb.ac.id">
-    <title>IT TODAY 2021 | The Synergy Berween Technology and Agro-Maritime 5.0</title>
-    <link rel="stylesheet" href="css/app.css">
+    <title>@yield('title', 'IT TODAY 2021 | The Synergy Berween Technology and Agro-Maritime 5.0')</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- favicon -->
-    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon/android-chrome-512x512.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon/android-chrome-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('/assets/favicon/android-chrome-512x512.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('/assets/favicon/android-chrome-192x192.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/assets/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/assets/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/assets/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('/assets/favicon/site.webmanifest') }}">
 </head>
 
 <body id="home">
@@ -25,7 +25,7 @@
         <a class="skip-link btn btn-success" href="#main">Skip to main</a>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1 _bg-color-purple">
             <div class="container">
-                <a class="navbar-brand p-0" href="index.html"><img src="/assets/icons/brand.svg" alt="It Today Logo"
+                <a class="navbar-brand p-0" href="{{ route('home') }}"><img src="{{ asset('/assets/icons/brand.svg') }}" alt="It Today Logo"
                         width="70px" height="50px"></a>
                 <!-- hamburger button when mobile -->
                 <button class="hamburger hamburger--spin" id="hamburger-btn" type="button" data-bs-toggle="collapse"
@@ -46,9 +46,9 @@
                                     class="bi bi-chevron-down icon-rotates"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownEvent">
-                                <li><a class="dropdown-item" href="int.html">International Seminar</a></li>
-                                <li><a class="dropdown-item" href="ilk.html">Ilkommunity</a></li>
-                                <li><a class="dropdown-item" href="work.html">Workshop</a></li>
+                                <li><a class="dropdown-item" href="{{ route('event.int') }}">International Seminar</a></li>
+                                <li><a class="dropdown-item" href="{{ route('event.ilk') }}">Ilkommunity</a></li>
+                                <li><a class="dropdown-item" href="{{ route('event.work') }}">Workshop</a></li>
                             </ul>
                         </li>
 
@@ -59,19 +59,19 @@
                                     class="bi bi-chevron-down icon-rotates"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownCompetitions">
-                                <li><a class="dropdown-item" href="hack.html">Hack Today</a></li>
-                                <li><a class="dropdown-item" href="ux.html">UX Today</a></li>
-                                <li><a class="dropdown-item" href="busy.html">IT Business Competition</a></li>
+                                <li><a class="dropdown-item" href="{{ route('comp.hack') }}">Hack Today</a></li>
+                                <li><a class="dropdown-item" href="{{ route('comp.ux') }}">UX Today</a></li>
+                                <li><a class="dropdown-item" href="{{ route('comp.busy') }}">IT Business Competition</a></li>
                             </ul>
                         </li>
-                        <a class="nav-link ms-lg-2" href="about.html"><i class="bi bi-info-circle infoHide"></i> About
+                        <a class="nav-link ms-lg-2" href="{{ route('about') }}"><i class="bi bi-info-circle infoHide"></i> About
                             Us</a>
                     </div>
 
                     <div class="navbar-nav full-navbar-mobile ms-auto auth">
                         @auth
-                            <a class="nav-link m-auto me-lg-2" href="dashboard">Dashboard</a>
-                            <a class="nav-link m-auto me-lg-2" href="logout">Logout</a>
+                            <a class="nav-link m-auto me-lg-2" href="{{ route('dashboard') }}">Dashboard</a>
+                            <a class="nav-link m-auto me-lg-2" href="{{ route('logout') }}">Logout</a>
                         @endauth
                         @guest
                             <a class="nav-link m-auto me-lg-2" href="{{ route('login') }}">Login</a>
@@ -168,8 +168,8 @@
         </div>
     </footer>
 
-    <script src="/js/app.js" type="module"></script>
-    <script src="/node_modules/aos/dist/aos.js"></script>
+    <script src="{{ asset('/js/app.js') }}" type="module"></script>
+    <script src="{{ asset('/node_modules/aos/dist/aos.js') }}"></script>
     <script>
         AOS.init({
             once: true

@@ -20,10 +20,12 @@ class CreateUsersTable extends Migration
             $table->text('password');
             $table->rememberToken();
             $table->string('bank')->nullable();
-            // $table->timestamp('tgl_bayar')->nullable();
             $table->text('file_bayar')->nullable();
-            $table->boolean('verified_bayar')->nullable();
+            $table->string('verified_bayar')->nullable();
             $table->string('jenis_lomba');
+            $table->string('file_lomba')->nullable();
+            $table->string('verified_lomba')->nullable(); // Verified ga?
+            $table->timestamp('tgl_lomba')->nullable(); // Tgl Pengumpulan
             $table->timestamps();
         });
     }

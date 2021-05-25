@@ -18,28 +18,34 @@ use Illuminate\Support\Facades\Route;
 //mainpages
 Route::view('/', 'home')->name('home');
 Route::view('/about', 'about')->name('about');
-Route::view('/event', 'event')->name('event');
-Route::view('/competition', 'competition')->name('competition');
-Route::get('/home', function () {return redirect()->route('home');});
+Route::get('/home', function () {
+    return redirect()->route('home');
+});
 
 //Events
 Route::view('/ilkommunity', 'event.ilk')->name('event.ilk');
 Route::view('/international', 'event.int')->name('event.int');
 Route::view('/workshop', 'event.work')->name('event.work');
-Route::get('/rulebook/{id}', [TeamController::class, 'rulebook']);  //Rulebooks
-
 
 //Competition
 Route::view('/hacktoday', 'comp.hack')->name('comp.hack');
 Route::view('/uxdesign', 'comp.ux')->name('comp.ux');
 Route::view('/itbusiness', 'comp.busy')->name('comp.busy');
+Route::get('/rulebook/{id}', [TeamController::class, 'rulebook']);  //Rulebooks
 
 //UserController
 Route::middleware(['guest'])->group(function () {
-    Route::get('/login', [UserController::class, 'indexLogin'])->name('login');
     Route::get('/register', [UserController::class, 'indexRegister'])->name('register');
     Route::post('/register', [UserController::class, 'register'])->name('auth.register');
+
+    Route::get('/login', [UserController::class, 'indexLogin'])->name('login');
     Route::post('/login', [UserController::class, 'login'])->name('auth.login');
+
+    Route::get('/forgotpass', [UserController::class, 'indexForgot'])->name('forgotpass');
+    Route::post('/forgotpass', [UserController::class, 'forgot'])->name('auth.forgotpass');
+
+    Route::get('/reset/{user}/{token}', [UserController::class, 'indexReset'])->name('resetpass');
+    Route::post('/reset', [UserController::class, 'reset'])->name('auth.resetpass');
 });
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
@@ -48,9 +54,11 @@ Route::middleware(['auth'])->group(function () {
 //TeamController
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [TeamController::class, 'index'])->name('dashboard');
-    Route::post('/uploadTrf', [TeamController::class, 'uploadTrf'])->name('uploadTrf');
-    // data ketua
-    // data anggota1
-    // data anggota2
-    Route::post('/uploadProposal', [TeamController::class, 'uploadProposal'])->name('uploadProposal');
+    Route::post('/uploadtrf', [TeamController::class, 'uploadtrf'])->name('upload.trf');
+    Route::post('/uploadprop', [TeamController::class, 'uploadprop'])->name('upload.proposal');
+    Route::post('/uploadlead', [TeamController::class, 'uploadlead'])->name('upload.leader');
+    Route::post('/uploadamem', [TeamController::class, 'uploadamem'])->name('upload.amember');
+    Route::post('/uploadbmem', [TeamController::class, 'uploadbmem'])->name('upload.bmember');
 });
+
+Route::view('/coba', 'auth.closereg');

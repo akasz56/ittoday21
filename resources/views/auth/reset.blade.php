@@ -9,37 +9,36 @@
 
 
 @section('content')
+<main class="container pt-5">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <h3 class="fw-bold">Reset Password</h3>
+            
 
-<h1>Reset Password</h1>
+            <form action="{{ route('auth.resetpass') }}" method="POST">
+                @csrf
+                <input type="hidden" name="id" value="{{$id}}">
+                <input type="hidden" name="token" value="{{$token}}">
 
-<form action="{{ route('auth.resetpass') }}" method="POST">
-    @csrf
-    <input type="hidden" name="id" value="{{$id}}">
-    <input type="hidden" name="token" value="{{$token}}">
+                <div class="mb-3 mt-4">
+                    <label for="password" class="form-label">New Password</label>
+                    <input type="password" class="form-control" id="password" name="password"
+                        placeholder="New Password" required>
+                    <span>@error('password'){{ $message }}@enderror</span>
+                </div>
 
-    <div>
-        @if (session()->has('fail'))
-            <div>
-                <div class="alert alert-danger">{{ session()->get('fail') }}</div>
-            </div>
-        @endif
+                <div class="mb-3">
+                    <label for="password_confirmation" class="form-label">New Password Confirmation</label>
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
+                        placeholder="Password" required>
+                    <span>@error('password_confirmation'){{ $message }}@enderror</span>
+                </div>
 
-        <div>
-            <label for="password">New Password</label>
-            <input type="password" name="password">
-            <span>@error('password'){{ $message }}@enderror</span>
+                <button type="submit" class="btn btn-primary mt-3 d-block w-100">Reset Password</button>
+            </form>
         </div>
-
-        <div>
-            <label for="">Confirm New Password</label>
-            <input type="password" name="password_confirmation">
-            <span>@error('password_confirmation'){{ $message }}@enderror</span>
-        </div>
-
-        <div>
-            <button type="submit" class="btn btn-primary">Reset Password</button>
-        </div>
+        <!-- bisa diisi dengan ilustrasi gan -->
+        <div class="col-sm-12 col-md-6 col-lg-6"></div>
     </div>
-
-</form>
+</main>
 @endsection

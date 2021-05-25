@@ -20,6 +20,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'bank',
+        'tgl_bayar',
+        'verified_bayar',
+        'jenis_lomba',
     ];
 
     /**
@@ -32,12 +36,24 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // /**
+    //  * The attributes that should be cast to native types.
+    //  *
+    //  * @var array
+    //  */
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
+
+    public function leader(){
+        return $this->hasOne(Leader::class, 'id', 'id');
+    }
+
+    public function amember(){
+        return $this->hasOne(Amember::class, 'id', 'id');
+    }
+
+    public function bmember(){
+        return $this->hasOne(Bmember::class, 'id', 'id');
+    }
 }

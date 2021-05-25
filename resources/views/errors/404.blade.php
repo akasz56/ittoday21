@@ -6,7 +6,13 @@
         <h1 class="txt-heading1">This page doesn't exist</h1>
     </div>
     <div class="my-5">
-        <a href="{{ url()->previous() }}" class="btn btn-primary p-3">Back to Previous Page</a>
+        <button onclick="goBack()" class="btn btn-primary p-3">Back to Previous Page</button>
     </div>
 </div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 @endsection

@@ -25,9 +25,8 @@
         <a class="skip-link btn btn-success" href="#main">Skip to main</a>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1 _bg-color-purple">
             <div class="container">
-                <a class="navbar-brand p-0" href="{{ route('home') }}"><img
-                        src="{{ asset('/assets/icons/brand.svg') }}" alt="It Today Logo" width="70px"
-                        height="50px"></a>
+                <a class="navbar-brand p-0" href="{{ route('home') }}"><img src="{{ asset('/assets/icons/brand.svg') }}" alt="It Today Logo"
+                        width="70px" height="50px"></a>
                 <!-- hamburger button when mobile -->
                 <button class="hamburger hamburger--spin" id="hamburger-btn" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -65,12 +64,11 @@
                                 <li><a class="dropdown-item" href="{{ route('comp.busy') }}">IT Business Competition</a></li>
                             </ul>
                         </li>
-                        <a class="nav-link ms-lg-2" href="{{ route('about') }}"><i
-                                class="bi bi-info-circle infoHide"></i> About
+                        <a class="nav-link ms-lg-2" href="{{ route('about') }}"><i class="bi bi-info-circle infoHide"></i> About
                             Us</a>
                     </div>
 
-                    {{-- <div class="navbar-nav full-navbar-mobile ms-auto auth">
+                    <div class="navbar-nav full-navbar-mobile ms-auto auth">
                         @auth
                             <a class="nav-link m-auto me-lg-2" href="{{ route('dashboard') }}">Dashboard</a>
                             <a class="nav-link m-auto me-lg-2" href="{{ route('logout') }}">Logout</a>
@@ -79,7 +77,7 @@
                             <a class="nav-link m-auto me-lg-2" href="{{ route('login') }}">Login</a>
                             <a class="btn btn-primary" href="{{ route('register') }}">Register</a>
                         @endguest
-                    </div> --}}
+                    </div>
 
                 </div>
             </div>
@@ -170,8 +168,8 @@
         </div>
     </footer>
 
-    <script src="/js/app.js" type="module"></script>
-    <script src="node_modules/aos/dist/aos.js"></script>
+    <script src="{{ asset('/js/app.js') }}" type="module"></script>
+    <script src="{{ asset('/node_modules/aos/dist/aos.js') }}"></script>
     <script>
         AOS.init({
             once: true

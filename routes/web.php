@@ -16,59 +16,49 @@ use Illuminate\Support\Facades\Route;
 */
 
 //mainpages
-Route::view('/', 'home')
-    ->name('home');
-Route::view('/about', 'about')
-    ->name('about');
-Route::view('/event', 'event')
-    ->name('event');
-Route::view('/competition', 'competition')
-    ->name('competition');
+Route::view('/', 'home')->name('home');
+Route::view('/about', 'about')->name('about');
 Route::get('/home', function () {
     return redirect()->route('home');
 });
 
 //Events
-Route::view('/ilkommunity', 'event.ilk')
-    ->name('event.ilk');
-Route::view('/international', 'event.int')
-    ->name('event.int');
-Route::view('/workshop', 'event.work')
-    ->name('event.work');
+Route::view('/ilkommunity', 'event.ilk')->name('event.ilk');
+Route::view('/international', 'event.int')->name('event.int');
+Route::view('/workshop', 'event.work')->name('event.work');
 
 //Competition
-Route::view('/hacktoday', 'comp.hack')
-    ->name('comp.hack');
-Route::view('/uxdesign', 'comp.ux')
-    ->name('comp.ux');
-Route::view('/itbusiness', 'comp.busy')
-    ->name('comp.busy');
+Route::view('/hacktoday', 'comp.hack')->name('comp.hack');
+Route::view('/uxdesign', 'comp.ux')->name('comp.ux');
+Route::view('/itbusiness', 'comp.busy')->name('comp.busy');
+Route::get('/rulebook/{id}', [TeamController::class, 'rulebook']);  //Rulebooks
 
-//Rulebooks
-Route::get('/rulebook/{id}', [TeamController::class, 'rulebook']);
+//UserController
+Route::middleware(['guest'])->group(function () {
+    Route::get('/register', [UserController::class, 'indexRegister'])->name('register');
+    Route::post('/register', [UserController::class, 'register'])->name('auth.register');
 
+    Route::get('/login', [UserController::class, 'indexLogin'])->name('login');
+    Route::post('/login', [UserController::class, 'login'])->name('auth.login');
 
+    Route::get('/forgotpass', [UserController::class, 'indexForgot'])->name('forgotpass');
+    Route::post('/forgotpass', [UserController::class, 'forgot'])->name('auth.forgotpass');
 
-// //UserController
-// Route::middleware(['guest'])->group(function () {
-//     Route::get('/login', [UserController::class, 'login'])
-//         ->name('login');
-//     Route::get('/register', [UserController::class, 'register'])
-//         ->name('register');
-//     Route::post('/create', [UserController::class, 'create'])
-//         ->name('auth.create');
-//     Route::post('/check', [UserController::class, 'check'])
-//         ->name('auth.check');
-// });
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/logout', [UserController::class, 'logout'])
-//         ->name('logout');
-// });
+    Route::get('/reset/{user}/{token}', [UserController::class, 'indexReset'])->name('resetpass');
+    Route::post('/reset', [UserController::class, 'reset'])->name('auth.resetpass');
+});
+Route::middleware(['auth'])->group(function () {
+    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+});
 
-// //TeamController
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/dashboard', [TeamController::class, 'index'])
-//         ->name('dashboard');
-//     Route::post('/upload', [TeamController::class, 'upload'])
-//         ->name('upload');
-// });
+//TeamController
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [TeamController::class, 'index'])->name('dashboard');
+    Route::post('/uploadtrf', [TeamController::class, 'uploadtrf'])->name('upload.trf');
+    Route::post('/uploadprop', [TeamController::class, 'uploadprop'])->name('upload.proposal');
+    Route::post('/uploadlead', [TeamController::class, 'uploadlead'])->name('upload.leader');
+    Route::post('/uploadamem', [TeamController::class, 'uploadamem'])->name('upload.amember');
+    Route::post('/uploadbmem', [TeamController::class, 'uploadbmem'])->name('upload.bmember');
+});
+
+Route::view('/coba', 'auth.closereg');

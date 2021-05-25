@@ -1,24 +1,8 @@
-.competition-title img {
-    max-width: 65vw;
-    width: auto;
-    height: auto;
-    padding-left: 16vw;
-    margin: initial;
-}
-
-@media (min-width: 1400px) {
+@media (min-width: 992px) {
     .competition-title img {
-        max-width: 45vw;
-        display: block;
-        margin: 0 auto;
-        padding: initial;
-    }
-}
-
-@media (max-width: 576px) {
-    .competition-title img {
-        max-width: 75vw;
-        padding-left: 6vw;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -67,7 +51,7 @@
 }
 
 .competition-timeline {
-    margin: 5rem 0;    
+    margin: 5rem 0;
 }
 
 .competition-hadiah {
@@ -142,7 +126,7 @@
     right: -3em;
 }
 
-.itttri .ittsmallrect{
+.itttri .ittsmallrect {
     margin-top: 6em;
 }
 
@@ -156,6 +140,7 @@
 }
 
 @media (max-width: 576px) {
+
     .competition-main .ittsmall,
     .competition-main .ittrect,
     .competition-main .ittlarge,

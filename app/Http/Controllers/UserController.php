@@ -3,106 +3,219 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Leader;
+use App\Models\Amember;
+use App\Models\Bmember;
+use App\Mail\ForgotPass;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
-    function login() {
+    public function indexRegister()
+    {
+        if (Carbon::now('Asia/Jakarta') < Carbon::parse('01-08-2021', 'Asia/Jakarta')) {
+            return view('auth.register');
+        }
+        return view('auth.closereg');
+    }
+    public function indexLogin()
+    {
         return view('auth.login');
     }
-
-    function register() {
-        return view('auth.register');
+    public function indexForgot()
+    {
+        return view('auth.forgot');
+    }
+    public function indexReset(Request $request, User $user, $token)
+    {
+        if (!$request->hasValidSignature()) {
+            return redirect("/");
+        }
+        $cek = DB::table('reset_tokens')->where('id', $user->id)->first();
+        if ($cek->use == null)
+            return view('auth.reset', ['id' => $user->id, 'token' => $token]);
+        return redirect('/');
     }
 
-    function check(Request $request) {
+
+
+
+
+
+    public function login(Request $request)
+    {
         $request->validate([
-            'email'=>'required|email',
+            'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
-
-        Auth::attempt($request->only('email','password'));
-
-        if(Auth::attempt($request->only('email','password'))){
-            return redirect()->route('dashboard');
-        }else{
-            return back()->with('fail','Invalid Login Details');
+        if ($request->rememberme) {
+            $remember = $request->rememberme;
+        } else {
+            $remember = false;
         }
-        
-        //---------
 
-        // $credentials = $request->only('email', 'password');
+        if (User::where('email', '=', $request->email)->first() === null) {
+            return back()->with('fail', 'Email belum terdaftar');
+        }
 
-        // if (Auth::attempt($credentials)) {
-        //     $request->session()->regenerate();
-
-        //     return redirect()->intended('dashboard');
-        // }
-
-        // return back()->withErrors([
-        //     'email' => 'The provided credentials do not match our records.',
-        // ]);
-
-        //---------
-
-        // $request->validate([
-        //     'email'=>'required|email',
-        //     'password' => 'required|min:6',
-        // ]);
-
-        // $user = User::where('email', '=', $request->email)->first();
-        // if($user){
-        //     if(Hash::check($request->password, $user->password)){
-        //         $request->session()->put('LoggedUser',$user->id);
-        //         return redirect('/');
-        //     }
-        //     else{
-        //         return back()->with('fail','Wrong Password');
-        //     }
-        // }
-        // else{
-        //     return back()->with('fail','Email is not Registered');
-        // }
+        if (Auth::attempt($request->only('email', 'password'), $remember)) {
+            return redirect()->route('dashboard');
+        } else {
+            return back()->with('fail', 'Password Salah');
+        }
     }
 
-    function create(Request $request) {
+
+
+
+
+
+    public function register(Request $request)
+    {
+        switch ($request->comp) {
+            case "hack":
+                $jenis = 'hack';
+                break;
+            case "ux":
+                if (Carbon::now('Asia/Jakarta') < Carbon::parse('11-07-2021', 'Asia/Jakarta')) {
+                    $jenis = 'ux_1';
+                } else {
+                    $jenis = 'ux_2';
+                }
+                break;
+            case "busy":
+                if (Carbon::now('Asia/Jakarta') < Carbon::parse('11-07-2021', 'Asia/Jakarta')) {
+                    $jenis = 'busy_1';
+                } else {
+                    $jenis = 'busy_2';
+                }
+                break;
+            default:
+                return back()->with('fail', 'Competition Unavailable, Please Contact us through Contact Person');
+                break;
+        }
+
+        // Validate Form
         $request->validate([
-            'name'=>'required',
-            'email'=>'required|email|unique:users',
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:6|confirmed',
-            'password_confirmation' => 'required|min:6'
+            'password_confirmation' => 'required|min:6',
         ]);
 
         User::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>Hash::make($request->password),
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'jenis_lomba' => $jenis,
         ]);
 
-        Auth::attempt($request->only('email','password'));
+        Leader::create([
+            'name' => $request->name . ' Leader Name',
+        ]);
 
-        if(Auth::attempt($request->only('email','password'))){
+        Amember::create([
+            'name' => $request->name . ' Member 1 Name',
+        ]);
+
+        Bmember::create([
+            'name' => $request->name . ' Member 2 Name',
+        ]);
+
+        if (Auth::attempt($request->only('email', 'password'))) {
             return redirect()->route('dashboard');
-        }else{
-            return back()->with('fail','Something went wrong with registration');
+        } else {
+            return back()->with('fail', 'Error during login attempt, Please Contact us through Contact Person');
         }
-        // $user = new User;
-        // $user->name = $request->name;
-        // $user->email = $request->email;
-        // $user->password = Hash::make($request->password);
-        // $query = $user->save();
-
-        // if($query){
-        //     return back()->with('success','You have been successfully Registered');
-        // }else{
-        //     return back()->with('fail','Something went wrong with registration');
-        // }
     }
 
-    function logout() {
+
+
+
+
+
+    public function logout()
+    {
         Auth::logout();
         return redirect()->route('home');
+    }
+
+
+
+
+
+
+    public function forgot(Request $request)
+    {
+
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        $user = User::where('email', '=', $request->email)->first();
+        // dd('checkpoint user found');
+        if ($user) {
+
+            $token = Str::random(50);
+            DB::table('reset_tokens')
+                ->updateOrInsert(
+                    ['id' => $user->id],
+                    ['token' => $token, 'created_at' => Carbon::now('Asia/Jakarta'), 'updated_at' => Carbon::now('Asia/Jakarta'), 'use' => null]
+                );
+            // dd('checkpoint token');
+
+            $url = URL::temporarySignedRoute(
+                'resetpass',
+                now()->addMinutes(30),
+                ['user' => $user->id, 'token' => $token]
+            );
+            // dd('checkpoint url made');
+
+            Mail::to($request->email)->queue(new ForgotPass(['url' => $url, 'name' => $user->name]));
+            // dd('checkpoint email sent');
+            return back()->with('success', 'Email for Reset Password has been sent, please check your email');
+        }
+        return back()->with('fail', 'Email has not been registered yet');
+    }
+
+
+
+
+
+
+    public function reset(Request $request)
+    {
+        $request->validate([
+            'password' => 'required|confirmed',
+            'token' => 'required',
+            'id' => 'required',
+        ]);
+
+        $id = $request->id;
+        $token = $request->token;
+        $check = DB::table('reset_tokens')->where('id', $id)->where('token', $token)->first();
+        $user = User::find($id);
+
+        if ($check && $user) {
+            $date = Carbon::parse($check->created_at)->addMinutes(30);
+            $now = Carbon::now('Asia/Jakarta');
+            $gre = $now->lessThanOrEqualTo($date);
+            if ($check->use == null && $gre) {
+                // return [$user, $check->created_at, $date, $now, $gre];
+                $password = Hash::make($request->password);
+                $user->password = $password;
+                $user->save();
+                DB::table('reset_tokens')->where('id', $id)->where('token', $token)->update(['use' => true]);
+                return redirect()->route('login');
+            }
+        }
+        return redirect('/');
     }
 }

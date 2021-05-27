@@ -87,7 +87,7 @@
                         </div>
 
                         <div>
-                            <label for="trf" class="form-label">Evidence of transfer</label>
+                            <label for="trf" class="form-label">Proof of payment</label>
                             <input type="file" class="form-control" id="trf" name="trf" required>
                             @error('trf')<span>{{ $message }}</span>@enderror
                             <small><p class="mb-0">File format: jpeg, jpg, png.</p></small>
@@ -135,42 +135,50 @@
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Leader Name</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $leader->name }}">
+                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $leader->name }}" placeholder="Leader Name">
                         </div>
                         <div class="mb-3">
                             <label for="nim" class="form-label">Student ID Number</label>
-                            <input type="text" class="form-control" id="nim" name="nim" value="{{ $leader->nim }}">
+                            <input type="text" class="form-control" id="nim" name="nim" value="{{ $leader->nim }}" placeholder="Student ID Number">
                         </div>
                         <div class="mb-3">
                             <label for="institusi" class="form-label">Institution</label>
-                            <input type="text" class="form-control" id="institusi" name="institusi" value="{{ $leader->institusi }}">
+                            <input type="text" class="form-control" id="institusi" name="institusi" value="{{ $leader->institusi }}" placeholder="Institution">
                         </div>
                         <div class="mb-3">
                             <label for="prov" class="form-label">Province</label>
-                            <input type="text" class="form-control" id="prov" name="prov" value="{{ $leader->prov }}">
+                            <input type="text" class="form-control" id="prov" name="prov" value="{{ $leader->prov }}" placeholder="Province / State">
                         </div>
                         <div class="mb-3">
                             <label for="kota" class="form-label">City</label>
-                            <input type="text" class="form-control" id="kota" name="kota" value="{{ $leader->kota }}">
+                            <input type="text" class="form-control" id="kota" name="kota" value="{{ $leader->kota }}" placeholder="City">
                         </div>
                         <div class="mb-3">
                             <label for="idline" class="form-label">Line ID</label>
-                            <input type="text" class="form-control" id="idline" name="idline" value="{{ $leader->idline }}">
+                            <input type="text" class="form-control" id="idline" name="idline" value="{{ $leader->idline }}" placeholder="Line ID">
                         </div>
                     </div>
                     <!-- kanan -->
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ $leader->email }}">
+                            <input type="email" class="form-control" id="email" name="email" value="{{ $leader->email }}" placeholder="Email Address">
                         </div>
                         <div class="mb-3">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" id="phone" name="phone" value="{{ $leader->phone }}">
+                            <label for="phone1" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="phone1" name="phone" value="{{ $leader->phone }}" placeholder="Phone Number">
+                            
+                            <div class="mt-2 d-flex">
+                                <input class="form-check-input rounded-pill me-2" id="numberCek1" type="checkbox"
+                                    value="">
+                                <label class="form-check-label" for="numberCek">
+                                    My phone number is the same as whatsapp number
+                                </label>
+                            </div>
                         </div>
                         <div class="mb-3">
-                            <label for="whatsapp" class="form-label">Whatsapp</label>
-                            <input type="text" class="form-control" id="whatsapp" name="whatsapp" value="{{ $leader->whatsapp }}">
+                            <label for="whatsapp1" class="form-label">Whatsapp</label>
+                            <input type="text" class="form-control" id="whatsapp1" name="whatsapp" value="{{ $leader->whatsapp }}" placeholder="Whatsapp">
                         </div>
                         <div class="mb-3">
                             @if ( $status_ktm[0] > 1 )
@@ -215,42 +223,50 @@
                         <!-- kiri -->
                         <div class="mb-3">
                             <label for="nama" class="form-label">Member 1 Name</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $amember->name }}">
+                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $amember->name }}" placeholder="Member Name">
                         </div>
                         <div class="mb-3">
                             <label for="nim" class="form-label">Student ID Number</label>
-                            <input type="text" class="form-control" id="nim" name="nim" value="{{ $amember->nim }}">
+                            <input type="text" class="form-control" id="nim" name="nim" value="{{ $amember->nim }}" placeholder="Student ID Number">
                         </div>
                         <div class="mb-3">
                             <label for="institusi" class="form-label">Institution</label>
-                            <input type="text" class="form-control" id="institusi" name="institusi" value="{{ $amember->institusi }}">
+                            <input type="text" class="form-control" id="institusi" name="institusi" value="{{ $amember->institusi }}" placeholder="Institution">
                         </div>
                         <div class="mb-3">
                             <label for="prov" class="form-label">Province</label>
-                            <input type="text" class="form-control" id="prov" name="prov" value="{{ $amember->prov }}">
+                            <input type="text" class="form-control" id="prov" name="prov" value="{{ $amember->prov }}" placeholder="Province / State">
                         </div>
                         <div class="mb-3">
                             <label for="kota" class="form-label">City</label>
-                            <input type="text" class="form-control" id="kota" name="kota" value="{{ $amember->kota }}">
+                            <input type="text" class="form-control" id="kota" name="kota" value="{{ $amember->kota }}" placeholder="City">
                         </div>
                         <div class="mb-3">
                             <label for="idline" class="form-label">Line ID</label>
-                            <input type="text" class="form-control" id="idline" name="idline" value="{{ $amember->idline }}">
+                            <input type="text" class="form-control" id="idline" name="idline" value="{{ $amember->idline }}" placeholder="Line ID">
                         </div>
                     </div>
                     <!-- kanan -->
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ $amember->email }}">
+                            <input type="email" class="form-control" id="email" name="email" value="{{ $amember->email }}" placeholder="Email Address">
                         </div>
                         <div class="mb-3">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" id="phone" name="phone" value="{{ $amember->phone }}">
+                            <label for="phone2" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="phone2" name="phone" value="{{ $amember->phone }}" placeholder="Phone Number">
+                            
+                            <div class="mt-2 d-flex">
+                                <input class="form-check-input rounded-pill me-2" id="numberCek2" type="checkbox"
+                                    value="">
+                                <label class="form-check-label" for="numberCek">
+                                    My phone number is the same as whatsapp number
+                                </label>
+                            </div>
                         </div>
                         <div class="mb-3">
-                            <label for="whatsapp" class="form-label">Whatsapp</label>
-                            <input type="text" class="form-control" id="whatsapp" name="whatsapp" value="{{ $amember->whatsapp }}">
+                            <label for="whatsapp2" class="form-label">Whatsapp</label>
+                            <input type="text" class="form-control" id="whatsapp2" name="whatsapp" value="{{ $amember->whatsapp }}" placeholder="Whatsapp">
                         </div>
                         <div class="mb-3">
                             @if ( $status_ktm[1] > 1 )
@@ -295,42 +311,50 @@
                         <!-- kiri -->
                         <div class="mb-3">
                             <label for="nama" class="form-label">Member 2 Name</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $bmember->name }}">
+                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $bmember->name }}" placeholder="Member Name">
                         </div>
                         <div class="mb-3">
                             <label for="nim" class="form-label">Student ID Number</label>
-                            <input type="text" class="form-control" id="nim" name="nim" value="{{ $bmember->nim }}">
+                            <input type="text" class="form-control" id="nim" name="nim" value="{{ $bmember->nim }}" placeholder="Student ID Number">
                         </div>
                         <div class="mb-3">
                             <label for="institusi" class="form-label">Institution</label>
-                            <input type="text" class="form-control" id="institusi" name="institusi" value="{{ $bmember->institusi }}">
+                            <input type="text" class="form-control" id="institusi" name="institusi" value="{{ $bmember->institusi }}" placeholder="Institution">
                         </div>
                         <div class="mb-3">
                             <label for="prov" class="form-label">Province</label>
-                            <input type="text" class="form-control" id="prov" name="prov" value="{{ $bmember->prov }}">
+                            <input type="text" class="form-control" id="prov" name="prov" value="{{ $bmember->prov }}" placeholder="Province / State">
                         </div>
                         <div class="mb-3">
                             <label for="kota" class="form-label">City</label>
-                            <input type="text" class="form-control" id="kota" name="kota" value="{{ $bmember->kota }}">
+                            <input type="text" class="form-control" id="kota" name="kota" value="{{ $bmember->kota }}" placeholder="City">
                         </div>
                         <div class="mb-3">
                             <label for="idline" class="form-label">Line ID</label>
-                            <input type="text" class="form-control" id="idline" name="idline" value="{{ $bmember->idline }}">
+                            <input type="text" class="form-control" id="idline" name="idline" value="{{ $bmember->idline }}" placeholder="Line ID">
                         </div>
                     </div>
                     <!-- kanan -->
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ $bmember->email }}">
+                            <input type="email" class="form-control" id="email" name="email" value="{{ $bmember->email }}" placeholder="Email Address">
                         </div>
                         <div class="mb-3">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" id="phone" name="phone" value="{{ $bmember->phone }}">
+                            <label for="phone3" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="phone3" name="phone" value="{{ $bmember->phone }}" placeholder="Phone Number">
+                        
+                            <div class="mt-2 d-flex">
+                                <input class="form-check-input rounded-pill me-2" id="numberCek3" type="checkbox"
+                                    value="">
+                                <label class="form-check-label" for="numberCek3">
+                                    My phone number is the same as whatsapp number
+                                </label>
+                            </div>
                         </div>
                         <div class="mb-3">
-                            <label for="whatsapp" class="form-label">Whatsapp</label>
-                            <input type="text" class="form-control" id="whatsapp" name="whatsapp" value="{{ $bmember->whatsapp }}">
+                            <label for="whatsapp3" class="form-label">Whatsapp</label>
+                            <input type="text" class="form-control" id="whatsapp3" name="whatsapp" value="{{ $bmember->whatsapp }}" placeholder="Whatsapp">
                         </div>
                         <div class="mb-3">
                             @if ( $status_ktm[2] > 1 )

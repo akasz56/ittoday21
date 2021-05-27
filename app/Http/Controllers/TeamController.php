@@ -25,41 +25,41 @@ class TeamController extends Controller
         $status_ktm = array();
         if      ($leader->status_ktm == "pending")      {$status_ktm[0] = 1; $message_ktm[0] = "ID Card / Student ID Card currently in verifying process";}
         else if ($leader->status_ktm == "done")         {$status_ktm[0] = 2; $message_ktm[0] = "ID Card / Student ID Card has been verified";}
-        else if ($leader->status_ktm == "ulang")        {$status_ktm[0] = 0; $message_ktm[0] = "ID Card / Student ID Card is not verified, Please Reupload";}
+        else if ($leader->status_ktm == "reupload")        {$status_ktm[0] = 0; $message_ktm[0] = "ID Card / Student ID Card is not verified, Please Reupload";}
         else                                            {$status_ktm[0] = 0; $message_ktm[0] = "";}
 
         if      ($amember->status_ktm == "pending")     {$status_ktm[1] = 1; $message_ktm[1] = "ID Card / Student ID Card currently in verifying process";}
         else if ($amember->status_ktm == "done")        {$status_ktm[1] = 2; $message_ktm[1] = "ID Card / Student ID Card has been verified";}
-        else if ($amember->status_ktm == "ulang")       {$status_ktm[1] = 0; $message_ktm[1] = "ID Card / Student ID Card is not verified, Please Reupload";}
+        else if ($amember->status_ktm == "reupload")       {$status_ktm[1] = 0; $message_ktm[1] = "ID Card / Student ID Card is not verified, Please Reupload";}
         else                                            {$status_ktm[1] = 0; $message_ktm[1] = "";}
 
         if      ($bmember->status_ktm == "pending")     {$status_ktm[2] = 1; $message_ktm[2] = "ID Card / Student ID Card currently in verifying process";}
         else if ($bmember->status_ktm == "done")        {$status_ktm[2] = 2; $message_ktm[2] = "ID Card / Student ID Card has been verified";}
-        else if ($bmember->status_ktm == "ulang")       {$status_ktm[2] = 0; $message_ktm[2] = "ID Card / Student ID Card is not verified, Please Reupload";}
+        else if ($bmember->status_ktm == "reupload")       {$status_ktm[2] = 0; $message_ktm[2] = "ID Card / Student ID Card is not verified, Please Reupload";}
         else                                            {$status_ktm[2] = 0; $message_ktm[2] = "";}
 
         //------------ Biodata SKMA Status
         $status_skma = array();
         if      ($leader->status_skma == "pending")     {$status_skma[0] = 1; $message_skma[0] = "Certificate of Active Student currently in verifying process";}
         else if ($leader->status_skma == "done")        {$status_skma[0] = 2; $message_skma[0] = "Certificate of Active Student has been verified";}
-        else if ($leader->status_skma == "ulang")       {$status_skma[0] = 0; $message_skma[0] = "Certificate of Active Student is not verified, Please Reupload";}
+        else if ($leader->status_skma == "reupload")       {$status_skma[0] = 0; $message_skma[0] = "Certificate of Active Student is not verified, Please Reupload";}
         else                                            {$status_skma[0] = 0; $message_skma[0] = "";}
         
         if      ($amember->status_skma == "pending")    {$status_skma[1] = 1; $message_skma[1] = "Certificate of Active Student currently in verifying process";}
         else if ($amember->status_skma == "done")       {$status_skma[1] = 2; $message_skma[1] = "Certificate of Active Student has been verified";}
-        else if ($amember->status_skma == "ulang")      {$status_skma[1] = 0; $message_skma[1] = "Certificate of Active Student is not verified, Please Reupload";}
+        else if ($amember->status_skma == "reupload")      {$status_skma[1] = 0; $message_skma[1] = "Certificate of Active Student is not verified, Please Reupload";}
         else                                            {$status_skma[1] = 0; $message_skma[1] = "";}
 
         if      ($bmember->status_skma == "pending")    {$status_skma[2] = 1; $message_skma[2] = "Certificate of Active Student currently in verifying process";}
         else if ($bmember->status_skma == "done")       {$status_skma[2] = 2; $message_skma[2] = "Certificate of Active Student has been verified";}
-        else if ($bmember->status_skma == "ulang")      {$status_skma[2] = 0; $message_skma[2] = "Certificate of Active Student is not verified, Please Reupload";}
+        else if ($bmember->status_skma == "reupload")      {$status_skma[2] = 0; $message_skma[2] = "Certificate of Active Student is not verified, Please Reupload";}
         else                                            {$status_skma[2] = 0; $message_skma[2] = "";}
 
         //------------ Payment Status
         if (Auth::user()->file_bayar) { /* udah bayar */
             if      (Auth::user()->verified_bayar == "done")    {$status_bayar = 2;     $message_bayar = "Payment has been verified";}
             else if (Auth::user()->verified_bayar == "pending") {$status_bayar = 1;     $message_bayar = "Proof of payment currently in verifying process";}
-            else if (Auth::user()->verified_bayar == "ulang")   {$status_bayar = 0;     $message_bayar = "Your payment isn't verified, please reupload";}
+            else if (Auth::user()->verified_bayar == "reupload")   {$status_bayar = 0;     $message_bayar = "Your payment isn't verified, please reupload";}
         } else                          /* belum bayar */       {$status_bayar = 0;     $message_bayar = "";}
 
         //------------ Payment Info
@@ -137,15 +137,11 @@ class TeamController extends Controller
 
     public function uploadtrf(Request $request)
     {
-        $request->validate([
-            'name' => '',
-            'trf' => 'image',
-        ]);
+        $request->validate(['trf' => 'image',]);
         $user = User::find(Auth::user()->id);
 
 
         if ($request->hasFile('trf') && $request->file('trf')->isValid()) {
-            // harusnya nama filenya = idtim.namatim
             $namafile = Auth::user()->id . '.' . Auth::user()->name . '.' . $request->file('trf')->extension();
             $request->file('trf')->storeAs('trf', $namafile);
 
@@ -156,7 +152,7 @@ class TeamController extends Controller
 
             return back()->with('success.trf', 'File uploaded Successfully');
         }
-        return back()->with('fail.trf', 'Error occured during file upload, Please Contact us through Contact Person');
+        return back()->with('fail.trf', 'Error occured during file upload, Please try again');
     }
 
 
@@ -175,18 +171,16 @@ class TeamController extends Controller
 
 
         if ($request->hasFile('proposal') && $request->file('proposal')->isValid()) {
-            // harusnya nama filenya = idtim.namatim
             $namafile = basename($request->file('proposal')->getClientOriginalName(), '.' . $request->file('proposal')->getClientOriginalExtension());
             $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('proposal')->getClientOriginalExtension();
             $request->file('proposal')->storeAs('proposal', $namafile);
 
-            $user->verified_lomba = "done";
             $user->file_lomba = $namafile;
             $user->save();
 
             return back()->with('success.prop', 'Proposal file uploaded Successfully');
         }
-        return back()->with('fail.prop', 'Error occured during proposal file upload, Please Contact us through Contact Person');
+        return back()->with('fail.prop', 'Error occured during proposal file upload, Please try again');
     }
 
 
@@ -202,15 +196,15 @@ class TeamController extends Controller
     {
         $leader = Leader::find(Auth::user()->id);
 
-        $leader->name = $request->nama;             // nama
-        $leader->nim = $request->nim;               // nim
-        $leader->institusi = $request->institusi;   // institusi
-        $leader->prov = $request->prov;             // prov
-        $leader->kota = $request->kota;             // kota
-        $leader->idline = $request->idline;         // idline
-        $leader->email = $request->email;           // email
-        $leader->phone = $request->phone;           // phone
-        $leader->whatsapp = $request->whatsapp;     // whatsapp
+        if ($request->nama) {$leader->name = $request->nama;}                   // nama
+        if ($request->nim) {$leader->nim = $request->nim;}                      // nim
+        if ($request->institusi) {$leader->institusi = $request->institusi;}    // institusi
+        if ($request->prov) {$leader->prov = $request->prov;}                   // prov
+        if ($request->kota) {$leader->kota = $request->kota;}                   // kota
+        if ($request->idline) {$leader->idline = $request->idline;}             // idline
+        if ($request->email) {$leader->email = $request->email;}                // email
+        if ($request->phone) {$leader->phone = $request->phone;}                // phone
+        if ($request->whatsapp) {$leader->whatsapp = $request->whatsapp;}       // whatsapp
         $leader->save();
 
         // File Upload KTM
@@ -226,7 +220,7 @@ class TeamController extends Controller
                 $leader->ktm = $namafile;
                 $leader->save();
             } else {
-                return back()->with('fail.bio', 'Error occured during Leader ID Card / Student ID Card file upload, Please Contact us through Contact Person');
+                return back()->with('fail.bio', 'Error occured during Leader ID Card / Student ID Card file upload, Please try again');
             }
         }
 
@@ -243,7 +237,7 @@ class TeamController extends Controller
                 $leader->skma = $namafile;
                 $leader->save();
             } else {
-                return back()->with('fail.bio', 'Error occured during Leader Certificate of Active Student file upload, Please Contact us through Contact Person');
+                return back()->with('fail.bio', 'Error occured during Leader Certificate of Active Student file upload, Please try again');
             }
         }
 
@@ -263,15 +257,15 @@ class TeamController extends Controller
     {
         $amember = Amember::find(Auth::user()->id);
 
-        $amember->name = $request->nama;             // nama
-        $amember->nim = $request->nim;               // nim
-        $amember->institusi = $request->institusi;   // institusi
-        $amember->prov = $request->prov;             // prov
-        $amember->kota = $request->kota;             // kota
-        $amember->idline = $request->idline;         // idline
-        $amember->email = $request->email;           // email
-        $amember->phone = $request->phone;           // phone
-        $amember->whatsapp = $request->whatsapp;     // whatsapp
+        if ($request->nama) {$amember->name = $request->nama;}                   // nama
+        if ($request->nim) {$amember->nim = $request->nim;}                      // nim
+        if ($request->institusi) {$amember->institusi = $request->institusi;}    // institusi
+        if ($request->prov) {$amember->prov = $request->prov;}                   // prov
+        if ($request->kota) {$amember->kota = $request->kota;}                   // kota
+        if ($request->idline) {$amember->idline = $request->idline;}             // idline
+        if ($request->email) {$amember->email = $request->email;}                // email
+        if ($request->phone) {$amember->phone = $request->phone;}                // phone
+        if ($request->whatsapp) {$amember->whatsapp = $request->whatsapp;}       // whatsapp
         $amember->save();
 
         // File Upload KTM
@@ -287,7 +281,7 @@ class TeamController extends Controller
                 $amember->ktm = $namafile;
                 $amember->save();
             } else {
-                return back()->with('fail.bio', 'Error occured during Member 1 ID Card / Student ID Card file upload, Please Contact us through Contact Person');
+                return back()->with('fail.bio', 'Error occured during Member 1 ID Card / Student ID Card file upload, Please try again');
             }
         }
 
@@ -304,7 +298,7 @@ class TeamController extends Controller
                 $amember->skma = $namafile;
                 $amember->save();
             } else {
-                return back()->with('fail.bio', 'Error occured during Member 1 Certificate of Active Student file upload, Please Contact us through Contact Person');
+                return back()->with('fail.bio', 'Error occured during Member 1 Certificate of Active Student file upload, Please try again');
             }
         }
 
@@ -324,15 +318,15 @@ class TeamController extends Controller
     {
         $bmember = Bmember::find(Auth::user()->id);
 
-        $bmember->name = $request->nama;             // nama
-        $bmember->nim = $request->nim;               // nim
-        $bmember->institusi = $request->institusi;   // institusi
-        $bmember->prov = $request->prov;             // prov
-        $bmember->kota = $request->kota;             // kota
-        $bmember->idline = $request->idline;         // idline
-        $bmember->email = $request->email;           // email
-        $bmember->phone = $request->phone;           // phone
-        $bmember->whatsapp = $request->whatsapp;     // whatsapp
+        if ($request->nama) {$bmember->name = $request->nama;}                   // nama
+        if ($request->nim) {$bmember->nim = $request->nim;}                      // nim
+        if ($request->institusi) {$bmember->institusi = $request->institusi;}    // institusi
+        if ($request->prov) {$bmember->prov = $request->prov;}                   // prov
+        if ($request->kota) {$bmember->kota = $request->kota;}                   // kota
+        if ($request->idline) {$bmember->idline = $request->idline;}             // idline
+        if ($request->email) {$bmember->email = $request->email;}                // email
+        if ($request->phone) {$bmember->phone = $request->phone;}                // phone
+        if ($request->whatsapp) {$bmember->whatsapp = $request->whatsapp;}       // whatsapp
         $bmember->save();
 
         // File Upload KTM
@@ -348,7 +342,7 @@ class TeamController extends Controller
                 $bmember->ktm = $namafile;
                 $bmember->save();
             } else {
-                return back()->with('fail.bio', 'Error occured during Member 2 ID Card / Student ID Card file upload, Please Contact us through Contact Person');
+                return back()->with('fail.bio', 'Error occured during Member 2 ID Card / Student ID Card file upload, Please try again');
             }
         }
 
@@ -365,7 +359,7 @@ class TeamController extends Controller
                 $bmember->skma = $namafile;
                 $bmember->save();
             } else {
-                return back()->with('fail.bio', 'Error occured during Member 2 Certificate of Active Student file upload, Please Contact us through Contact Person');
+                return back()->with('fail.bio', 'Error occured during Member 2 Certificate of Active Student file upload, Please try again');
             }
         }
 

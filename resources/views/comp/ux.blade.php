@@ -31,7 +31,7 @@
                         user while using the application as a whole. Participants are expected to provide solutions
                         and ideas related to problems in their own country, with each team consisting up to three people.
                     </p>
-                    <p><span class="fw-bold">Category :</span> Undergrad Students</p>
+                    <p><span class="fw-bold">Category :</span> Undergraduate Students</p>
                     <p><span class="fw-bold">Registration Fee :</span></p>
                     <p>IDR 60.000,-/Team (Batch 1)</p>
                     <p>IDR 90.000,-/Team (Batch 2)</p>

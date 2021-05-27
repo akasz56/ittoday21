@@ -27,10 +27,10 @@
                     <p>
                         A national competition of information systems proficiency in security assessment and
                         vulnerability exploitation of various categories of problems. The competition is open
-                        to high school students, Undergrad Students, and the General Public. Each team
+                        to high school students, Undergraduate Students, and the General Public. Each team
                         consisting up to three people.
                     </p>
-                    <p><span class="fw-bold">Category :</span> High School Students, Undergrad Students, and the
+                    <p><span class="fw-bold">Category :</span> High School Students, Undergraduate Students, and the
                         General Public</p>
                     <p><span class="fw-bold">Registration Fee :</span> IDR 60.000,-/Team</p>
 

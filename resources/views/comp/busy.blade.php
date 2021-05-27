@@ -30,7 +30,7 @@
                         come up with bright ideas as a form of contribution to future business problems. Each team
                         consisting up to three people.
                     </p>
-                    <p><span class="fw-bold">Category :</span> Undergrad Students</p>
+                    <p><span class="fw-bold">Category :</span> Undergraduate Students</p>
                     <p><span class="fw-bold">Registration Fee :</span></p>
                     <p>IDR 60.000,-/Team (Batch 1)</p>
                     <p>IDR 90.000,-/Team (Batch 2)</p>

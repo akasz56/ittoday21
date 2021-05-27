@@ -46,6 +46,14 @@ body {
     background: linear-gradient(135deg, #2E847B, #2A9CBE, #A6B651);
 }
 
+.form-check-input {
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: #198754;
+    border-color: #198754;
+}
 
 /* -------------------------------NAVBAR------------------------------- */
 .dropdown .dropdown-menu .dropdown-item:active {

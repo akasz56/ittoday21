@@ -24,8 +24,8 @@
             <form action="{{ route('auth.forgotpass') }}" method="POST">
                 @csrf
                 <div class="mb-3 mt-4">
-                    <label for="exampleFormControlInput1" class="form-label">Your Registered Email Address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                    <label for="email" class="form-label">Your Registered Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email"
                         placeholder="name@address.com">
                 </div>
                 <button type="submit" class="btn btn-primary mt-3 d-block w-100">Send Reset Password Link</button>

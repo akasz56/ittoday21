@@ -120,14 +120,8 @@ class UserController extends Controller
         Leader::create([
             'name' => $request->name . ' Leader Name',
         ]);
-
-        Amember::create([
-            'name' => $request->name . ' Member 1 Name',
-        ]);
-
-        Bmember::create([
-            'name' => $request->name . ' Member 2 Name',
-        ]);
+        Amember::create();
+        Bmember::create();
 
         if (Auth::attempt($request->only('email', 'password'))) {
             return redirect()->route('dashboard');

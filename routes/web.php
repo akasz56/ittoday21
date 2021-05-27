@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -61,4 +62,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/uploadbmem', [TeamController::class, 'uploadbmem'])->name('upload.bmember');
 });
 
-Route::view('/coba', 'auth.closereg');
+//AdminDownloads
+Route::prefix('acasdl')->group(function() {
+    Route::get('prop/{namafile}', [AdminController::class, 'downloadProp']);
+    Route::get('trf/{namafile}', [AdminController::class, 'downloadtrf']);
+    Route::get('ktm/{namafile}', [AdminController::class, 'downloadktm']);
+    Route::get('skma/{namafile}', [AdminController::class, 'downloadskma']);
+});
+
+Route::view('/coba', 'mail.forgot', ['name' => 'user', 'url' => 'url',]);

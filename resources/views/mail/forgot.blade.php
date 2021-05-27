@@ -15,102 +15,36 @@
         }
 
         body {
-            color: white;
-            height: 98vh;
-            background-image: linear-gradient(120deg, #4A6FD0, #82BAEE, #CC4EF9);
-            background-repeat: no-repeat;
-
-            display: -webkit-box !important;
-            display: -ms-flexbox !important;
-            display: flex !important;
-
-            -webkit-box-orient: vertical !important;
-            -webkit-box-direction: normal !important;
-            -ms-flex-direction: column !important;
-            flex-direction: column !important;
-
-            -webkit-box-align: center !important;
-            -ms-flex-align: center !important;
-            align-items: center !important;
-
-            text-align: center;
+            width: 100vw;
         }
 
         /* Buttons & Links */
         .btn {
-            display: inline-block;
+            padding: 0.375rem 0.75rem;
+
+            font-size: 1rem;
             font-weight: 400;
             line-height: 1.5;
-            color: #212529;
-            text-align: center;
             text-decoration: none;
+
+            text-align: center;
             vertical-align: middle;
+            
             cursor: pointer;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            background-color: transparent;
-            border: 1px solid transparent;
-            padding: 0.375rem 0.75rem;
-            font-size: 1rem;
+            
             border-radius: 0.25rem;
-            -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-
-            border-color: white;
+            border: 1px white transparent;
             color: white;
             background: linear-gradient(135deg, #2E847B, #2A9CBE, #A6B651);
         }
-
-        /* Typography */
-
-        p {
-            line-height: 1.5em;
-        }
-
-        h1 {
-            font-style: normal;
-            font-weight: 600;
-            font-size: 4em;
-            letter-spacing: 0.05em;
-        }
-
-        @media (max-width: 1400px) {
-            h1 {
-                font-size: 3.6em;
-            }
-        }
-
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 2.8em;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.4em;
-            }
-
-            p {
-                font-size: .8em;
-            }
-        }
-
-        @media (max-width: 576px) {
-            h1 {
-                font-size: 8vw;
-            }
-        }
-
     </style>
 </head>
 
 <body>
-    <div class="body"></div>
     <!-- Title -->
     <h1>Hello, {{$name}}</h1>
 
@@ -123,7 +57,7 @@
         <p><a href="{{$url}}">{{$url}}</a></p>
     </div>
 
-    <div style="height: 100px"></div>
+    <div style="height: 25px"></div>
 
     <!-- Footer -->
     <div>

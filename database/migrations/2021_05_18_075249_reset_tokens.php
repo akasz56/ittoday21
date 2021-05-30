@@ -16,7 +16,7 @@ class ResetTokens extends Migration
         //
         Schema::create('reset_tokens', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary();
-            $table->string('token', 255)->unique();
+            $table->string('token')->unique();
             $table->timestamps();
             $table->boolean('use')->nullable();
 

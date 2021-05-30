@@ -111,6 +111,7 @@
 
     {{----------------------------------------- Team Biodata -----------------------------------------}}
     <h2 class="mt-5 pt-5 fw-bold mt-4">Team Biodata</h2>
+    <div class="alert alert-info">Please Complete the following biodata fields before <span class="fw-bold">8th August 2021</span></div>
     <nav>
         <div class="nav nav-tabs tabs-dash" id="nav-tab" role="tablist">
             <button class="nav-link tabs-dash active" id="nav-home-tab" data-bs-toggle="tab"
@@ -169,9 +170,9 @@
                             <input type="text" class="form-control" id="phone1" name="phone" value="{{ $leader->phone }}" placeholder="Phone Number">
                             
                             <div class="mt-2 d-flex">
-                                <input class="form-check-input rounded-pill me-2" id="numberCek1" type="checkbox"
+                                <input class="form-check-input rounded-pill me-2 my-auto checkContainer" id="numberCek1" type="checkbox"
                                     value="">
-                                <label class="form-check-label" for="numberCek">
+                                <label class="form-check-label" for="numberCek1">
                                     My phone number is the same as whatsapp number
                                 </label>
                             </div>
@@ -257,9 +258,9 @@
                             <input type="text" class="form-control" id="phone2" name="phone" value="{{ $amember->phone }}" placeholder="Phone Number">
                             
                             <div class="mt-2 d-flex">
-                                <input class="form-check-input rounded-pill me-2" id="numberCek2" type="checkbox"
+                                <input class="form-check-input rounded-pill me-2 my-auto checkContainer" id="numberCek2" type="checkbox"
                                     value="">
-                                <label class="form-check-label" for="numberCek">
+                                <label class="form-check-label" for="numberCek2">
                                     My phone number is the same as whatsapp number
                                 </label>
                             </div>
@@ -345,7 +346,7 @@
                             <input type="text" class="form-control" id="phone3" name="phone" value="{{ $bmember->phone }}" placeholder="Phone Number">
                         
                             <div class="mt-2 d-flex">
-                                <input class="form-check-input rounded-pill me-2" id="numberCek3" type="checkbox"
+                                <input class="form-check-input rounded-pill me-2 my-auto checkContainer" id="numberCek3" type="checkbox"
                                     value="">
                                 <label class="form-check-label" for="numberCek3">
                                     My phone number is the same as whatsapp number
@@ -393,6 +394,9 @@
     </div>
 
 {{----------------------------------------- Proposal Submission -----------------------------------------}}
+    @if ($jenis_lomba == "HackToday")
+
+    @else
     <h2 class="mt-5 pt-5 fw-bold mt-4 mb-3">Proposal Submission</h2>
     <div class="border p-3 rounded-3">
         <div class="row">
@@ -412,8 +416,9 @@
                         @csrf
                         <div>
                             <label for="proposal" class="form-label">Proposal File</label>
+                            @error('proposal') <small><p class="link-danger">{{ $message }}</p></small> @enderror
                             <input type="file" class="form-control" id="proposal" name="proposal">
-                            <small><p class="mb-0">File format: pdf</p></small>
+                            <small><p class="mb-0">File format: pdf | Max Size: 25 MB</p></small>
                         </div>
                         <div><button type="submit" class="btn btn-primary px-5 py-2">Submit</button></div>
                     </form>
@@ -422,6 +427,15 @@
             <div class="col-sm-12 col-md-6 col-lg-6"></div>
         </div>
     </div>
+    @endif
+
+
+{{----------------------------------------- Contact Person -----------------------------------------}}
+    <div class="mt-5">
+        <div>Having a problem during filling the team's data?</div>
+        <div>Contact the Admin : <a href="https://wa.me/+6289608703393" target="_blank">Akaasyah Nurfath (Whatsapp)</a></div>
+    </div>
+
 
 </main>
 @endsection

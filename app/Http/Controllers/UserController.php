@@ -174,7 +174,7 @@ class UserController extends Controller
 
             Mail::to($request->email)->queue(new ForgotPass(['url' => $url, 'name' => $user->name]));
             // dd('checkpoint email sent');
-            return back()->with('success', 'Email for Reset Password has been sent, please check your email');
+            return back()->with('success', 'Email for Reset Password has been sent, please check your inbox or your spam inbox');
         }
         return back()->with('fail', 'Email has not been registered yet');
     }

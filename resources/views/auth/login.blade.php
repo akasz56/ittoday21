@@ -12,6 +12,9 @@
 
             <h3 class="fw-bold">Login</h3>
 
+            @if ( session()->has('fail') )
+                <div class="alert alert-danger">{{ session()->get('fail') }}</div>
+            @endif
 
             <form action={{ route('auth.login') }} method="POST">
                 @csrf
@@ -29,8 +32,15 @@
                         <a href={{ route('forgotpass') }} class="ms-auto text-decoration-none">Forgot your
                             password?</a>
                     </div>
-                    <input type="password" class="form-control" id="password"
-                    name="password" placeholder="password" required>
+                    <div class="input-group">
+                        <!-- password input -->
+                        <input type="password" class="form-control form-control-appended sign-in-form"
+                            id="signInPassword" placeholder="password" required>
+                        <!-- show/hide password icon -->
+                        <span class="input-group-text lh-1 eye-icon-area">
+                            <i class="bi bi-eye cursor eye-icon" id="togglePassword" style="font-size:1.15em;"></i>
+                        </span>
+                    </div>
                     @error('password') <span>{{ $message }}</span> @enderror
                 </div>
 
@@ -45,7 +55,7 @@
             </form>
 
 
-            <p class="text-center">Don't have an account yet? <a href={{ route('register') }}
+            <p class="text-center mt-2">Don't have an account yet? <a href={{ route('register') }}
                     class="text-decoration-none">Register</a> </p>
         </div>
         <!-- bisa diisi dengan ilustrasi gan -->

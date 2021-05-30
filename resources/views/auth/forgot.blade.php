@@ -30,7 +30,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary mt-3 d-block w-100">Send Reset Password Link</button>
             </form>
-            <p class="text-center">Remember your password? <a href="{{ route('login') }}" class="text-decoration-none">Sign
+            <p class="text-center mt-2">Remember your password? <a href="{{ route('login') }}" class="text-decoration-none">Sign
                     in</a> </p>
         </div>
         <!-- bisa diisi dengan ilustrasi gan -->

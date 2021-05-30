@@ -39,35 +39,36 @@
                 <!-- nav link -->
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav _m-nav-mobile">
-                        <li class="nav-item dropdown ms-lg-2">
+                        <li class="nav-item py-1 dropdown ms-lg-2">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownEvent" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-calendar2-event calendarHide"></i> Events <i
+                                <i class="bi bi-calendar2-event calendarHide me-2"></i> Events <i
                                     class="bi bi-chevron-down icon-rotates"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownEvent">
-                                <li><a class="dropdown-item" href="{{ route('event.int') }}">International Seminar</a></li>
-                                <li><a class="dropdown-item" href="{{ route('event.ilk') }}">Ilkommunity</a></li>
-                                <li><a class="dropdown-item" href="{{ route('event.work') }}">Workshop</a></li>
+                                <li><a class="dropdown-item py-2" href="{{ route('event.int') }}">International Seminar</a></li>
+                                <li><a class="dropdown-item py-2" href="{{ route('event.ilk') }}">Ilkommunity</a></li>
+                                <li><a class="dropdown-item py-2" href="{{ route('event.work') }}">Workshop</a></li>
                             </ul>
                         </li>
 
-                        <li class="nav-item dropdown ms-lg-2">
+                        <li class="nav-item py-1 dropdown ms-lg-2">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownCompetitions" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-trophy trophyHide"></i> Competitions <i
+                                <i class="bi bi-trophy trophyHide me-2"></i> Competitions <i
                                     class="bi bi-chevron-down icon-rotates"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownCompetitions">
-                                <li><a class="dropdown-item" href="{{ route('comp.hack') }}">Hack Today</a></li>
-                                <li><a class="dropdown-item" href="{{ route('comp.ux') }}">UX Today</a></li>
-                                <li><a class="dropdown-item" href="{{ route('comp.busy') }}">IT Business Competition</a></li>
+                                <li><a class="dropdown-item py-2" href="{{ route('comp.hack') }}">Hack Today</a></li>
+                                <li><a class="dropdown-item py-2" href="{{ route('comp.ux') }}">UX Today</a></li>
+                                <li><a class="dropdown-item py-2" href="{{ route('comp.busy') }}">IT Business Competition</a></li>
                             </ul>
                         </li>
-                        <a class="nav-link ms-lg-2" href="{{ route('about') }}"><i class="bi bi-info-circle infoHide"></i> About
+                        <a class="nav-link my-1 ms-lg-2" href="{{ route('about') }}"><i class="bi bi-info-circle infoHide me-2"></i> About
                             Us</a>
                     </div>
 
+                    @if (Carbon\Carbon::now('Asia/Jakarta')->gte(Carbon\Carbon::parse('01-06-2021', 'Asia/Jakarta')))
                     <div class="navbar-nav full-navbar-mobile ms-auto auth">
                         @auth
                             <a class="nav-link m-auto me-lg-2" href="{{ route('dashboard') }}">Dashboard</a>
@@ -78,6 +79,7 @@
                             <a class="btn btn-primary" href="{{ route('register') }}">Register</a>
                         @endguest
                     </div>
+                    @endif
 
                 </div>
             </div>

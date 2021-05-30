@@ -39,19 +39,33 @@
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password"
-                        placeholder="Password" required>
+                    <div class="input-group">
+                        <!-- password input -->
+                        <input type="password" class="form-control form-control-appended sign-in-form"
+                            id="signInPassword" placeholder="password" required>
+                        <!-- show/hide password icon -->
+                        <span class="input-group-text lh-1 eye-icon-area">
+                            <i class="bi bi-eye cursor eye-icon" id="togglePassword" style="font-size:1.15em;"></i>
+                        </span>
+                    </div>
                     <span>@error('password'){{ $message }}@enderror</span>
                 </div>
                 <div class="mb-3">
                     <label for="password_confirmation" class="form-label">Password Confirmation</label>
-                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
-                        placeholder="Password" required>
+                    <div class="input-group">
+                        <!-- password input -->
+                        <input type="password" class="form-control form-control-appended sign-in-form"
+                            id="signInPassword2" placeholder="password confirmation" required>
+                        <!-- show/hide password icon -->
+                        <span class="input-group-text lh-1 eye-icon-area">
+                            <i class="bi bi-eye cursor eye-icon" id="togglePassword2" style="font-size:1.15em;"></i>
+                        </span>
+                    </div>
                     <span>@error('password_confirmation'){{ $message }}@enderror</span>
                 </div>
                 <button type="submit" class="btn btn-primary mt-3 d-block w-100">Register</button>
             </form>
-            <p class="text-center">Already have an account? <a href="{{ route('login') }}"
+            <p class="text-center mt-2">Already have an account? <a href="{{ route('login') }}"
                     class="text-decoration-none">Sign in</a> </p>
         </div>
         <!-- bisa diisi dengan ilustrasi gan -->

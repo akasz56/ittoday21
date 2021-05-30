@@ -166,7 +166,7 @@ class TeamController extends Controller
 
     public function uploadprop(Request $request)
     {
-        $request->validate(['proposal' => 'required|mimes:pdf']);
+        $request->validate(['proposal' => 'required|mimes:pdf|max:25600']);
         $user = User::find(Auth::user()->id);
 
 

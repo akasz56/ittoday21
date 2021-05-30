@@ -78,8 +78,7 @@
                         An International Webinar attended by three notable professional speakers in their respective
                         fields. Discussing various interesting topics regarding the application of Information
                         Technology on Agro-Maritime concerns. Enables interaction among speakers and over 400
-                        webinar
-                        participants from around the world
+                        webinar participants from around the world
                     </p>
                 </div>
                 <div class="d-flex justify-content-end">

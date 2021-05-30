@@ -30,7 +30,7 @@ Route::view('/workshop', 'event.work')->name('event.work');
 
 //Competition
 Route::view('/hacktoday', 'comp.hack')->name('comp.hack');
-Route::view('/uxdesign', 'comp.ux')->name('comp.ux');
+Route::view('/uxtoday', 'comp.ux')->name('comp.ux');
 Route::view('/itbusiness', 'comp.busy')->name('comp.busy');
 Route::get('/rulebook/{id}', [TeamController::class, 'rulebook']);  //Rulebooks
 
@@ -42,8 +42,8 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/login', [UserController::class, 'indexLogin'])->name('login');
     Route::post('/login', [UserController::class, 'login'])->name('auth.login');
 
-    Route::get('/forgotpass', [UserController::class, 'indexForgot'])->name('forgotpass');
-    Route::post('/forgotpass', [UserController::class, 'forgot'])->name('auth.forgotpass');
+    Route::get('/forgot', [UserController::class, 'indexForgot'])->name('forgotpass');
+    Route::post('/forgot', [UserController::class, 'forgot'])->name('auth.forgotpass');
 
     Route::get('/reset/{user}/{token}', [UserController::class, 'indexReset'])->name('resetpass');
     Route::post('/reset', [UserController::class, 'reset'])->name('auth.resetpass');
@@ -69,5 +69,3 @@ Route::prefix('acasdl')->group(function() {
     Route::get('ktm/{namafile}', [AdminController::class, 'downloadktm']);
     Route::get('skma/{namafile}', [AdminController::class, 'downloadskma']);
 });
-
-Route::view('/coba', 'mail.forgot', ['name' => 'user', 'url' => 'url',]);

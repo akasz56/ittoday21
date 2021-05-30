@@ -27,38 +27,14 @@ class UserSeeder extends Seeder
 
         Leader::create([
             'name' => 'Admin Leader Name',
-            'nim' => 'G64190065',
-            'institusi' => 'IPB University',
-            'prov' => 'Jawa Barat',
-            'kota' => 'Bogor',
-            'email' => 'akaasyahnurfath@gmail.com',
-            'phone' => '089608703393',
-            'whatsapp' => '089608703393',
-            'idline' => 'indo14id',
         ]);
 
         Amember::create([
             'name' => 'Admin Member 1 Name',
-            'nim' => 'G64190065',
-            'institusi' => 'IPB University',
-            'prov' => 'Jawa Barat',
-            'kota' => 'Bogor',
-            'email' => 'akaasyahnurfath@gmail.com',
-            'phone' => '089608703393',
-            'whatsapp' => '089608703393',
-            'idline' => 'indo14id',
         ]);
 
         Bmember::create([
             'name' => 'Admin Member 2 Name',
-            'nim' => 'G64190065',
-            'institusi' => 'IPB University',
-            'prov' => 'Jawa Barat',
-            'kota' => 'Bogor',
-            'email' => 'akaasyahnurfath@gmail.com',
-            'phone' => '089608703393',
-            'whatsapp' => '089608703393',
-            'idline' => 'indo14id',
         ]);
 
         // BITCH ------------------------------------------------------------------------------
@@ -72,38 +48,35 @@ class UserSeeder extends Seeder
 
         Leader::create([
             'name' => 'test Leader Name',
-            'nim' => 'G64190065',
-            'institusi' => 'Universitas Dramaga',
-            'prov' => 'Jawa Barat',
-            'kota' => 'Bogor',
-            'email' => 'akaasyahn@gmail.com',
-            'phone' => '085157100780',
-            'whatsapp' => '085157100780',
-            'idline' => 'kazios',
         ]);
 
         Amember::create([
             'name' => 'test Member 1 Name',
-            'nim' => 'G64190065',
-            'institusi' => 'Universitas Dramaga',
-            'prov' => 'Jawa Barat',
-            'kota' => 'Bogor',
-            'email' => 'akaasyahn@gmail.com',
-            'phone' => '085157100780',
-            'whatsapp' => '085157100780',
-            'idline' => 'kazios',
         ]);
 
         Bmember::create([
             'name' => 'test Member 2 Name',
-            'nim' => 'G64190065',
-            'institusi' => 'Universitas Dramaga',
-            'prov' => 'Jawa Barat',
-            'kota' => 'Bogor',
-            'email' => 'akaasyahn@gmail.com',
-            'phone' => '085157100780',
-            'whatsapp' => '085157100780',
-            'idline' => 'kazios',
+        ]);
+
+        // BITCH ------------------------------------------------------------------------------
+        
+        User::create([
+            'name' => 'ini contoh tim',
+            'email' => 'contoh@example.com',
+            'password' => Hash::make('contoh123'),
+            'jenis_lomba' => 'busy_1',
+        ]);
+
+        Leader::create([
+            'name' => 'contoh Leader Name',
+        ]);
+
+        Amember::create([
+            'name' => 'contoh Member 1 Name',
+        ]);
+
+        Bmember::create([
+            'name' => 'contoh Member 2 Name',
         ]);
         }
     }

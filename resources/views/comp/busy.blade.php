@@ -74,10 +74,6 @@
                         <p>11th July - 1th August 2021</p>
                     </div>
                     <div class=" flex-fill time">
-                        <h3>Theme Announcement</h3>
-                        <p>13th August 2021</p>
-                    </div>
-                    <div class=" flex-fill time">
                         <h3>Proposal Submission</h3>
                         <p>14th - 21st August 2021</p>
                     </div>

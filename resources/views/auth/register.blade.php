@@ -42,7 +42,7 @@
                     <div class="input-group">
                         <!-- password input -->
                         <input type="password" class="form-control form-control-appended sign-in-form"
-                            id="signInPassword" placeholder="password" required>
+                            id="signInPassword" name="password" placeholder="password" required>
                         <!-- show/hide password icon -->
                         <span class="input-group-text lh-1 eye-icon-area">
                             <i class="bi bi-eye cursor eye-icon" id="togglePassword" style="font-size:1.15em;"></i>
@@ -55,7 +55,7 @@
                     <div class="input-group">
                         <!-- password input -->
                         <input type="password" class="form-control form-control-appended sign-in-form"
-                            id="signInPassword2" placeholder="password confirmation" required>
+                            id="signInPassword2" name="password" placeholder="password confirmation" required>
                         <!-- show/hide password icon -->
                         <span class="input-group-text lh-1 eye-icon-area">
                             <i class="bi bi-eye cursor eye-icon" id="togglePassword2" style="font-size:1.15em;"></i>

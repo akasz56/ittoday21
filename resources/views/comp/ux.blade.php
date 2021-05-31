@@ -36,12 +36,14 @@
                     <p>IDR 60.000,-/Team (Batch 1)</p>
                     <p>IDR 90.000,-/Team (Batch 2)</p>
 
+                    @if (Carbon\Carbon::now('Asia/Jakarta')->gte(Carbon\Carbon::parse('01-06-2021', 'Asia/Jakarta')))
                     @auth
                         <a href={{ route('dashboard') }} class="btn btn-success">Go to Dashboard</a>
                     @endauth
                     @guest
                         <a href={{ route('auth.register') }} class="btn btn-success">Register your team</a>
                     @endguest
+                    @endif
                     <a href="/rulebook/ux" class="btn btn-outline-success">Rulebook</a>
 
                     <p class="fw-bold mt-4">Contact Person :</p>

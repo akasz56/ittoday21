@@ -135,15 +135,15 @@
                     <!-- kiri -->
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Leader Name</label>
+                            <label for="nama" class="form-label reqform">Leader Name</label>
                             <input type="text" class="form-control" id="nama" name="nama" value="{{ $leader->name }}" placeholder="Leader Name">
                         </div>
                         <div class="mb-3">
-                            <label for="nim" class="form-label">Student ID Number</label>
+                            <label for="nim" class="form-label reqform">Student ID Number</label>
                             <input type="text" class="form-control" id="nim" name="nim" value="{{ $leader->nim }}" placeholder="Student ID Number">
                         </div>
                         <div class="mb-3">
-                            <label for="institusi" class="form-label">Institution</label>
+                            <label for="institusi" class="form-label reqform">Institution</label>
                             <input type="text" class="form-control" id="institusi" name="institusi" value="{{ $leader->institusi }}" placeholder="Institution">
                         </div>
                         <div class="mb-3">
@@ -162,11 +162,11 @@
                     <!-- kanan -->
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
+                            <label for="email" class="form-label reqform">Email Address</label>
                             <input type="email" class="form-control" id="email" name="email" value="{{ $leader->email }}" placeholder="Email Address">
                         </div>
                         <div class="mb-3">
-                            <label for="phone1" class="form-label">Phone Number</label>
+                            <label for="phone1" class="form-label reqform">Phone Number</label>
                             <input type="text" class="form-control" id="phone1" name="phone" value="{{ $leader->phone }}" placeholder="Phone Number">
                             
                             <div class="mt-2 d-flex">
@@ -190,7 +190,7 @@
                                 @if ( $message_ktm[0] )
                                     <div class="alert alert-danger">{{ $message_ktm[0] }}</div>
                                 @endif
-                                <label for="ktm" class="form-label">ID Card / Student ID Card</label>
+                                <label for="ktm" class="form-label reqform">ID Card / Student ID Card (Kartu Tanda Mahasiswa / Kartu Tanda Penduduk)</label>
                                 <input type="file" class="form-control" id="ktm" name="ktm">
                                 <small><p class="mb-0">File format: jpeg, jpg, png, pdf.</p></small>
                             @endif
@@ -204,9 +204,16 @@
                                 @if ( $message_skma[0] )
                                     <div class="alert alert-danger">{{ $message_skma[0] }}</div>
                                 @endif
-                                <label for="skma" class="form-label">Certificate of Active Student</label>
-                                <input type="file" class="form-control" id="skma" name="skma">
-                                <small><p class="mb-0">File format: jpeg, jpg, png, pdf.</p></small>
+                                @if ( $jenis_lomba == "HackToday" )
+                                    <label for="skma" class="form-label reqform">Surat Keterangan Mahasiswa Aktif / Siswa Aktif</label>
+                                    <input type="file" class="form-control" id="skma" name="skma">
+                                    <small><p class="mb-0">File format: jpeg, jpg, png, pdf.</p></small>
+                                    <small><p class="mb-0">Wajib diisi untuk peserta Hacktoday yang berstatus Mahasiswa dan Siswa/i SMA</p></small>
+                                @else
+                                    <label for="skma" class="form-label">Certificate of Active Student (Surat Keterangan Mahasiswa Aktif)</label>
+                                    <input type="file" class="form-control" id="skma" name="skma">
+                                    <small><p class="mb-0">File format: jpeg, jpg, png, pdf.</p></small>
+                                @endif
                             @endif
                         </div>
                     </div>
@@ -223,15 +230,15 @@
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <!-- kiri -->
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Member 1 Name</label>
+                            <label for="nama" class="form-label reqform">Member 1 Name</label>
                             <input type="text" class="form-control" id="nama" name="nama" value="{{ $amember->name }}" placeholder="Member Name">
                         </div>
                         <div class="mb-3">
-                            <label for="nim" class="form-label">Student ID Number</label>
+                            <label for="nim" class="form-label reqform">Student ID Number</label>
                             <input type="text" class="form-control" id="nim" name="nim" value="{{ $amember->nim }}" placeholder="Student ID Number">
                         </div>
                         <div class="mb-3">
-                            <label for="institusi" class="form-label">Institution</label>
+                            <label for="institusi" class="form-label reqform">Institution</label>
                             <input type="text" class="form-control" id="institusi" name="institusi" value="{{ $amember->institusi }}" placeholder="Institution">
                         </div>
                         <div class="mb-3">
@@ -250,11 +257,11 @@
                     <!-- kanan -->
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
+                            <label for="email" class="form-label reqform">Email Address</label>
                             <input type="email" class="form-control" id="email" name="email" value="{{ $amember->email }}" placeholder="Email Address">
                         </div>
                         <div class="mb-3">
-                            <label for="phone2" class="form-label">Phone Number</label>
+                            <label for="phone2" class="form-label reqform">Phone Number</label>
                             <input type="text" class="form-control" id="phone2" name="phone" value="{{ $amember->phone }}" placeholder="Phone Number">
                             
                             <div class="mt-2 d-flex">
@@ -278,7 +285,7 @@
                                 @if ( $message_ktm[1] )
                                     <div class="alert alert-danger">{{ $message_ktm[1] }}</div>
                                 @endif
-                                <label for="ktm" class="form-label">ID Card / Student ID Card</label>
+                                <label for="ktm" class="form-label reqform">ID Card / Student ID Card (Kartu Tanda Mahasiswa / Kartu Tanda Penduduk)</label>
                                 <input type="file" class="form-control" id="ktm" name="ktm">
                                 <small><p class="mb-0">File format: jpeg, jpg, png, pdf.</p></small>
                             @endif
@@ -292,9 +299,16 @@
                                 @if ( $message_skma[1] )
                                     <div class="alert alert-danger">{{ $message_skma[1] }}</div>
                                 @endif
-                                <label for="skma" class="form-label">Certificate of Active Student</label>
-                                <input type="file" class="form-control" id="skma" name="skma">
-                                <small><p class="mb-0">File format: jpeg, jpg, png, pdf.</p></small>
+                                @if ( $jenis_lomba == "HackToday" )
+                                    <label for="skma" class="form-label reqform">Surat Keterangan Mahasiswa Aktif / Siswa Aktif</label>
+                                    <input type="file" class="form-control" id="skma" name="skma">
+                                    <small><p class="mb-0">File format: jpeg, jpg, png, pdf.</p></small>
+                                    <small><p class="mb-0">Wajib diisi untuk peserta Hacktoday yang berstatus Mahasiswa dan Siswa/i SMA</p></small>
+                                @else
+                                    <label for="skma" class="form-label">Certificate of Active Student (Surat Keterangan Mahasiswa Aktif)</label>
+                                    <input type="file" class="form-control" id="skma" name="skma">
+                                    <small><p class="mb-0">File format: jpeg, jpg, png, pdf.</p></small>
+                                @endif
                             @endif
                         </div>
                     </div>
@@ -311,15 +325,15 @@
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <!-- kiri -->
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Member 2 Name</label>
+                            <label for="nama" class="form-label reqform">Member 2 Name</label>
                             <input type="text" class="form-control" id="nama" name="nama" value="{{ $bmember->name }}" placeholder="Member Name">
                         </div>
                         <div class="mb-3">
-                            <label for="nim" class="form-label">Student ID Number</label>
+                            <label for="nim" class="form-label reqform">Student ID Number</label>
                             <input type="text" class="form-control" id="nim" name="nim" value="{{ $bmember->nim }}" placeholder="Student ID Number">
                         </div>
                         <div class="mb-3">
-                            <label for="institusi" class="form-label">Institution</label>
+                            <label for="institusi" class="form-label reqform">Institution</label>
                             <input type="text" class="form-control" id="institusi" name="institusi" value="{{ $bmember->institusi }}" placeholder="Institution">
                         </div>
                         <div class="mb-3">
@@ -338,11 +352,11 @@
                     <!-- kanan -->
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
+                            <label for="email" class="form-label reqform">Email Address</label>
                             <input type="email" class="form-control" id="email" name="email" value="{{ $bmember->email }}" placeholder="Email Address">
                         </div>
                         <div class="mb-3">
-                            <label for="phone3" class="form-label">Phone Number</label>
+                            <label for="phone3" class="form-label reqform">Phone Number</label>
                             <input type="text" class="form-control" id="phone3" name="phone" value="{{ $bmember->phone }}" placeholder="Phone Number">
                         
                             <div class="mt-2 d-flex">
@@ -366,7 +380,7 @@
                                 @if ( $message_ktm[2] )
                                     <div class="alert alert-danger">{{ $message_ktm[2] }}</div>
                                 @endif
-                                <label for="ktm" class="form-label">ID Card / Student ID Card</label>
+                                <label for="ktm" class="form-label reqform">ID Card / Student ID Card (Kartu Tanda Mahasiswa / Kartu Tanda Penduduk)</label>
                                 <input type="file" class="form-control" id="ktm" name="ktm">
                                 <small><p class="mb-0">File format: jpeg, jpg, png, pdf.</p></small>
                             @endif
@@ -380,9 +394,16 @@
                                 @if ( $message_skma[2] )
                                     <div class="alert alert-danger">{{ $message_skma[2] }}</div>
                                 @endif
-                                <label for="skma" class="form-label">Certificate of Active Student</label>
-                                <input type="file" class="form-control" id="skma" name="skma">
-                                <small><p class="mb-0">File format: jpeg, jpg, png, pdf.</p></small>
+                                @if ( $jenis_lomba == "HackToday" )
+                                    <label for="skma" class="form-label reqform">Surat Keterangan Mahasiswa Aktif / Siswa Aktif</label>
+                                    <input type="file" class="form-control" id="skma" name="skma">
+                                    <small><p class="mb-0">File format: jpeg, jpg, png, pdf.</p></small>
+                                    <small><p class="mb-0">Wajib diisi untuk peserta Hacktoday yang berstatus Mahasiswa dan Siswa/i SMA</p></small>
+                                @else
+                                    <label for="skma" class="form-label">Certificate of Active Student (Surat Keterangan Mahasiswa Aktif)</label>
+                                    <input type="file" class="form-control" id="skma" name="skma">
+                                    <small><p class="mb-0">File format: jpeg, jpg, png, pdf.</p></small>
+                                @endif
                             @endif
                         </div>
                     </div>

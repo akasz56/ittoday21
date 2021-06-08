@@ -142,7 +142,8 @@ class TeamController extends Controller
 
 
         if ($request->hasFile('trf') && $request->file('trf')->isValid()) {
-            $namafile = Auth::user()->id . '.' . Auth::user()->name . '.' . $request->file('trf')->extension();
+            $namafile = Auth::user()->id . '-trf.' . $request->file('trf')->extension();
+            // $namafile = Auth::user()->id . '.' . Auth::user()->name . '.' . $request->file('trf')->extension();
             $request->file('trf')->storeAs('trf', $namafile);
 
             $user->bank = $request->nama;
@@ -171,8 +172,9 @@ class TeamController extends Controller
 
 
         if ($request->hasFile('proposal') && $request->file('proposal')->isValid()) {
-            $namafile = basename($request->file('proposal')->getClientOriginalName(), '.' . $request->file('proposal')->getClientOriginalExtension());
-            $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('proposal')->getClientOriginalExtension();
+            $namafile = Auth::user()->id . '-proposal.' . $request->file('proposal')->getClientOriginalExtension();
+            // $namafile = basename($request->file('proposal')->getClientOriginalName(), '.' . $request->file('proposal')->getClientOriginalExtension());
+            // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('proposal')->getClientOriginalExtension();
             $request->file('proposal')->storeAs('proposal', $namafile);
 
             $user->file_lomba = $namafile;
@@ -212,8 +214,9 @@ class TeamController extends Controller
             $request->validate(['ktm' => 'required|mimes:jpeg,jpg,png,pdf',]);
 
             if ($request->hasFile('ktm') && $request->file('ktm')->isValid()) {
-                $namafile = basename($request->file('ktm')->getClientOriginalName(), '.' . $request->file('ktm')->getClientOriginalExtension());
-                $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('ktm')->getClientOriginalExtension();
+                $namafile = Auth::user()->id . '-leader-ktm.' . $request->file('ktm')->getClientOriginalExtension();
+                // $namafile = basename($request->file('ktm')->getClientOriginalName(), '.' . $request->file('ktm')->getClientOriginalExtension());
+                // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('ktm')->getClientOriginalExtension();
                 $request->file('ktm')->storeAs('ktm', $namafile);
     
                 $leader->status_ktm = "pending";
@@ -229,8 +232,9 @@ class TeamController extends Controller
             $request->validate(['skma' => 'required|mimes:jpeg,jpg,png,pdf',]);
 
             if ($request->hasFile('skma') && $request->file('skma')->isValid()) {
-                $namafile = basename($request->file('skma')->getClientOriginalName(), '.' . $request->file('skma')->getClientOriginalExtension());
-                $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('skma')->getClientOriginalExtension();
+                $namafile = Auth::user()->id . '-leader-skma.'. $request->file('skma')->getClientOriginalExtension();
+                // $namafile = basename($request->file('skma')->getClientOriginalName(), '.' . $request->file('skma')->getClientOriginalExtension());
+                // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('skma')->getClientOriginalExtension();
                 $request->file('skma')->storeAs('skma', $namafile);
     
                 $leader->status_skma = "pending";
@@ -273,8 +277,9 @@ class TeamController extends Controller
             $request->validate(['ktm' => 'required|mimes:jpeg,jpg,png,pdf',]);
 
             if ($request->hasFile('ktm') && $request->file('ktm')->isValid()) {
-                $namafile = basename($request->file('ktm')->getClientOriginalName(), '.' . $request->file('ktm')->getClientOriginalExtension());
-                $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('ktm')->getClientOriginalExtension();
+                $namafile = Auth::user()->id . '-amem-ktm.' . $request->file('ktm')->getClientOriginalExtension();
+                // $namafile = basename($request->file('ktm')->getClientOriginalName(), '.' . $request->file('ktm')->getClientOriginalExtension());
+                // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('ktm')->getClientOriginalExtension();
                 $request->file('ktm')->storeAs('ktm', $namafile);
     
                 $amember->status_ktm = "pending";
@@ -290,8 +295,9 @@ class TeamController extends Controller
             $request->validate(['skma' => 'required|mimes:jpeg,jpg,png,pdf',]);
 
             if ($request->hasFile('skma') && $request->file('skma')->isValid()) {
-                $namafile = basename($request->file('skma')->getClientOriginalName(), '.' . $request->file('skma')->getClientOriginalExtension());
-                $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('skma')->getClientOriginalExtension();
+                $namafile = Auth::user()->id . '-amem-skma.'. $request->file('skma')->getClientOriginalExtension();
+                // $namafile = basename($request->file('skma')->getClientOriginalName(), '.' . $request->file('skma')->getClientOriginalExtension());
+                // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('skma')->getClientOriginalExtension();
                 $request->file('skma')->storeAs('skma', $namafile);
     
                 $amember->status_skma = "pending";
@@ -334,8 +340,9 @@ class TeamController extends Controller
             $request->validate(['ktm' => 'required|mimes:jpeg,jpg,png,pdf',]);
 
             if ($request->hasFile('ktm') && $request->file('ktm')->isValid()) {
-                $namafile = basename($request->file('ktm')->getClientOriginalName(), '.' . $request->file('ktm')->getClientOriginalExtension());
-                $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('ktm')->getClientOriginalExtension();
+                $namafile = Auth::user()->id . '-bmem-ktm.' . $request->file('ktm')->getClientOriginalExtension();
+                // $namafile = basename($request->file('ktm')->getClientOriginalName(), '.' . $request->file('ktm')->getClientOriginalExtension());
+                // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('ktm')->getClientOriginalExtension();
                 $request->file('ktm')->storeAs('ktm', $namafile);
     
                 $bmember->status_ktm = "pending";
@@ -351,8 +358,9 @@ class TeamController extends Controller
             $request->validate(['skma' => 'required|mimes:jpeg,jpg,png,pdf',]);
 
             if ($request->hasFile('skma') && $request->file('skma')->isValid()) {
-                $namafile = basename($request->file('skma')->getClientOriginalName(), '.' . $request->file('skma')->getClientOriginalExtension());
-                $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('skma')->getClientOriginalExtension();
+                $namafile = Auth::user()->id . '-bmem-skma.'. $request->file('skma')->getClientOriginalExtension();
+                // $namafile = basename($request->file('skma')->getClientOriginalName(), '.' . $request->file('skma')->getClientOriginalExtension());
+                // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('skma')->getClientOriginalExtension();
                 $request->file('skma')->storeAs('skma', $namafile);
     
                 $bmember->status_skma = "pending";

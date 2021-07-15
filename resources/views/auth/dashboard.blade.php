@@ -60,6 +60,11 @@
             </div>
 
             <div class="col-md-6">
+                @if (is_string($belomBayar))
+                    <div class="alert alert-warning fw-bold">
+                        {{ $belomBayar }}
+                    </div>
+                @endif
                 <p class="ms-lg-4 mb-0"><span class="fw-bold">{{ $jenis_lomba }} : </span>IDR {{ number_format($harga_bayar) }},-</p>
                 <p class="ms-lg-4 mb-0"><span class="fw-bold">Team Unique Code: </span>{{ $id }}</p>
                 <p class="ms-lg-4 mb-0"><span class="fw-bold">Total Fee: </span><span class="fw-bold text-primary">{{ number_format($id + $harga_bayar) }},-</span></p>

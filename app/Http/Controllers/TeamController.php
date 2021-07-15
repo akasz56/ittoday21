@@ -28,13 +28,14 @@ class TeamController extends Controller
         if ($isClosed && $belomBayar) {
             return view('auth.closereg')->with('message', 'Hello, whachu lookin for?');
         }
-
+        
         //------------ Payment Info
         if      (Auth::user()->jenis_lomba == "hack")   {$harga_bayar = 60000;  $jenis_lomba = "HackToday";}
-        else if (Auth::user()->jenis_lomba == "ux_1")   {$harga_bayar = 60000;  $jenis_lomba = "UXToday - Batch 1";}
         else if (Auth::user()->jenis_lomba == "ux_2")   {$harga_bayar = 90000;  $jenis_lomba = "UXToday - Batch 2";}
-        else if (Auth::user()->jenis_lomba == "busy_1") {$harga_bayar = 60000;  $jenis_lomba = "IT Business - Batch 1";}
         else if (Auth::user()->jenis_lomba == "busy_2") {$harga_bayar = 90000;  $jenis_lomba = "IT Business - Batch 2";}
+        // BATCH 2 UPDATE
+        else if (Auth::user()->jenis_lomba == "ux_1")   {$harga_bayar = 90000;  $jenis_lomba = "UXToday - Batch 2";     $belomBayar = "Since you havent paid in Batch 1, then you are required to pay for the current batch.";}
+        else if (Auth::user()->jenis_lomba == "busy_1") {$harga_bayar = 90000;  $jenis_lomba = "IT Business - Batch 2"; $belomBayar = "Since you havent paid in Batch 1, then you are required to pay for the current batch.";}
 
         //------------ Team id & Biodata
         $id = Auth::user()->id;
@@ -101,6 +102,8 @@ class TeamController extends Controller
             'jenis_lomba' => $jenis_lomba,
             'status_lomba' => $status_lomba,
             'message_lomba' => $message_lomba,
+            // Batch 2 update
+            'belomBayar' => $belomBayar,
         ]);
     }
 

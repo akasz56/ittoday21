@@ -67,7 +67,7 @@
 
                 <div class="d-flex ilkommunity-unit">
                     <div class="info">
-                        <p class="fw-bold">To Be Announced</p>
+                        <p class="fw-bold">Interaksi Manusia Komputer Post Pandemic di Dunia Kerja</p>
                         <p class="fw-bold fst-italic" style="color: gray;">AgriUX</p>
                         <p>Sabtu, 4 September 2021</p>
                         <!-- {{-- <a href="#" class="btn btn-primary">Buy Ticket</a> --}} -->

@@ -6,6 +6,7 @@ use App\Models\Amember;
 use App\Models\Bmember;
 use App\Models\Leader;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -14,6 +15,27 @@ class TeamController extends Controller
 {
     public function index()
     {
+        $belomBayar = false;
+        //------------ Payment Status
+        if (Auth::user()->file_bayar) { /* udah bayar */
+            if      (Auth::user()->verified_bayar == "done")    {$status_bayar = 2;     $message_bayar = "Payment has been verified";}
+            else if (Auth::user()->verified_bayar == "pending") {$status_bayar = 1;     $message_bayar = "Proof of payment currently in verifying process";}
+            else if (Auth::user()->verified_bayar == "reupload")   {$status_bayar = 0;     $message_bayar = "Your payment isn't verified, please reupload";}
+        } else                          /* belum bayar */       {$status_bayar = 0;     $message_bayar = "";        $belomBayar = true;}
+
+        //------------ Close Registration
+        $isClosed = Carbon::now('Asia/Jakarta') > Carbon::parse('01-08-2021', 'Asia/Jakarta');
+        if ($isClosed && $belomBayar) {
+            return view('auth.closereg')->with('message', 'Hello, whachu lookin for?');
+        }
+
+        //------------ Payment Info
+        if      (Auth::user()->jenis_lomba == "hack")   {$harga_bayar = 60000;  $jenis_lomba = "HackToday";}
+        else if (Auth::user()->jenis_lomba == "ux_1")   {$harga_bayar = 60000;  $jenis_lomba = "UXToday - Batch 1";}
+        else if (Auth::user()->jenis_lomba == "ux_2")   {$harga_bayar = 90000;  $jenis_lomba = "UXToday - Batch 2";}
+        else if (Auth::user()->jenis_lomba == "busy_1") {$harga_bayar = 60000;  $jenis_lomba = "IT Business - Batch 1";}
+        else if (Auth::user()->jenis_lomba == "busy_2") {$harga_bayar = 90000;  $jenis_lomba = "IT Business - Batch 2";}
+
         //------------ Team id & Biodata
         $id = Auth::user()->id;
         $nama = Auth::user()->name;
@@ -54,20 +76,6 @@ class TeamController extends Controller
         else if ($bmember->status_skma == "done")       {$status_skma[2] = 2; $message_skma[2] = "Certificate of Active Student has been verified";}
         else if ($bmember->status_skma == "reupload")      {$status_skma[2] = 0; $message_skma[2] = "Certificate of Active Student is not verified, Please Reupload";}
         else                                            {$status_skma[2] = 0; $message_skma[2] = "";}
-
-        //------------ Payment Status
-        if (Auth::user()->file_bayar) { /* udah bayar */
-            if      (Auth::user()->verified_bayar == "done")    {$status_bayar = 2;     $message_bayar = "Payment has been verified";}
-            else if (Auth::user()->verified_bayar == "pending") {$status_bayar = 1;     $message_bayar = "Proof of payment currently in verifying process";}
-            else if (Auth::user()->verified_bayar == "reupload")   {$status_bayar = 0;     $message_bayar = "Your payment isn't verified, please reupload";}
-        } else                          /* belum bayar */       {$status_bayar = 0;     $message_bayar = "";}
-
-        //------------ Payment Info
-        if      (Auth::user()->jenis_lomba == "hack")   {$harga_bayar = 60000;  $jenis_lomba = "HackToday";}
-        else if (Auth::user()->jenis_lomba == "ux_1")   {$harga_bayar = 60000;  $jenis_lomba = "UXToday - Batch 1";}
-        else if (Auth::user()->jenis_lomba == "ux_2")   {$harga_bayar = 90000;  $jenis_lomba = "UXToday - Batch 2";}
-        else if (Auth::user()->jenis_lomba == "busy_1") {$harga_bayar = 60000;  $jenis_lomba = "IT Business - Batch 1";}
-        else if (Auth::user()->jenis_lomba == "busy_2") {$harga_bayar = 90000;  $jenis_lomba = "IT Business - Batch 2";}
 
         //------------ Proposal Status
         if (Auth::user()->file_lomba)   {$message_lomba = "Proposal has been uploaded"; $status_lomba = 1;}

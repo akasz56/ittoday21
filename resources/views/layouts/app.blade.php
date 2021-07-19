@@ -8,7 +8,7 @@
     <meta name="description" content="It Today Web App">
     <meta name="author" content="dewasemadi@apps.ipb.ac.id">
     <meta name="author2" content="indo14nurfath@apps.ipb.ac.id">
-    <title>@yield('title', 'IT TODAY 2021 | The Synergy Berween Technology and Agro-Maritime 5.0')</title>
+    <title>@yield('title', 'IT TODAY 2021 | The Synergy Between Technology and Agro-Maritime 5.0')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- favicon -->
     <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('/assets/favicon/android-chrome-512x512.png') }}">

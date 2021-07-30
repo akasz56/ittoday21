@@ -69,9 +69,4 @@ Route::prefix('acasdl')->group(function() {
     Route::get('ktm/{namafile}', [AdminController::class, 'downloadktm']);
     Route::get('skma/{namafile}', [AdminController::class, 'downloadskma']);
 });
-//AdminDeletes
-Route::prefix('acasdelete')->group(function() {
-    Route::get('trf/{namafile}', [AdminController::class, 'deletetrf']);
-    Route::get('ktm/{namafile}', [AdminController::class, 'deletektm']);
-    Route::get('skma/{namafile}', [AdminController::class, 'deleteskma']);
-});
+Route::get('acasget', [AdminController::class, 'getCompData']);

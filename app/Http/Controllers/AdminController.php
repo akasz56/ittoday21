@@ -79,8 +79,15 @@ class AdminController extends Controller
 
     public function getCompData()
     {
-        $users = User::all()->where('verified_bayar', 'done')->sortBy('jenis_lomba');
         $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
+        $response['bayar_pending'] = $this->getCompDataPending();
+        $response['bayar_confirmed'] = $this->getCompDataPaid();
+        
+        return response()->json($response);
+    }
+    
+    public function getCompDataPending() {
+        $users = User::all()->where('verified_bayar', 'pending')->sortBy('jenis_lomba');
         $response['data'] = array();
 
         $i = 1;
@@ -95,9 +102,28 @@ class AdminController extends Controller
                 $i++;
             }
         }
-        return response()->json($response);
+        return $response;
     }
 
+    public function getCompDataPaid() {
+        $users = User::all()->where('verified_bayar', 'done')->sortBy('jenis_lomba');
+        $response['data'] = array();
+
+        $i = 1;
+        foreach ($users as $user) {
+            if ($user->file_lomba == "ini dummy")
+                continue;
+            if ($user->jenis_lomba == "hack") {
+                $response['data'][$i] = $this->getHacktoday($user);
+                $i++;
+            } else {
+                $response['data'][$i] = $this->getITUX($user);
+                $i++;
+            }
+        }
+        return $response;
+    }
+    
     public function getHacktoday($datatim)
     {
         $arr['lomba'] = 'HackToday';

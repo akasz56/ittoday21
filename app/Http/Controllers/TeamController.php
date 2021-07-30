@@ -104,18 +104,10 @@ class TeamController extends Controller
             'message_lomba' => $message_lomba,
             // Batch 2 update
             'belomBayar' => $belomBayar,
+            'isClosed' => 1,
         ]);
     }
-
-
-
-
-
-
-
-
-
-
+    
     public function rulebook($id)
     {
 
@@ -136,16 +128,7 @@ class TeamController extends Controller
                 return back();
         }
     }
-
-
-
-
-
-
-
-
-
-
+    
     public function uploadtrf(Request $request)
     {
         $request->validate(['trf' => 'image',]);
@@ -167,15 +150,6 @@ class TeamController extends Controller
         return back()->with('fail.trf', 'Error occured during file upload, Please try again');
     }
 
-
-
-
-
-
-
-
-
-
     public function uploadprop(Request $request)
     {
         $request->validate(['proposal' => 'required|mimes:pdf|max:25600']);
@@ -195,15 +169,6 @@ class TeamController extends Controller
         }
         return back()->with('fail.prop', 'Error occured during proposal file upload, Please try again');
     }
-
-
-
-
-
-
-
-
-
 
     public function uploadlead(Request $request)
     {
@@ -259,15 +224,6 @@ class TeamController extends Controller
         return back()->with('success.bio', 'Leader Biodata Updated Successfully');
     }
 
-
-
-
-
-
-
-
-
-
     public function uploadamem(Request $request)
     {
         $amember = Amember::find(Auth::user()->id);
@@ -321,15 +277,6 @@ class TeamController extends Controller
 
         return back()->with('success.bio', 'Member 1 Biodata Updated Successfully');
     }
-
-
-
-
-
-
-
-
-
 
     public function uploadbmem(Request $request)
     {

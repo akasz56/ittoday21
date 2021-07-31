@@ -24,184 +24,184 @@
     @endif
 
     @if ($isClosed)
-    {{----------------------------------------- Contacts -----------------------------------------}}
-    <h2 class="mt-5 fw-bold">Competition Contacts</h2>
-    <div class="row">
-        <div class="col-md-4">
-            <h4>Hack Today</h4>
-            <p style="line-height: 1em;">Rizal :
-                <a href="https://wa.me/+6289644417286" target="_blank">WhatsApp</a>
-            </p>
-            <p style="line-height: 1em;">Yosar :
-                <a href="https://wa.me/+62895342744068" target="_blank">WhatsApp</a>
-            </p>
-            <p style="line-height: 1em;">Patar :
-                <a href="https://t.me/patarisac" target="_blank">Telegram</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h4>UX Today</h4>
-            <p style="line-height: 1em;">Amelia :
-                <a href="https://wa.me/+6289620766791" target="_blank">WhatsApp</a> |
-                <a href="https://line.me/ti/p/~amelia16hernawan" target="_blank">Line ID</a>
-            </p>
-            <p style="line-height: 1em;">Zulfa :
-                <a href="https://wa.me/+6287867008071" target="_blank">WhatsApp</a> |
-                <a href="https://line.me/ti/p/~zulfameilida" target="_blank">Line ID</a>
-            </p>
+        {{----------------------------------------- Contacts -----------------------------------------}}
+        <h2 class="mt-5 fw-bold">Competition Contacts</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Hack Today</h4>
+                <p style="line-height: 1em;">Rizal :
+                    <a href="https://wa.me/+6289644417286" target="_blank">WhatsApp</a>
+                </p>
+                <p style="line-height: 1em;">Yosar :
+                    <a href="https://wa.me/+62895342744068" target="_blank">WhatsApp</a>
+                </p>
+                <p style="line-height: 1em;">Patar :
+                    <a href="https://t.me/patarisac" target="_blank">Telegram</a>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h4>UX Today</h4>
+                <p style="line-height: 1em;">Amelia :
+                    <a href="https://wa.me/+6289620766791" target="_blank">WhatsApp</a> |
+                    <a href="https://line.me/ti/p/~amelia16hernawan" target="_blank">Line ID</a>
+                </p>
+                <p style="line-height: 1em;">Zulfa :
+                    <a href="https://wa.me/+6287867008071" target="_blank">WhatsApp</a> |
+                    <a href="https://line.me/ti/p/~zulfameilida" target="_blank">Line ID</a>
+                </p>
 
-            <p style="line-height: 1em;">Ahmed :
-                <a href="https://wa.me/+6282213666601" target="_blank">WhatsApp</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h4>IT Business Competition</h4>
-            <p style="line-height: 1em;">Abdul Hakim :
-                <a href="https://wa.me/+6285884621204" target="_blank">WhatsApp</a>
-            </p>
-            <p style="line-height: 1em;">Aulia Rochman :
-                <a href="https://wa.me/+6289662459376" target="_blank">WhatsApp</a>
-            </p>
-            <p style="line-height: 1em;">Rafli Aditya :
-                <a href="https://wa.me/+628970162345" target="_blank">WhatsApp</a>
-            </p>
-        </div>
-    </div>
-    {{----------------------------------------- Proposal Submission -----------------------------------------}}
-    @if ($jenis_lomba != "HackToday")
-    <h2 class="mt-5 pt-5 fw-bold mt-4">Proposal Submission</h2>
-    <div class="border p-3 rounded-3">
-        <div class="row">
-            @if ( $status_lomba )
-            <div>
-                @if ( session()->has('success.prop') )
-                <div class="alert alert-success">{{ session()->get('success.prop') }}</div>
-                @endif
-                <div class="alert alert-success">{{ $message_lomba }}</div>
+                <p style="line-height: 1em;">Ahmed :
+                    <a href="https://wa.me/+6282213666601" target="_blank">WhatsApp</a>
+                </p>
             </div>
-            @else
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                @if ( session()->has('fail.prop') )
-                <div class="alert alert-danger">{{ session()->get('fail.prop') }}</div>
-                @endif
-                <form action="{{ route('upload.proposal') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div>
-                        <label for="proposal" class="form-label">Proposal File</label>
-                        @error('proposal')
-                        <small>
-                            <p class="link-danger">{{ $message }}</p>
-                        </small>
-                        @enderror
-                        <input type="file" class="form-control" id="proposal" name="proposal">
-                        <small>
-                            <p class="mb-0">File format: pdf | Max Size: 25 MB</p>
-                        </small>
-                    </div>
-                    <div><button type="submit" class="btn btn-primary px-5 py-2">Submit</button></div>
-                </form>
+            <div class="col-md-4">
+                <h4>IT Business Competition</h4>
+                <p style="line-height: 1em;">Abdul Hakim :
+                    <a href="https://wa.me/+6285884621204" target="_blank">WhatsApp</a>
+                </p>
+                <p style="line-height: 1em;">Aulia Rochman :
+                    <a href="https://wa.me/+6289662459376" target="_blank">WhatsApp</a>
+                </p>
+                <p style="line-height: 1em;">Rafli Aditya :
+                    <a href="https://wa.me/+628970162345" target="_blank">WhatsApp</a>
+                </p>
             </div>
-            @endif
-            <div class="col-sm-12 col-md-6 col-lg-6"></div>
         </div>
-    </div>
-    @endif
-    @else
-    {{----------------------------------------- Payment Infos -----------------------------------------}}
-    <h2 class="mt-5 fw-bold">Payment Information</h2>
-    @if ( $status_bayar )
-    <div class="border p-3 rounded-3">
-        <div class="row">
-            <div>
-                @if ( session()->has('success.trf') )
-                <div class="alert alert-success">{{ session()->get('success.trf') }}</div>
-                @endif
-                @if ( $status_bayar > 1 )
-                <div class="alert alert-success">{{ $message_bayar }}</div>
+        {{----------------------------------------- Proposal Submission -----------------------------------------}}
+        @if ($jenis_lomba != "HackToday")
+        <h2 class="mt-5 pt-5 fw-bold mt-4">Proposal Submission</h2>
+        <div class="border p-3 rounded-3">
+            <div class="row">
+                @if ( $status_lomba )
+                <div>
+                    @if ( session()->has('success.prop') )
+                    <div class="alert alert-success">{{ session()->get('success.prop') }}</div>
+                    @endif
+                    <div class="alert alert-success">{{ $message_lomba }}</div>
+                </div>
                 @else
-                <div class="alert alert-warning">{{ $message_bayar }}</div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    @if ( session()->has('fail.prop') )
+                    <div class="alert alert-danger">{{ session()->get('fail.prop') }}</div>
+                    @endif
+                    <form action="{{ route('upload.proposal') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div>
+                            <label for="proposal" class="form-label">Proposal File</label>
+                            @error('proposal')
+                            <small>
+                                <p class="link-danger">{{ $message }}</p>
+                            </small>
+                            @enderror
+                            <input type="file" class="form-control" id="proposal" name="proposal">
+                            <small>
+                                <p class="mb-0">File format: pdf | Max Size: 25 MB</p>
+                            </small>
+                        </div>
+                        <div><button type="submit" class="btn btn-primary px-5 py-2">Submit</button></div>
+                    </form>
+                </div>
                 @endif
+                <div class="col-sm-12 col-md-6 col-lg-6"></div>
             </div>
         </div>
-    </div>
+        @endif
     @else
-    <div class="row">
-
-        <div>
-            @if ($message_bayar)
-            <div class="alert alert-danger">{{ $message_bayar }}</div>
-            @endif
-        </div>
-
-        <div class="col-md-6">
-            <p class="lh-lg">Participants of IT TODAY 2021 competitions can pay the registration fee with the
-                nominal amount plus
-                unique code at the last digits. For example, the registration fee is IDR 90.000, and your unique
-                code is
-                12, so you have to transfer IDR 90.012,- Then you can confirm the payment on IT TODAY 2021 website
-                dashboard.</p>
-        </div>
-
-        <div class="col-md-6">
-            @if (is_string($belomBayar))
-            <div class="alert alert-warning fw-bold">
-                {{ $belomBayar }}
+        {{----------------------------------------- Payment Infos -----------------------------------------}}
+        <h2 class="mt-5 fw-bold">Payment Information</h2>
+        @if ( $status_bayar )
+        <div class="border p-3 rounded-3">
+            <div class="row">
+                <div>
+                    @if ( session()->has('success.trf') )
+                    <div class="alert alert-success">{{ session()->get('success.trf') }}</div>
+                    @endif
+                    @if ( $status_bayar > 1 )
+                    <div class="alert alert-success">{{ $message_bayar }}</div>
+                    @else
+                    <div class="alert alert-warning">{{ $message_bayar }}</div>
+                    @endif
+                </div>
             </div>
-            @endif
-            <p class="ms-lg-4 mb-0"><span class="fw-bold">{{ $jenis_lomba }} : </span>IDR
-                {{ number_format($harga_bayar) }},-</p>
-            <p class="ms-lg-4 mb-0"><span class="fw-bold">Team Unique Code: </span>{{ $id }}</p>
-            <p class="ms-lg-4 mb-0"><span class="fw-bold">Total Fee: </span><span
-                    class="fw-bold text-primary">{{ number_format($id + $harga_bayar) }},-</span></p>
         </div>
-
-    </div>
-
-
-    <h4 class="fw-bold mt-3 text-muted">Transfer To:</h4>
-    <p class="my-1">BCA : 3740828311 a.n Farhan Fathurrahman</p>
-    <p class="my-1">BNI : 1168834234 a.n Nisma Karmiahtun Fadilah</p>
-
-
-    <h2 class="mt-5 pt-5 fw-bold mt-3 pb-2">Payment Confirmation</h2>
-    <div class="border p-3 rounded-3">
+        @else
         <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                <form action="{{ route('upload.trf') }}" method="POST" enctype="multipart/form-data"
-                    enctype="multipart/form-data">
-                    @csrf
 
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Bank Account Name</label>
-                        <input type="text" class="form-control" id="nama" name="nama"
-                            placeholder="Under the name of {{ ucwords($nama) . ' Team' }}" required>
-                        @error('trf')<span>{{ $message }}</span>@enderror
-                    </div>
-
-                    <div>
-                        <label for="trf" class="form-label">Proof of payment</label>
-                        <input type="file" class="form-control" id="trf" name="trf" required>
-                        @error('trf')<span>{{ $message }}</span>@enderror
-                        <small>
-                            <p class="mb-0">File format: jpeg, jpg, png.</p>
-                        </small>
-                    </div>
-
-                    <div>
-                        <button type="submit" class="btn btn-primary mt-3 d-block w-100">Upload</button>
-                    </div>
-
-                </form>
-
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                @if ( session()->has('fail.trf') )
-                <div class="alert alert-danger">{{ session()->get('fail.trf') }}</div>
+            <div>
+                @if ($message_bayar)
+                <div class="alert alert-danger">{{ $message_bayar }}</div>
                 @endif
             </div>
+
+            <div class="col-md-6">
+                <p class="lh-lg">Participants of IT TODAY 2021 competitions can pay the registration fee with the
+                    nominal amount plus
+                    unique code at the last digits. For example, the registration fee is IDR 90.000, and your unique
+                    code is
+                    12, so you have to transfer IDR 90.012,- Then you can confirm the payment on IT TODAY 2021 website
+                    dashboard.</p>
+            </div>
+
+            <div class="col-md-6">
+                @if (is_string($belomBayar))
+                <div class="alert alert-warning fw-bold">
+                    {{ $belomBayar }}
+                </div>
+                @endif
+                <p class="ms-lg-4 mb-0"><span class="fw-bold">{{ $jenis_lomba }} : </span>IDR
+                    {{ number_format($harga_bayar) }},-</p>
+                <p class="ms-lg-4 mb-0"><span class="fw-bold">Team Unique Code: </span>{{ $id }}</p>
+                <p class="ms-lg-4 mb-0"><span class="fw-bold">Total Fee: </span><span
+                        class="fw-bold text-primary">{{ number_format($id + $harga_bayar) }},-</span></p>
+            </div>
+
         </div>
-    </div>
-    @endif
+
+
+        <h4 class="fw-bold mt-3 text-muted">Transfer To:</h4>
+        <p class="my-1">BCA : 3740828311 a.n Farhan Fathurrahman</p>
+        <p class="my-1">BNI : 1168834234 a.n Nisma Karmiahtun Fadilah</p>
+
+
+        <h2 class="mt-5 pt-5 fw-bold mt-3 pb-2">Payment Confirmation</h2>
+        <div class="border p-3 rounded-3">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <form action="{{ route('upload.trf') }}" method="POST" enctype="multipart/form-data"
+                        enctype="multipart/form-data">
+                        @csrf
+
+                        <div class="mb-3">
+                            <label for="nama" class="form-label">Bank Account Name</label>
+                            <input type="text" class="form-control" id="nama" name="nama"
+                                placeholder="Under the name of {{ ucwords($nama) . ' Team' }}" required>
+                            @error('trf')<span>{{ $message }}</span>@enderror
+                        </div>
+
+                        <div>
+                            <label for="trf" class="form-label">Proof of payment</label>
+                            <input type="file" class="form-control" id="trf" name="trf" required>
+                            @error('trf')<span>{{ $message }}</span>@enderror
+                            <small>
+                                <p class="mb-0">File format: jpeg, jpg, png.</p>
+                            </small>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-primary mt-3 d-block w-100">Upload</button>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    @if ( session()->has('fail.trf') )
+                    <div class="alert alert-danger">{{ session()->get('fail.trf') }}</div>
+                    @endif
+                </div>
+            </div>
+        </div>
+        @endif
     @endif
 
     {{----------------------------------------- Team Biodata -----------------------------------------}}

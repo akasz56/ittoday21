@@ -104,7 +104,7 @@ class TeamController extends Controller
             'message_lomba' => $message_lomba,
             // Batch 2 update
             'belomBayar' => $belomBayar,
-            'isClosed' => 1,
+            'isClosed' => $isClosed,
         ]);
     }
     

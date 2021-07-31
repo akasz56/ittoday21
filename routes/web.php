@@ -69,4 +69,4 @@ Route::prefix('acasdl')->group(function() {
     Route::get('ktm/{namafile}', [AdminController::class, 'downloadktm']);
     Route::get('skma/{namafile}', [AdminController::class, 'downloadskma']);
 });
-Route::get('acasget', [AdminController::class, 'getCompData']);
+Route::get('acasget', [AdminController::class, 'getCompDataAll']);

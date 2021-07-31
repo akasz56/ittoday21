@@ -77,79 +77,132 @@ class AdminController extends Controller
         }
     }
 
-    public function getCompData()
+    public function getCompDataAll()
     {
         $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
-        $response['bayar_pending'] = $this->getCompDataPending();
-        $response['bayar_confirmed'] = $this->getCompDataPaid();
-        
+        $response['hack'] = $this->getCompDataHack();
+        $response['ux'] = $this->getCompDataUX();
+        $response['bistik'] = $this->getCompDataBistik();
+
         return response()->json($response);
     }
-    
-    public function getCompDataPending() {
-        $users = User::all()->where('verified_bayar', 'pending')->sortBy('jenis_lomba');
-        $response['data'] = array();
 
-        $i = 1;
-        foreach ($users as $user) {
-            if ($user->file_lomba == "ini dummy")
-                continue;
-            if ($user->jenis_lomba == "hack") {
-                $response['data'][$i] = $this->getHacktoday($user);
-                $i++;
-            } else {
-                $response['data'][$i] = $this->getITUX($user);
-                $i++;
-            }
-        }
-        return $response;
-    }
-
-    public function getCompDataPaid() {
-        $users = User::all()->where('verified_bayar', 'done')->sortBy('jenis_lomba');
-        $response['data'] = array();
-
-        $i = 1;
-        foreach ($users as $user) {
-            if ($user->file_lomba == "ini dummy")
-                continue;
-            if ($user->jenis_lomba == "hack") {
-                $response['data'][$i] = $this->getHacktoday($user);
-                $i++;
-            } else {
-                $response['data'][$i] = $this->getITUX($user);
-                $i++;
-            }
-        }
-        return $response;
-    }
-    
-    public function getHacktoday($datatim)
+    public function getCompDataHack()
     {
-        $arr['lomba'] = 'HackToday';
+        $done = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'hack')->sortBy('id');
+        $pending = User::all()->where('verified_bayar', 'pending')->where('jenis_lomba', '=', 'hack')->sortBy('id');
+        $response['data'] = array();
+
+        $i = 1;
+        foreach ($pending as $user) {
+            if ($user->file_lomba == "ini dummy")
+                continue;
+            $response['data'][$i] = $this->getHacktoday($user, 'pending');
+            $i++;
+        }
+        foreach ($done as $user) {
+            if ($user->file_lomba == "ini dummy")
+                continue;
+            $response['data'][$i] = $this->getHacktoday($user, 'confirmed');
+            $i++;
+        }
+        return $response;
+    }
+
+    public function getCompDataUX()
+    {
+        $done1 = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'ux_1');
+        $pending1 = User::all()->where('verified_bayar', 'pending')->where('jenis_lomba', '=', 'ux_1');
+        $done2 = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'ux_2');
+        $pending2 = User::all()->where('verified_bayar', 'pending')->where('jenis_lomba', '=', 'ux_2');
+        $response['data'] = array();
+
+        $i = 1;
+        foreach ($pending1 as $user) {
+            if ($user->file_lomba == "ini dummy")
+                continue;
+            $response['data'][$i] = $this->getITUX($user, 'pending');
+            $i++;
+        }
+        foreach ($pending2 as $user) {
+            if ($user->file_lomba == "ini dummy")
+                continue;
+            $response['data'][$i] = $this->getITUX($user, 'pending');
+            $i++;
+        }
+        foreach ($done1 as $user) {
+            if ($user->file_lomba == "ini dummy")
+                continue;
+            $response['data'][$i] = $this->getITUX($user, 'confirmed');
+            $i++;
+        }
+        foreach ($done2 as $user) {
+            if ($user->file_lomba == "ini dummy")
+                continue;
+            $response['data'][$i] = $this->getITUX($user, 'confirmed');
+            $i++;
+        }
+        return $response;
+    }
+
+    public function getCompDataBistik()
+    {
+        $done1 = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'busy_1');
+        $pending1 = User::all()->where('verified_bayar', 'pending')->where('jenis_lomba', '=', 'busy_1');
+        $done2 = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'busy_2');
+        $pending2 = User::all()->where('verified_bayar', 'pending')->where('jenis_lomba', '=', 'busy_2');
+        $response['data'] = array();
+
+        $i = 1;
+        foreach ($pending1 as $user) {
+            if ($user->file_lomba == "ini dummy")
+                continue;
+            $response['data'][$i] = $this->getITUX($user, 'pending');
+            $i++;
+        }
+        foreach ($pending2 as $user) {
+            if ($user->file_lomba == "ini dummy")
+                continue;
+            $response['data'][$i] = $this->getITUX($user, 'pending');
+            $i++;
+        }
+        foreach ($done1 as $user) {
+            if ($user->file_lomba == "ini dummy")
+                continue;
+            $response['data'][$i] = $this->getITUX($user, 'confirmed');
+            $i++;
+        }
+        foreach ($done2 as $user) {
+            if ($user->file_lomba == "ini dummy")
+                continue;
+            $response['data'][$i] = $this->getITUX($user, 'confirmed');
+            $i++;
+        }
+        return $response;
+    }
+
+    public function getHacktoday($datatim, $status_pembayaran)
+    {
+        $arr['status_pembayaran'] = $status_pembayaran;
         $arr['id'] = $datatim->id;
         $arr['nama_tim'] = $datatim->name;
         $arr['email_tim'] = $datatim->email;
-        
+
         $arr['nama_ketua'] = Leader::find($arr['id'])->name;
         $arr['email_ketua'] = Leader::find($arr['id'])->email;
-        
+
         $arr['nama_member1'] = Amember::find($arr['id'])->name;
         $arr['email_member1'] = Amember::find($arr['id'])->email;
-        
+
         $arr['nama_member2'] = Bmember::find($arr['id'])->name;
         $arr['email_member2'] = Bmember::find($arr['id'])->email;
-        
+
         return $arr;
     }
 
-    public function getITUX($datatim)
+    public function getITUX($datatim, $status_pembayaran)
     {
-        if ($datatim->jenis_lomba == "ux_1" || $datatim->jenis_lomba == "ux_2") {
-            $arr['lomba'] = 'UXToday';
-        } else {
-            $arr['lomba'] = 'Bistik';
-        }
+        $arr['status_pembayaran'] = $status_pembayaran;
         $arr['id'] = $datatim->id;
         $arr['nama_tim'] = $datatim->name;
         $arr['email_tim'] = $datatim->email;

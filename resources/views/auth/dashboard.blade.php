@@ -233,7 +233,11 @@
                                 placeholder="Leader Name">
                         </div>
                         <div class="mb-3">
+                            @if ( $jenis_lomba == "HackToday" )
+                            <label for="nim" class="form-label">Student ID Number</label>
+                            @else
                             <label for="nim" class="form-label reqform">Student ID Number</label>
+                            @endif
                             <input type="text" class="form-control" id="nim" name="nim" value="{{ $leader->nim }}"
                                 placeholder="Student ID Number">
                         </div>
@@ -317,8 +321,7 @@
                                 <p class="mb-0">File format: jpeg, jpg, png, pdf.</p>
                             </small>
                             <small>
-                                <p class="mb-0">Wajib diisi untuk peserta Hacktoday yang berstatus Mahasiswa dan Siswa/i
-                                    SMA</p>
+                                <p class="mb-0">Wajib diisi untuk peserta Hacktoday yang mengikuti kategori Mahasiswa</p>
                             </small>
                             @else
                             <label for="skma" class="form-label">Certificate of Active Student (Surat Keterangan
@@ -349,7 +352,11 @@
                                 placeholder="Member Name">
                         </div>
                         <div class="mb-3">
+                            @if ( $jenis_lomba == "HackToday" )
+                            <label for="nim" class="form-label">Student ID Number</label>
+                            @else
                             <label for="nim" class="form-label reqform">Student ID Number</label>
+                            @endif
                             <input type="text" class="form-control" id="nim" name="nim" value="{{ $amember->nim }}"
                                 placeholder="Student ID Number">
                         </div>
@@ -433,8 +440,7 @@
                                 <p class="mb-0">File format: jpeg, jpg, png, pdf.</p>
                             </small>
                             <small>
-                                <p class="mb-0">Wajib diisi untuk peserta Hacktoday yang berstatus Mahasiswa dan Siswa/i
-                                    SMA</p>
+                                <p class="mb-0">Wajib diisi untuk peserta Hacktoday yang mengikuti kategori Mahasiswa</p>
                             </small>
                             @else
                             <label for="skma" class="form-label">Certificate of Active Student (Surat Keterangan
@@ -465,7 +471,11 @@
                                 placeholder="Member Name">
                         </div>
                         <div class="mb-3">
+                            @if ( $jenis_lomba == "HackToday" )
+                            <label for="nim" class="form-label">Student ID Number</label>
+                            @else
                             <label for="nim" class="form-label reqform">Student ID Number</label>
+                            @endif
                             <input type="text" class="form-control" id="nim" name="nim" value="{{ $bmember->nim }}"
                                 placeholder="Student ID Number">
                         </div>
@@ -549,8 +559,7 @@
                                 <p class="mb-0">File format: jpeg, jpg, png, pdf.</p>
                             </small>
                             <small>
-                                <p class="mb-0">Wajib diisi untuk peserta Hacktoday yang berstatus Mahasiswa dan Siswa/i
-                                    SMA</p>
+                                <p class="mb-0">Wajib diisi untuk peserta Hacktoday yang mengikuti kategori Mahasiswa</p>
                             </small>
                             @else
                             <label for="skma" class="form-label">Certificate of Active Student (Surat Keterangan

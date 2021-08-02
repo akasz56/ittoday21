@@ -20,7 +20,7 @@ class UserController extends Controller
 {
     public function indexRegister()
     {
-        if (Carbon::now('Asia/Jakarta') < Carbon::parse('01-08-2021', 'Asia/Jakarta')) {
+        if (Carbon::now('Asia/Jakarta') < Carbon::parse('09-08-2021', 'Asia/Jakarta')) {
             return view('auth.register');
         }
         return view('auth.closereg');

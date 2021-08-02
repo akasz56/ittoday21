@@ -24,7 +24,7 @@ class TeamController extends Controller
         } else                          /* belum bayar */       {$status_bayar = 0;     $message_bayar = "";        $belomBayar = true;}
 
         //------------ Close Registration
-        $isClosed = Carbon::now('Asia/Jakarta') > Carbon::parse('01-08-2021', 'Asia/Jakarta');
+        $isClosed = Carbon::now('Asia/Jakarta') > Carbon::parse('09-08-2021', 'Asia/Jakarta');
         if ($isClosed && $belomBayar) {
             return view('auth.closereg')->with('message', 'Hello, whachu lookin for?');
         }

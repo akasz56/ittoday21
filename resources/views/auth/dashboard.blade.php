@@ -67,45 +67,6 @@
                 </p>
             </div>
         </div>
-        {{----------------------------------------- Proposal Submission -----------------------------------------}}
-        @if ($jenis_lomba != "HackToday")
-        <h2 class="mt-5 pt-5 fw-bold mt-4">Proposal Submission</h2>
-        <div class="border p-3 rounded-3">
-            <div class="row">
-                @if ( $status_lomba )
-                <div>
-                    @if ( session()->has('success.prop') )
-                    <div class="alert alert-success">{{ session()->get('success.prop') }}</div>
-                    @endif
-                    <div class="alert alert-success">{{ $message_lomba }}</div>
-                </div>
-                @else
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    @if ( session()->has('fail.prop') )
-                    <div class="alert alert-danger">{{ session()->get('fail.prop') }}</div>
-                    @endif
-                    <form action="{{ route('upload.proposal') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div>
-                            <label for="proposal" class="form-label">Proposal File</label>
-                            @error('proposal')
-                            <small>
-                                <p class="link-danger">{{ $message }}</p>
-                            </small>
-                            @enderror
-                            <input type="file" class="form-control" id="proposal" name="proposal">
-                            <small>
-                                <p class="mb-0">File format: pdf | Max Size: 25 MB</p>
-                            </small>
-                        </div>
-                        <div><button type="submit" class="btn btn-primary px-5 py-2">Submit</button></div>
-                    </form>
-                </div>
-                @endif
-                <div class="col-sm-12 col-md-6 col-lg-6"></div>
-            </div>
-        </div>
-        @endif
     @else
         {{----------------------------------------- Payment Infos -----------------------------------------}}
         <h2 class="mt-5 fw-bold">Payment Information</h2>
@@ -202,6 +163,46 @@
             </div>
         </div>
         @endif
+    @endif
+
+    {{----------------------------------------- Proposal Submission -----------------------------------------}}
+    @if ($jenis_lomba != "HackToday")
+    <h2 class="mt-5 pt-5 fw-bold mt-4">Proposal Submission</h2>
+    <div class="border p-3 rounded-3">
+        <div class="row">
+            @if ( $status_lomba )
+            <div>
+                @if ( session()->has('success.prop') )
+                <div class="alert alert-success">{{ session()->get('success.prop') }}</div>
+                @endif
+                <div class="alert alert-success">{{ $message_lomba }}</div>
+            </div>
+            @else
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                @if ( session()->has('fail.prop') )
+                <div class="alert alert-danger">{{ session()->get('fail.prop') }}</div>
+                @endif
+                <form action="{{ route('upload.proposal') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div>
+                        <label for="proposal" class="form-label">Proposal File</label>
+                        @error('proposal')
+                        <small>
+                            <p class="link-danger">{{ $message }}</p>
+                        </small>
+                        @enderror
+                        <input type="file" class="form-control" id="proposal" name="proposal">
+                        <small>
+                            <p class="mb-0">File format: pdf | Max Size: 10 MB</p>
+                        </small>
+                    </div>
+                    <div><button type="submit" class="btn btn-primary px-5 py-2">Submit</button></div>
+                </form>
+            </div>
+            @endif
+            <div class="col-sm-12 col-md-6 col-lg-6"></div>
+        </div>
+    </div>
     @endif
 
     {{----------------------------------------- Team Biodata -----------------------------------------}}

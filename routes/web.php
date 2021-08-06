@@ -60,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/uploadlead', [TeamController::class, 'uploadlead'])->name('upload.leader');
     Route::post('/uploadamem', [TeamController::class, 'uploadamem'])->name('upload.amember');
     Route::post('/uploadbmem', [TeamController::class, 'uploadbmem'])->name('upload.bmember');
+    Route::post('/HTCategory', [TeamController::class, 'HacktodayCategory'])->name('htcategory');
 });
 
 //AdminDownloads

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Amember;
 use App\Models\Bmember;
+use App\Models\htcategory;
 use App\Models\Leader;
 use App\Models\User;
 use Carbon\Carbon;
@@ -79,8 +80,17 @@ class TeamController extends Controller
         else                                            {$status_skma[2] = 0; $message_skma[2] = "";}
 
         //------------ Proposal Status
-        if (Auth::user()->file_lomba)   {$message_lomba = "Proposal has been uploaded"; $status_lomba = 1;}
-        else                            {$message_lomba = "";                           $status_lomba = 0;}
+        if (Auth::user()->jenis_lomba == "hack") {
+            $categoried = htcategory::where('team_id', '=', $id)->first();
+            $status_lomba = ($categoried) ? 1 : 0;
+            $message_lomba = "";
+        }
+        else {
+            $status_lomba = (Auth::user()->file_lomba) ? 1 : 0;
+            $message_lomba = (Auth::user()->file_lomba) ? "Proposal has been uploaded" : "";
+            // if (Auth::user()->file_lomba)   {$message_lomba = "Proposal has been uploaded"; $status_lomba = 1;}
+            // else                            {$message_lomba = "";                           $status_lomba = 0;}
+        }
 
         //------------ Return view
         return view('auth.dashboard', [
@@ -330,5 +340,22 @@ class TeamController extends Controller
         }
 
         return back()->with('success.bio', 'Member 2 Biodata Updated Successfully');
+    }
+
+    public function HacktodayCategory(Request $request) {
+        $request->validate([
+            'userid' => 'required',
+            'category' => 'required',
+        ]);
+
+        $done = htcategory::Create([
+            'team_id' => $request->userid,
+            'category' => $request->category,
+        ]);
+
+        if ($done) {
+            return back()->with('success.category', 'Category Confirmed');
+        }
+        return back()->with('fail.category', 'Error occured during Category Confirmation, Please try again'); 
     }
 }

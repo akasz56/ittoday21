@@ -77,113 +77,130 @@ class AdminController extends Controller
         }
     }
 
-    public function getCompDataAll()
+    // REST API ittoday
+    // - get tim belom bayar                        getUnpaidTeam()
+    // - get tim udah bayar belom lengkap data      getUnfinishedTeamData()
+    // - get paid tim member emails                 getTeamEmails()
+    // - get paid tim member no hp, wa, idline      getTeamContacts()
+
+    public function getUnpaidTeam() {
+        $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
+        $response['status'] = 'Unpaid';
+        $i = 0;
+        $teams = User::all()->where('verified_bayar', '!=', 'done')->sortBy('jenis_lomba');
+        foreach ($teams as $team) {
+            if ($team->name == "contoh tim")
+                continue;
+            $response['data'][$i] = $this->getEmail($team);
+            $i++;
+        }
+        return response()->json($response);        
+    }
+    
+    public function getUnfinishedTeamData() {
+        $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
+        $response['status'] = 'Incomplete';
+        $i = 0;
+        $teams = User::all()->where('verified_bayar', '=', 'done')->where('verified_lomba', '!=', 'done')->sortBy('jenis_lomba');
+        foreach ($teams as $team) {
+            if ($team->name == "contoh tim")
+                continue;
+            $response['data'][$i] = $this->getEmail($team);
+            $i++;
+        }
+        return response()->json($response);        
+    }
+
+    public function getTeamEmails()
     {
         $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
-        $response['hack'] = $this->getCompDataHack();
-        $response['ux'] = $this->getCompDataUX();
-        $response['bistik'] = $this->getCompDataBistik();
-
+        // hackComp
+        $i = 0;
+        $teams = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'hack')->sortBy('id');
+        foreach ($teams as $team) {
+            if ($team->name == "contoh tim")
+                continue;
+            $response['hack'][$i] = $this->getEmails($team);
+            $i++;
+        }
+        // uxComp
+        $i = 0;
+        $teams = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'ux_1')->sortBy('id');
+        $teams = $teams->merge(User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'ux_2')->sortBy('id'));
+        foreach ($teams as $team) {
+            if ($team->name == "contoh tim")
+                continue;
+            $response['ux'][$i] = $this->getEmails($team);
+            $i++;
+        }
+        // busyComp
+        $i = 0;
+        $teams = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'busy_1')->sortBy('id');
+        $teams = $teams->merge(User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'busy_2')->sortBy('id'));
+        foreach ($teams as $team) {
+            if ($team->name == "contoh tim")
+                continue;
+            $response['busy'][$i] = $this->getEmails($team);
+            $i++;
+        }
+        
         return response()->json($response);
     }
 
-    public function getCompDataHack()
+    public function getTeamContacts()
     {
-        $done = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'hack')->sortBy('id');
-        $pending = User::all()->where('verified_bayar', 'pending')->where('jenis_lomba', '=', 'hack')->sortBy('id');
-        $response['data'] = array();
-
-        $i = 1;
-        foreach ($pending as $user) {
-            if ($user->file_lomba == "ini dummy")
+        $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
+        // hackComp
+        $i = 0;
+        $teams = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'hack')->sortBy('id');
+        foreach ($teams as $team) {
+            if ($team->name == "contoh tim")
                 continue;
-            $response['data'][$i] = $this->getHacktoday($user, 'pending');
+            $response['hack'][$i] = $this->getContacts($team);
             $i++;
         }
-        foreach ($done as $user) {
-            if ($user->file_lomba == "ini dummy")
+        // uxComp
+        $i = 0;
+        $teams = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'ux_1')->sortBy('id');
+        $teams = $teams->merge(User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'ux_2')->sortBy('id'));
+        foreach ($teams as $team) {
+            if ($team->name == "contoh tim")
                 continue;
-            $response['data'][$i] = $this->getHacktoday($user, 'confirmed');
+            $response['ux'][$i] = $this->getContacts($team);
             $i++;
         }
-        return $response;
+        // busyComp
+        $i = 0;
+        $teams = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'busy_1')->sortBy('id');
+        $teams = $teams->merge(User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'busy_2')->sortBy('id'));
+        foreach ($teams as $team) {
+            if ($team->name == "contoh tim")
+                continue;
+            $response['busy'][$i] = $this->getContacts($team);
+            $i++;
+        }
+        
+        return response()->json($response);
     }
 
-    public function getCompDataUX()
-    {
-        $done1 = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'ux_1');
-        $pending1 = User::all()->where('verified_bayar', 'pending')->where('jenis_lomba', '=', 'ux_1');
-        $done2 = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'ux_2');
-        $pending2 = User::all()->where('verified_bayar', 'pending')->where('jenis_lomba', '=', 'ux_2');
-        $response['data'] = array();
+    // Methods
+    public function getEmail($datatim) {
+        $arr['id'] = $datatim->id;
+        if ($datatim->jenis_lomba == 'ux_1' || $datatim->jenis_lomba == 'ux_2') {
+            $arr['lomba'] = 'UXToday';
+        } else if ($datatim->jenis_lomba == 'busy_1' || $datatim->jenis_lomba == 'busy_2') {
+            $arr['lomba'] = 'IT Business';
+        } else {
+            $arr['lomba'] = 'HackToday';
+        }
+        $arr['nama_tim'] = $datatim->name;
+        $arr['email_tim'] = $datatim->email;
 
-        $i = 1;
-        foreach ($pending1 as $user) {
-            if ($user->file_lomba == "ini dummy")
-                continue;
-            $response['data'][$i] = $this->getITUX($user, 'pending');
-            $i++;
-        }
-        foreach ($pending2 as $user) {
-            if ($user->file_lomba == "ini dummy")
-                continue;
-            $response['data'][$i] = $this->getITUX($user, 'pending');
-            $i++;
-        }
-        foreach ($done1 as $user) {
-            if ($user->file_lomba == "ini dummy")
-                continue;
-            $response['data'][$i] = $this->getITUX($user, 'confirmed');
-            $i++;
-        }
-        foreach ($done2 as $user) {
-            if ($user->file_lomba == "ini dummy")
-                continue;
-            $response['data'][$i] = $this->getITUX($user, 'confirmed');
-            $i++;
-        }
-        return $response;
+        return $arr;
     }
 
-    public function getCompDataBistik()
+    public function getEmails($datatim)
     {
-        $done1 = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'busy_1');
-        $pending1 = User::all()->where('verified_bayar', 'pending')->where('jenis_lomba', '=', 'busy_1');
-        $done2 = User::all()->where('verified_bayar', 'done')->where('jenis_lomba', '=', 'busy_2');
-        $pending2 = User::all()->where('verified_bayar', 'pending')->where('jenis_lomba', '=', 'busy_2');
-        $response['data'] = array();
-
-        $i = 1;
-        foreach ($pending1 as $user) {
-            if ($user->file_lomba == "ini dummy")
-                continue;
-            $response['data'][$i] = $this->getITUX($user, 'pending');
-            $i++;
-        }
-        foreach ($pending2 as $user) {
-            if ($user->file_lomba == "ini dummy")
-                continue;
-            $response['data'][$i] = $this->getITUX($user, 'pending');
-            $i++;
-        }
-        foreach ($done1 as $user) {
-            if ($user->file_lomba == "ini dummy")
-                continue;
-            $response['data'][$i] = $this->getITUX($user, 'confirmed');
-            $i++;
-        }
-        foreach ($done2 as $user) {
-            if ($user->file_lomba == "ini dummy")
-                continue;
-            $response['data'][$i] = $this->getITUX($user, 'confirmed');
-            $i++;
-        }
-        return $response;
-    }
-
-    public function getHacktoday($datatim, $status_pembayaran)
-    {
-        $arr['status_pembayaran'] = $status_pembayaran;
         $arr['id'] = $datatim->id;
         $arr['nama_tim'] = $datatim->name;
         $arr['email_tim'] = $datatim->email;
@@ -200,9 +217,8 @@ class AdminController extends Controller
         return $arr;
     }
 
-    public function getITUX($datatim, $status_pembayaran)
+    public function getContacts($datatim)
     {
-        $arr['status_pembayaran'] = $status_pembayaran;
         $arr['id'] = $datatim->id;
         $arr['nama_tim'] = $datatim->name;
         $arr['email_tim'] = $datatim->email;

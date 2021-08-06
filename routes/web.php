@@ -69,4 +69,11 @@ Route::prefix('acasdl')->group(function() {
     Route::get('ktm/{namafile}', [AdminController::class, 'downloadktm']);
     Route::get('skma/{namafile}', [AdminController::class, 'downloadskma']);
 });
-Route::get('acasget', [AdminController::class, 'getCompDataAll']);
+
+//AdminAPI
+Route::prefix('acasget')->group(function() {
+    Route::get('emails', [AdminController::class, 'getTeamEmails']);
+    Route::get('contacts', [AdminController::class, 'getTeamContacts']);
+    Route::get('unpaid', [AdminController::class, 'getUnpaidTeam']);
+    Route::get('incomplete', [AdminController::class, 'getUnfinishedTeamData']);
+});

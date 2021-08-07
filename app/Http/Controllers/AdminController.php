@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Amember;
 use App\Models\Bmember;
+use App\Models\htcategory;
 use App\Models\Leader;
 use App\Models\User;
 use Carbon\Carbon;
@@ -82,6 +83,7 @@ class AdminController extends Controller
     // - get tim udah bayar belom lengkap data      getUnfinishedTeamData()
     // - get paid tim member emails                 getTeamEmails()
     // - get paid tim member no hp, wa, idline      getTeamContacts()
+    // - get hacktoday team categories              getHTCategories()
 
     public function getUnpaidTeam() {
         $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
@@ -180,6 +182,30 @@ class AdminController extends Controller
             $i++;
         }
         
+        return response()->json($response);
+    }
+    
+    public function getHTCategories() {
+        $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
+        
+        $data = htcategory::all()->where('category', '=', 'Undergrad');
+        foreach ($data as $datum){
+            $team = User::find($datum->team_id);
+            $response['data']['Undergrad'] = $this->getEmail($team);
+        }
+        
+        $data = htcategory::all()->where('category', '=', 'Student');
+        foreach ($data as $datum){
+            $team = User::find($datum->team_id);
+            $response['data']['Student'] = $this->getEmail($team);
+        }
+        
+        $data = htcategory::all()->where('category', '=', 'Public');
+        foreach ($data as $datum){
+            $team = User::find($datum->team_id);
+            $response['data']['Public'] = $this->getEmail($team);
+        }
+
         return response()->json($response);
     }
 

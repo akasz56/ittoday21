@@ -77,4 +77,5 @@ Route::prefix('acasget')->group(function() {
     Route::get('contacts', [AdminController::class, 'getTeamContacts']);
     Route::get('unpaid', [AdminController::class, 'getUnpaidTeam']);
     Route::get('incomplete', [AdminController::class, 'getUnfinishedTeamData']);
+    Route::get('category', [AdminController::class, 'getHTCategories']);
 });

@@ -16,7 +16,8 @@ class CreateHtcategoriesTable extends Migration
         Schema::create('htcategories', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('team_id');
-            $table->enum('category', ['Mahastudent', 'Student', 'Public']);
+            $table->enum('category', ['Undergrad', 'Student', 'Public']);
+            $table->string('yes')->nullable();
             $table->timestamps();
         });
     }

@@ -244,9 +244,9 @@
 
     {{----------------------------------------- Team Biodata -----------------------------------------}}
     <h2 class="mt-5 pt-5 fw-bold mt-4">Team Biodata</h2>
-    <div class="alert alert-info">Please Complete the following biodata fields before <span class="fw-bold">8th
+    {{-- <div class="alert alert-info">Please Complete the following biodata fields before <span class="fw-bold">8th
             August
-            2021</span></div>
+            2021</span></div> --}}
     <nav>
         <div class="nav nav-tabs tabs-dash" id="nav-tab" role="tablist">
             <button class="nav-link tabs-dash active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"

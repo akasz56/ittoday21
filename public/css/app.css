@@ -211,7 +211,7 @@ body {
 
 .sponsors-list {
     border-radius: 20px;
-    height: 350px;
+    min-height: 350px;
 }
 
 

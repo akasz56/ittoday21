@@ -25,8 +25,8 @@
         <a class="skip-link btn btn-success" href="#main">Skip to main</a>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1 _bg-color-purple">
             <div class="container">
-                <a class="navbar-brand p-0" href="{{ route('home') }}"><img src="{{ asset('/assets/icons/brand.svg') }}" alt="It Today Logo"
-                        width="70px" height="50px"></a>
+                <a class="navbar-brand p-0" href="{{ route('home') }}"><img src="{{ asset('/assets/icons/brand.svg') }}"
+                        alt="It Today Logo" width="70px" height="50px"></a>
                 <!-- hamburger button when mobile -->
                 <button class="hamburger hamburger--spin" id="hamburger-btn" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -46,7 +46,8 @@
                                     class="bi bi-chevron-down icon-rotates"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownEvent">
-                                <li><a class="dropdown-item py-2" href="{{ route('event.int') }}">International Seminar</a></li>
+                                <li><a class="dropdown-item py-2" href="{{ route('event.int') }}">International
+                                        Seminar</a></li>
                                 <li><a class="dropdown-item py-2" href="{{ route('event.ilk') }}">Ilkommunity</a></li>
                                 <li><a class="dropdown-item py-2" href="{{ route('event.work') }}">Workshop</a></li>
                             </ul>
@@ -61,22 +62,24 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownCompetitions">
                                 <li><a class="dropdown-item py-2" href="{{ route('comp.hack') }}">Hack Today</a></li>
                                 <li><a class="dropdown-item py-2" href="{{ route('comp.ux') }}">UX Today</a></li>
-                                <li><a class="dropdown-item py-2" href="{{ route('comp.busy') }}">IT Business Competition</a></li>
+                                <li><a class="dropdown-item py-2" href="{{ route('comp.busy') }}">IT Business
+                                        Competition</a></li>
                             </ul>
                         </li>
-                        <a class="nav-link my-1 ms-lg-2" href="{{ route('about') }}"><i class="bi bi-info-circle infoHide me-2"></i> About
+                        <a class="nav-link my-1 ms-lg-2" href="{{ route('about') }}"><i
+                                class="bi bi-info-circle infoHide me-2"></i> About
                             Us</a>
                     </div>
 
                     @if (Carbon\Carbon::now('Asia/Jakarta')->gte(Carbon\Carbon::parse('01-06-2021', 'Asia/Jakarta')))
                     <div class="navbar-nav full-navbar-mobile ms-auto auth">
                         @auth
-                            <a class="nav-link m-auto me-lg-2" href="{{ route('dashboard') }}">Dashboard</a>
-                            <a class="nav-link m-auto me-lg-2" href="{{ route('logout') }}">Logout</a>
+                        <a class="nav-link m-auto me-lg-2" href="{{ route('dashboard') }}">Dashboard</a>
+                        <a class="nav-link m-auto me-lg-2" href="{{ route('logout') }}">Logout</a>
                         @endauth
                         @guest
-                            <a class="nav-link m-auto me-lg-2" href="{{ route('login') }}">Login</a>
-                            <a class="btn btn-primary" href="{{ route('register') }}">Register</a>
+                        <a class="nav-link m-auto me-lg-2" href="{{ route('login') }}">Login</a>
+                        <a class="btn btn-primary" href="{{ route('register') }}">Register</a>
                         @endguest
                     </div>
                     @endif
@@ -93,13 +96,15 @@
     <section class="container sponsors">
         <h1 data-aos="fade-up" class="text-center fw-bold">Sponsors</h1>
         <div class="ittsmall itt-spon"></div>
-        <div data-aos="fade-up" class="border sponsors-list"></div>    
+        <div data-aos="fade-up" class="border sponsors-list"></div>
         <div class="d-flex flex-column itt-sponmed">
             <div class="ittsmall itt-top"></div>
             <div class="ittsmall itt-bottom"></div>
-        </div>        
+        </div>
         <h1 data-aos="fade-up" class="text-center mt-5 fw-bold">Media Partners</h1>
-        <div data-aos="fade-up" class="border sponsors-list"></div>
+        <div data-aos="fade-up" class="border sponsors-list p-3">
+            <my-medpar class="row"></my-medpar>
+        </div>
         <div class="ittsmall itt-spon"></div>
     </section>
 
@@ -107,31 +112,31 @@
         <div class="container pt-5">
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-6">
-                    <img src={{ asset("/assets/icons/brand.svg") }} alt="IT Today Logo" class="img-fluid"
-                        height="150px" width="150px">
+                    <img src={{ asset("/assets/icons/brand.svg") }} alt="IT Today Logo" class="img-fluid" height="150px"
+                        width="150px">
                     <p class="text-white mt-3 fw-light">The Synergy Between Technology and Agro-Maritime 5.0</p>
 
                     <!-- social media -->
                     <div class="d-flex mb-4">
                         <a href="https://www.facebook.com/ipbittoday/" target="_blank">
-                            <img src={{ asset("/assets/icons/fb.svg") }}
-                            alt="facebook" class="img-fluid" height="30px" width="30px">
+                            <img src={{ asset("/assets/icons/fb.svg") }} alt="facebook" class="img-fluid" height="30px"
+                                width="30px">
                         </a>
                         <a href="https://www.instagram.com/ittoday_ipb/" target="_blank">
-                            <img src={{ asset("/assets/icons/ig.svg") }}
-                            alt="instagram" class="img-fluid ms-3" height="30px" width="30px">
+                            <img src={{ asset("/assets/icons/ig.svg") }} alt="instagram" class="img-fluid ms-3"
+                                height="30px" width="30px">
                         </a>
                         <a href="http://line.me/ti/p/@ukd0443x" target="_blank">
-                            <img src={{ asset("assets/icons/line.svg") }}
-                            alt="line" class="img-fluid ms-3" height="30px" width="30px">
+                            <img src={{ asset("assets/icons/line.svg") }} alt="line" class="img-fluid ms-3"
+                                height="30px" width="30px">
                         </a>
                         <a href="https://twitter.com/ittoday_ipb?lang=en" target="_blank">
-                            <img src={{ asset("/assets/icons/twitter.svg") }}
-                            alt="twitter" class="img-fluid ms-3" height="30px" width="30px">
+                            <img src={{ asset("/assets/icons/twitter.svg") }} alt="twitter" class="img-fluid ms-3"
+                                height="30px" width="30px">
                         </a>
                         <a href="https://www.youtube.com/c/ITTodayIPB/videos" target="_blank">
-                            <img src={{ asset("/assets/icons/youtube.svg") }}
-                            alt="youtube" class="img-fluid ms-3" height="30px" width="30px">
+                            <img src={{ asset("/assets/icons/youtube.svg") }} alt="youtube" class="img-fluid ms-3"
+                                height="30px" width="30px">
                         </a>
                     </div>
                 </div>
@@ -139,18 +144,24 @@
                 <div class="col-sm-12 col-md-4 col-lg-2">
                     <h6 class="text-white fw-bold">Competition</h6>
                     <ul class="list-unstyled text-small">
-                        <li><a href="{{ route('comp.hack') }}" class="text-decoration-none link-list-footer">Hacktoday</a></li>
-                        <li><a href="{{ route('comp.ux') }}" class="text-decoration-none link-list-footer">UX Today</a></li>
-                        <li><a href="{{ route('comp.busy') }}" class="text-decoration-none link-list-footer">IT Business Competition</a></li>
+                        <li><a href="{{ route('comp.hack') }}"
+                                class="text-decoration-none link-list-footer">Hacktoday</a></li>
+                        <li><a href="{{ route('comp.ux') }}" class="text-decoration-none link-list-footer">UX Today</a>
+                        </li>
+                        <li><a href="{{ route('comp.busy') }}" class="text-decoration-none link-list-footer">IT Business
+                                Competition</a></li>
                     </ul>
                 </div>
 
                 <div class="col-sm-12 col-md-4 col-lg-2">
                     <h6 class="text-white fw-bold">Events</h6>
                     <ul class="list-unstyled text-small">
-                        <li><a href="{{ route('event.int') }}" class="text-decoration-none link-list-footer">International Seminar</a></li>
-                        <li><a href="{{ route('event.ilk') }}" class="text-decoration-none link-list-footer">Ilkommunity</a></li>
-                        <li><a href="{{ route('event.work') }}" class="text-decoration-none link-list-footer">Workshop</a></li>
+                        <li><a href="{{ route('event.int') }}"
+                                class="text-decoration-none link-list-footer">International Seminar</a></li>
+                        <li><a href="{{ route('event.ilk') }}"
+                                class="text-decoration-none link-list-footer">Ilkommunity</a></li>
+                        <li><a href="{{ route('event.work') }}"
+                                class="text-decoration-none link-list-footer">Workshop</a></li>
                     </ul>
                 </div>
 
@@ -158,10 +169,12 @@
                     <h6 class="text-white fw-bold">Contact Us</h6>
                     <ul class="list-unstyled text-small">
                         <li>
-                            <a href="mailto:admin@ittoday.id" class="text-decoration-none link-list-footer" target="_blank">admin@ittoday.id</a>
+                            <a href="mailto:admin@ittoday.id" class="text-decoration-none link-list-footer"
+                                target="_blank">admin@ittoday.id</a>
                         </li>
                         <li>
-                            <a href="https://wa.me/+6285398553879" class="text-decoration-none link-list-footer" target="_blank">Risda Awalia<br>+62 853-9855-3879</a>
+                            <a href="https://wa.me/+6285398553879" class="text-decoration-none link-list-footer"
+                                target="_blank">Risda Awalia<br>+62 853-9855-3879</a>
                         </li>
                     </ul>
                 </div>

@@ -137,6 +137,10 @@
     border-radius: 20px;
 }
 
+.speaker-container {
+    display: flex;
+}
+
 @media (max-width: 800px) {
     .ilkommunity-unit {
         flex-direction: column;
@@ -158,6 +162,10 @@
 
     .ilkommunity-list p {
         text-align: center;
+    }
+
+    .speaker-container {
+        flex-direction: column;
     }
 }
 

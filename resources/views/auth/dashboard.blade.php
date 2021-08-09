@@ -132,17 +132,19 @@
                     <div><button type="submit" class="btn btn-primary px-5 py-2">Submit</button></div>
                 </form>
             </div>
-            @if ($jenis_lomba == "UXToday")
+            <div class="my-3">
+                You can use this template in the beginning of your video:
+            </div>
             <div class=" col-sm-12 col-md-6 col-lg-6">
-                <div class="my-3">
-                    You can use this template in the beginning of your video:
-                </div>
+                @if ($jenis_lomba == "UXToday")
                 <a class="btn btn-primary" href="https://ipb.link/templateopening-videoux">UXToday Video Intro
                     Template</a>
+                @else
+                <a class="btn btn-primary" href="https://ipb.link/templateopening-videobistik">IT Business Video Intro
+                    Template</a>
+                @endif
             </div>
             @endif
-            @endif
-            <div class="col-sm-12 col-md-6 col-lg-6"></div>
         </div>
     </div>
     @endif

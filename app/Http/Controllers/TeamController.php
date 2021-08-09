@@ -16,28 +16,12 @@ class TeamController extends Controller
 {
     public function index()
     {
-        $belomBayar = false;
-        //------------ Payment Status
-        if (Auth::user()->file_bayar) { /* udah bayar */
-            if      (Auth::user()->verified_bayar == "done")    {$status_bayar = 2;     $message_bayar = "Payment has been verified";}
-            else if (Auth::user()->verified_bayar == "pending") {$status_bayar = 1;     $message_bayar = "Proof of payment currently in verifying process";}
-            else if (Auth::user()->verified_bayar == "reupload")   {$status_bayar = 0;     $message_bayar = "Your payment isn't verified, please reupload";}
-        } else                          /* belum bayar */       {$status_bayar = 0;     $message_bayar = "";        $belomBayar = true;}
-
         //------------ Close Registration
-        $isClosed = Carbon::now('Asia/Jakarta') > Carbon::parse('09-08-2021', 'Asia/Jakarta');
-        if ($isClosed && $belomBayar) {
+        $belomBayar = (Auth::user()->file_bayar) ? false : true;
+        if ($belomBayar) {
             return view('auth.closereg')->with('message', 'Hello, whachu lookin for?');
         }
         
-        //------------ Payment Info
-        if      (Auth::user()->jenis_lomba == "hack")   {$harga_bayar = 60000;  $jenis_lomba = "HackToday";}
-        else if (Auth::user()->jenis_lomba == "ux_2")   {$harga_bayar = 90000;  $jenis_lomba = "UXToday - Batch 2";}
-        else if (Auth::user()->jenis_lomba == "busy_2") {$harga_bayar = 90000;  $jenis_lomba = "IT Business - Batch 2";}
-        // BATCH 2 UPDATE
-        else if (Auth::user()->jenis_lomba == "ux_1")   {$harga_bayar = 90000;  $jenis_lomba = "UXToday - Batch 2";     $belomBayar = "Since you havent paid in Batch 1, then you are required to pay for the current batch.";}
-        else if (Auth::user()->jenis_lomba == "busy_1") {$harga_bayar = 90000;  $jenis_lomba = "IT Business - Batch 2"; $belomBayar = "Since you havent paid in Batch 1, then you are required to pay for the current batch.";}
-
         //------------ Team id & Biodata
         $id = Auth::user()->id;
         $nama = Auth::user()->name;
@@ -49,47 +33,49 @@ class TeamController extends Controller
         $status_ktm = array();
         if      ($leader->status_ktm == "pending")      {$status_ktm[0] = 1; $message_ktm[0] = "ID Card / Student ID Card currently in verifying process";}
         else if ($leader->status_ktm == "done")         {$status_ktm[0] = 2; $message_ktm[0] = "ID Card / Student ID Card has been verified";}
-        else if ($leader->status_ktm == "reupload")        {$status_ktm[0] = 0; $message_ktm[0] = "ID Card / Student ID Card is not verified, Please Reupload";}
+        else if ($leader->status_ktm == "reupload")     {$status_ktm[0] = 0; $message_ktm[0] = "ID Card / Student ID Card is not verified, Please Reupload";}
         else                                            {$status_ktm[0] = 0; $message_ktm[0] = "";}
 
         if      ($amember->status_ktm == "pending")     {$status_ktm[1] = 1; $message_ktm[1] = "ID Card / Student ID Card currently in verifying process";}
         else if ($amember->status_ktm == "done")        {$status_ktm[1] = 2; $message_ktm[1] = "ID Card / Student ID Card has been verified";}
-        else if ($amember->status_ktm == "reupload")       {$status_ktm[1] = 0; $message_ktm[1] = "ID Card / Student ID Card is not verified, Please Reupload";}
+        else if ($amember->status_ktm == "reupload")    {$status_ktm[1] = 0; $message_ktm[1] = "ID Card / Student ID Card is not verified, Please Reupload";}
         else                                            {$status_ktm[1] = 0; $message_ktm[1] = "";}
 
         if      ($bmember->status_ktm == "pending")     {$status_ktm[2] = 1; $message_ktm[2] = "ID Card / Student ID Card currently in verifying process";}
         else if ($bmember->status_ktm == "done")        {$status_ktm[2] = 2; $message_ktm[2] = "ID Card / Student ID Card has been verified";}
-        else if ($bmember->status_ktm == "reupload")       {$status_ktm[2] = 0; $message_ktm[2] = "ID Card / Student ID Card is not verified, Please Reupload";}
+        else if ($bmember->status_ktm == "reupload")    {$status_ktm[2] = 0; $message_ktm[2] = "ID Card / Student ID Card is not verified, Please Reupload";}
         else                                            {$status_ktm[2] = 0; $message_ktm[2] = "";}
 
         //------------ Biodata SKMA Status
         $status_skma = array();
         if      ($leader->status_skma == "pending")     {$status_skma[0] = 1; $message_skma[0] = "Certificate of Active Student currently in verifying process";}
         else if ($leader->status_skma == "done")        {$status_skma[0] = 2; $message_skma[0] = "Certificate of Active Student has been verified";}
-        else if ($leader->status_skma == "reupload")       {$status_skma[0] = 0; $message_skma[0] = "Certificate of Active Student is not verified, Please Reupload";}
+        else if ($leader->status_skma == "reupload")    {$status_skma[0] = 0; $message_skma[0] = "Certificate of Active Student is not verified, Please Reupload";}
         else                                            {$status_skma[0] = 0; $message_skma[0] = "";}
         
         if      ($amember->status_skma == "pending")    {$status_skma[1] = 1; $message_skma[1] = "Certificate of Active Student currently in verifying process";}
         else if ($amember->status_skma == "done")       {$status_skma[1] = 2; $message_skma[1] = "Certificate of Active Student has been verified";}
-        else if ($amember->status_skma == "reupload")      {$status_skma[1] = 0; $message_skma[1] = "Certificate of Active Student is not verified, Please Reupload";}
+        else if ($amember->status_skma == "reupload")   {$status_skma[1] = 0; $message_skma[1] = "Certificate of Active Student is not verified, Please Reupload";}
         else                                            {$status_skma[1] = 0; $message_skma[1] = "";}
 
         if      ($bmember->status_skma == "pending")    {$status_skma[2] = 1; $message_skma[2] = "Certificate of Active Student currently in verifying process";}
         else if ($bmember->status_skma == "done")       {$status_skma[2] = 2; $message_skma[2] = "Certificate of Active Student has been verified";}
-        else if ($bmember->status_skma == "reupload")      {$status_skma[2] = 0; $message_skma[2] = "Certificate of Active Student is not verified, Please Reupload";}
+        else if ($bmember->status_skma == "reupload")   {$status_skma[2] = 0; $message_skma[2] = "Certificate of Active Student is not verified, Please Reupload";}
         else                                            {$status_skma[2] = 0; $message_skma[2] = "";}
+
+        //------------ Comp Info
+        if      (Auth::user()->jenis_lomba == "hack")   {$jenis_lomba = "HackToday";}
+        else if (Auth::user()->jenis_lomba == "ux_2" || Auth::user()->jenis_lomba == "ux_1")   {$jenis_lomba = "UXToday";}
+        else if (Auth::user()->jenis_lomba == "busy_2" || Auth::user()->jenis_lomba == "busy_1") {$jenis_lomba = "IT Business";}
 
         //------------ Proposal Status
         if (Auth::user()->jenis_lomba == "hack") {
-            $categoried = htcategory::where('team_id', '=', $id)->first();
-            $status_lomba = ($categoried) ? 1 : 0;
+            $status_lomba = (htcategory::where('team_id', '=', $id)->first()) ? 1 : 0;
             $message_lomba = "";
         }
         else {
             $status_lomba = (Auth::user()->file_lomba) ? 1 : 0;
             $message_lomba = (Auth::user()->file_lomba) ? "Proposal has been uploaded" : "";
-            // if (Auth::user()->file_lomba)   {$message_lomba = "Proposal has been uploaded"; $status_lomba = 1;}
-            // else                            {$message_lomba = "";                           $status_lomba = 0;}
         }
 
         //------------ Return view
@@ -104,23 +90,15 @@ class TeamController extends Controller
             'status_skma' => $status_skma,
             'message_ktm' => $message_ktm,
             'message_skma' => $message_skma,
-            // team payment
-            'harga_bayar' => $harga_bayar,
-            'status_bayar' => $status_bayar,
-            'message_bayar' => $message_bayar,
             // lomba
             'jenis_lomba' => $jenis_lomba,
             'status_lomba' => $status_lomba,
             'message_lomba' => $message_lomba,
-            // Batch 2 update
-            'belomBayar' => $belomBayar,
-            'isClosed' => $isClosed,
         ]);
     }
     
     public function rulebook($id)
     {
-
         switch ($id) {
             case 'hack':
                 if (Storage::exists('rulebook/HackToday.pdf')) {
@@ -147,7 +125,6 @@ class TeamController extends Controller
 
         if ($request->hasFile('trf') && $request->file('trf')->isValid()) {
             $namafile = Auth::user()->id . '-trf.' . $request->file('trf')->extension();
-            // $namafile = Auth::user()->id . '.' . Auth::user()->name . '.' . $request->file('trf')->extension();
             $request->file('trf')->storeAs('trf', $namafile);
 
             $user->bank = $request->nama;
@@ -168,8 +145,6 @@ class TeamController extends Controller
 
         if ($request->hasFile('proposal') && $request->file('proposal')->isValid()) {
             $namafile = Auth::user()->id . '-proposal.' . $request->file('proposal')->getClientOriginalExtension();
-            // $namafile = basename($request->file('proposal')->getClientOriginalName(), '.' . $request->file('proposal')->getClientOriginalExtension());
-            // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('proposal')->getClientOriginalExtension();
             $request->file('proposal')->storeAs('proposal', $namafile);
 
             $user->file_lomba = $namafile;
@@ -201,8 +176,6 @@ class TeamController extends Controller
 
             if ($request->hasFile('ktm') && $request->file('ktm')->isValid()) {
                 $namafile = Auth::user()->id . '-leader-ktm.' . $request->file('ktm')->getClientOriginalExtension();
-                // $namafile = basename($request->file('ktm')->getClientOriginalName(), '.' . $request->file('ktm')->getClientOriginalExtension());
-                // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('ktm')->getClientOriginalExtension();
                 $request->file('ktm')->storeAs('ktm', $namafile);
     
                 $leader->status_ktm = "pending";
@@ -219,8 +192,6 @@ class TeamController extends Controller
 
             if ($request->hasFile('skma') && $request->file('skma')->isValid()) {
                 $namafile = Auth::user()->id . '-leader-skma.'. $request->file('skma')->getClientOriginalExtension();
-                // $namafile = basename($request->file('skma')->getClientOriginalName(), '.' . $request->file('skma')->getClientOriginalExtension());
-                // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('skma')->getClientOriginalExtension();
                 $request->file('skma')->storeAs('skma', $namafile);
     
                 $leader->status_skma = "pending";
@@ -255,8 +226,6 @@ class TeamController extends Controller
 
             if ($request->hasFile('ktm') && $request->file('ktm')->isValid()) {
                 $namafile = Auth::user()->id . '-amem-ktm.' . $request->file('ktm')->getClientOriginalExtension();
-                // $namafile = basename($request->file('ktm')->getClientOriginalName(), '.' . $request->file('ktm')->getClientOriginalExtension());
-                // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('ktm')->getClientOriginalExtension();
                 $request->file('ktm')->storeAs('ktm', $namafile);
     
                 $amember->status_ktm = "pending";
@@ -273,8 +242,6 @@ class TeamController extends Controller
 
             if ($request->hasFile('skma') && $request->file('skma')->isValid()) {
                 $namafile = Auth::user()->id . '-amem-skma.'. $request->file('skma')->getClientOriginalExtension();
-                // $namafile = basename($request->file('skma')->getClientOriginalName(), '.' . $request->file('skma')->getClientOriginalExtension());
-                // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('skma')->getClientOriginalExtension();
                 $request->file('skma')->storeAs('skma', $namafile);
     
                 $amember->status_skma = "pending";
@@ -309,8 +276,6 @@ class TeamController extends Controller
 
             if ($request->hasFile('ktm') && $request->file('ktm')->isValid()) {
                 $namafile = Auth::user()->id . '-bmem-ktm.' . $request->file('ktm')->getClientOriginalExtension();
-                // $namafile = basename($request->file('ktm')->getClientOriginalName(), '.' . $request->file('ktm')->getClientOriginalExtension());
-                // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('ktm')->getClientOriginalExtension();
                 $request->file('ktm')->storeAs('ktm', $namafile);
     
                 $bmember->status_ktm = "pending";
@@ -327,8 +292,6 @@ class TeamController extends Controller
 
             if ($request->hasFile('skma') && $request->file('skma')->isValid()) {
                 $namafile = Auth::user()->id . '-bmem-skma.'. $request->file('skma')->getClientOriginalExtension();
-                // $namafile = basename($request->file('skma')->getClientOriginalName(), '.' . $request->file('skma')->getClientOriginalExtension());
-                // $namafile = Auth::user()->id . '.' . Auth::user()->name . '(' . $namafile . ")" . "." . $request->file('skma')->getClientOriginalExtension();
                 $request->file('skma')->storeAs('skma', $namafile);
     
                 $bmember->status_skma = "pending";

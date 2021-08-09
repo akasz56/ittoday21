@@ -29,146 +29,45 @@
     <div class="alert alert-danger">{{ session()->get('fail.category') }}</div>
     @endif
 
-    @if ($isClosed)
     {{----------------------------------------- Contacts -----------------------------------------}}
-    <h2 class="mt-5 fw-bold">Competition Contacts</h2>
-    <div class="row">
-        <div class="col-md-4">
-            <h4>Hack Today</h4>
-            <p style="line-height: 1em;">Rizal :
-                <a href="https://wa.me/+6289644417286" target="_blank">WhatsApp</a>
-            </p>
-            <p style="line-height: 1em;">Yosar :
-                <a href="https://wa.me/+62895342744068" target="_blank">WhatsApp</a>
-            </p>
-            <p style="line-height: 1em;">Patar :
-                <a href="https://t.me/patarisac" target="_blank">Telegram</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h4>UX Today</h4>
-            <p style="line-height: 1em;">Amelia :
-                <a href="https://wa.me/+6289620766791" target="_blank">WhatsApp</a> |
-                <a href="https://line.me/ti/p/~amelia16hernawan" target="_blank">Line ID</a>
-            </p>
-            <p style="line-height: 1em;">Zulfa :
-                <a href="https://wa.me/+6287867008071" target="_blank">WhatsApp</a> |
-                <a href="https://line.me/ti/p/~zulfameilida" target="_blank">Line ID</a>
-            </p>
+    @if ($jenis_lomba == "HackToday")
+    <h2 class="mt-5 fw-bold">Hack Today Contacts</h2>
+    <p style="line-height: 1em;">Rizal :
+        <a href="https://wa.me/+6289644417286" target="_blank">WhatsApp</a>
+    </p>
+    <p style="line-height: 1em;">Yosar :
+        <a href="https://wa.me/+62895342744068" target="_blank">WhatsApp</a>
+    </p>
+    <p style="line-height: 1em;">Patar :
+        <a href="https://t.me/patarisac" target="_blank">Telegram</a>
+    </p>
 
-            <p style="line-height: 1em;">Ahmed :
-                <a href="https://wa.me/+6282213666601" target="_blank">WhatsApp</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h4>IT Business Competition</h4>
-            <p style="line-height: 1em;">Abdul Hakim :
-                <a href="https://wa.me/+6285884621204" target="_blank">WhatsApp</a>
-            </p>
-            <p style="line-height: 1em;">Aulia Rochman :
-                <a href="https://wa.me/+6289662459376" target="_blank">WhatsApp</a>
-            </p>
-            <p style="line-height: 1em;">Rafli Aditya :
-                <a href="https://wa.me/+628970162345" target="_blank">WhatsApp</a>
-            </p>
-        </div>
-    </div>
+    @elseif ($jenis_lomba == "UXToday")
+    <h2 class="mt-5 fw-bold">UX Today Contacts</h2>
+    <p style="line-height: 1em;">Amelia :
+        <a href="https://wa.me/+6289620766791" target="_blank">WhatsApp</a> |
+        <a href="https://line.me/ti/p/~amelia16hernawan" target="_blank">Line ID</a>
+    </p>
+    <p style="line-height: 1em;">Zulfa :
+        <a href="https://wa.me/+6287867008071" target="_blank">WhatsApp</a> |
+        <a href="https://line.me/ti/p/~zulfameilida" target="_blank">Line ID</a>
+    </p>
+
+    <p style="line-height: 1em;">Ahmed :
+        <a href="https://wa.me/+6282213666601" target="_blank">WhatsApp</a>
+    </p>
+
     @else
-    {{----------------------------------------- Payment Infos -----------------------------------------}}
-    <h2 class="mt-5 fw-bold">Payment Information</h2>
-    @if ( $status_bayar )
-    <div class="border p-3 rounded-3">
-        <div class="row">
-            <div>
-                @if ( session()->has('success.trf') )
-                <div class="alert alert-success">{{ session()->get('success.trf') }}</div>
-                @endif
-                @if ( $status_bayar > 1 )
-                <div class="alert alert-success">{{ $message_bayar }}</div>
-                @else
-                <div class="alert alert-warning">{{ $message_bayar }}</div>
-                @endif
-            </div>
-        </div>
-    </div>
-    @else
-    <div class="row">
-
-        <div>
-            @if ($message_bayar)
-            <div class="alert alert-danger">{{ $message_bayar }}</div>
-            @endif
-        </div>
-
-        <div class="col-md-6">
-            <p class="lh-lg">Participants of IT TODAY 2021 competitions can pay the registration fee with the
-                nominal amount plus
-                unique code at the last digits. For example, the registration fee is IDR 90.000, and your unique
-                code is
-                12, so you have to transfer IDR 90.012,- Then you can confirm the payment on IT TODAY 2021 website
-                dashboard.</p>
-        </div>
-
-        <div class="col-md-6">
-            @if (is_string($belomBayar))
-            <div class="alert alert-warning fw-bold">
-                {{ $belomBayar }}
-            </div>
-            @endif
-            <p class="ms-lg-4 mb-0"><span class="fw-bold">{{ $jenis_lomba }} : </span>IDR
-                {{ number_format($harga_bayar) }},-</p>
-            <p class="ms-lg-4 mb-0"><span class="fw-bold">Team Unique Code: </span>{{ $id }}</p>
-            <p class="ms-lg-4 mb-0"><span class="fw-bold">Total Fee: </span><span
-                    class="fw-bold text-primary">{{ number_format($id + $harga_bayar) }},-</span></p>
-        </div>
-
-    </div>
-
-
-    <h4 class="fw-bold mt-3 text-muted">Transfer To:</h4>
-    <p class="my-1">BCA : 3740828311 a.n Farhan Fathurrahman</p>
-    <p class="my-1">BNI : 1168834234 a.n Nisma Karmiahtun Fadilah</p>
-
-
-    <h2 class="mt-5 pt-5 fw-bold mt-3 pb-2">Payment Confirmation</h2>
-    <div class="border p-3 rounded-3">
-        <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                <form action="{{ route('upload.trf') }}" method="POST" enctype="multipart/form-data"
-                    enctype="multipart/form-data">
-                    @csrf
-
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Bank Account Name</label>
-                        <input type="text" class="form-control" id="nama" name="nama"
-                            placeholder="Under the name of {{ ucwords($nama) . ' Team' }}" required>
-                        @error('trf')<span>{{ $message }}</span>@enderror
-                    </div>
-
-                    <div>
-                        <label for="trf" class="form-label">Proof of payment</label>
-                        <input type="file" class="form-control" id="trf" name="trf" required>
-                        @error('trf')<span>{{ $message }}</span>@enderror
-                        <small>
-                            <p class="mb-0">File format: jpeg, jpg, png.</p>
-                        </small>
-                    </div>
-
-                    <div>
-                        <button type="submit" class="btn btn-primary mt-3 d-block w-100">Upload</button>
-                    </div>
-
-                </form>
-
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                @if ( session()->has('fail.trf') )
-                <div class="alert alert-danger">{{ session()->get('fail.trf') }}</div>
-                @endif
-            </div>
-        </div>
-    </div>
-    @endif
+    <h2 class="mt-5 fw-bold">IT Business Competition Contacts</h2>
+    <p style="line-height: 1em;">Abdul Hakim :
+        <a href="https://wa.me/+6285884621204" target="_blank">WhatsApp</a>
+    </p>
+    <p style="line-height: 1em;">Aulia Rochman :
+        <a href="https://wa.me/+6289662459376" target="_blank">WhatsApp</a>
+    </p>
+    <p style="line-height: 1em;">Rafli Aditya :
+        <a href="https://wa.me/+628970162345" target="_blank">WhatsApp</a>
+    </p>
     @endif
 
     {{----------------------------------------- Proposal / Category -----------------------------------------}}
@@ -203,6 +102,7 @@
     <h2 class="mt-5 pt-5 fw-bold mt-4">Proposal Submission</h2>
     <div class="border p-3 rounded-3">
         <div class="row">
+            <div class="alert alert-info">Make sure to include your video link in the proposal before submitting</div>
             @if ( $status_lomba )
             <div>
                 @if ( session()->has('success.prop') )
@@ -212,10 +112,6 @@
             </div>
             @else
             <div class="col-sm-12 col-md-6 col-lg-6">
-                @if ($jenis_lomba == "UXToday - Batch 2")
-                <div class=" alert alert-info">Make sure to include your video link in the proposal before
-                    submitting</div>
-                @endif
                 @if ( session()->has('fail.prop') )
                 <div class="alert alert-danger">{{ session()->get('fail.prop') }}</div>
                 @endif
@@ -236,6 +132,15 @@
                     <div><button type="submit" class="btn btn-primary px-5 py-2">Submit</button></div>
                 </form>
             </div>
+            @if ($jenis_lomba == "UXToday")
+            <div class=" col-sm-12 col-md-6 col-lg-6">
+                <div class="my-3">
+                    You can use this template in the beginning of your video:
+                </div>
+                <a class="btn btn-primary" href="https://ipb.link/templateopening-videoux">UXToday Video Intro
+                    Template</a>
+            </div>
+            @endif
             @endif
             <div class="col-sm-12 col-md-6 col-lg-6"></div>
         </div>
@@ -244,9 +149,6 @@
 
     {{----------------------------------------- Team Biodata -----------------------------------------}}
     <h2 class="mt-5 pt-5 fw-bold mt-4">Team Biodata</h2>
-    {{-- <div class="alert alert-info">Please Complete the following biodata fields before <span class="fw-bold">8th
-            August
-            2021</span></div> --}}
     <nav>
         <div class="nav nav-tabs tabs-dash" id="nav-tab" role="tablist">
             <button class="nav-link tabs-dash active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
@@ -268,7 +170,8 @@
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="mb-3">
                             <label for="nama" class="form-label reqform">Leader Name</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $leader->name }}"
+                            <input type="text" class="form-control" id="nama" name="nama"
+                                <?php if($leader->name) echo 'disabled' ?> value="{{ $leader->name }}"
                                 placeholder="Leader Name">
                         </div>
                         <div class="mb-3">
@@ -277,28 +180,33 @@
                             @else
                             <label for="nim" class="form-label reqform">Student ID Number</label>
                             @endif
-                            <input type="text" class="form-control" id="nim" name="nim" value="{{ $leader->nim }}"
+                            <input type="text" class="form-control" id="nim" name="nim"
+                                <?php if($leader->nim) echo 'disabled' ?> value="{{ $leader->nim }}"
                                 placeholder="Student ID Number">
                         </div>
                         <div class="mb-3">
                             <label for="institusi" class="form-label reqform">Institution</label>
                             <input type="text" class="form-control" id="institusi" name="institusi"
-                                value="{{ $leader->institusi }}" placeholder="Institution">
+                                <?php if($leader->institusi) echo 'disabled' ?> value="{{ $leader->institusi }}"
+                                placeholder="Institution">
                         </div>
                         <div class="mb-3">
                             <label for="prov" class="form-label">Province</label>
-                            <input type="text" class="form-control" id="prov" name="prov" value="{{ $leader->prov }}"
+                            <input type="text" class="form-control" id="prov" name="prov"
+                                <?php if($leader->prov) echo 'disabled' ?> value="{{ $leader->prov }}"
                                 placeholder="Province / State">
                         </div>
                         <div class="mb-3">
                             <label for="kota" class="form-label">City</label>
-                            <input type="text" class="form-control" id="kota" name="kota" value="{{ $leader->kota }}"
+                            <input type="text" class="form-control" id="kota" name="kota"
+                                <?php if($leader->kota) echo 'disabled' ?> value="{{ $leader->kota }}"
                                 placeholder="City">
                         </div>
                         <div class="mb-3">
                             <label for="idline" class="form-label">Line ID</label>
                             <input type="text" class="form-control" id="idline" name="idline"
-                                value="{{ $leader->idline }}" placeholder="Line ID">
+                                <?php if($leader->idline) echo 'disabled' ?> value="{{ $leader->idline }}"
+                                placeholder="Line ID">
                         </div>
                     </div>
                     <!-- kanan -->
@@ -306,12 +214,14 @@
                         <div class="mb-3">
                             <label for="email" class="form-label reqform">Email Address</label>
                             <input type="email" class="form-control" id="email" name="email"
-                                value="{{ $leader->email }}" placeholder="Email Address">
+                                <?php if($leader->email) echo 'disabled' ?> value="{{ $leader->email }}"
+                                placeholder="Email Address">
                         </div>
                         <div class="mb-3">
                             <label for="phone1" class="form-label reqform">Phone Number</label>
                             <input type="text" class="form-control" id="phone1" name="phone"
-                                value="{{ $leader->phone }}" placeholder="Phone Number">
+                                <?php if($leader->phone) echo 'disabled' ?> value="{{ $leader->phone }}"
+                                placeholder="Phone Number">
 
                             <div class="mt-2 d-flex">
                                 <input class="form-check-input rounded-pill me-2 my-auto checkContainer" id="numberCek1"
@@ -324,7 +234,8 @@
                         <div class="mb-3">
                             <label for="whatsapp1" class="form-label">Whatsapp</label>
                             <input type="text" class="form-control" id="whatsapp1" name="whatsapp"
-                                value="{{ $leader->whatsapp }}" placeholder="Whatsapp">
+                                <?php if($leader->whatsapp) echo 'disabled' ?> value="{{ $leader->whatsapp }}"
+                                placeholder="Whatsapp">
                         </div>
                         <div class="mb-3">
                             @if ( $status_ktm[0] > 1 )
@@ -389,7 +300,8 @@
                         <!-- kiri -->
                         <div class="mb-3">
                             <label for="nama" class="form-label reqform">Member 1 Name</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $amember->name }}"
+                            <input type="text" class="form-control" id="nama" name="nama"
+                                <?php if ($amember->name) echo 'disabled' ?> value="{{ $amember->name }}"
                                 placeholder="Member Name">
                         </div>
                         <div class="mb-3">
@@ -398,28 +310,33 @@
                             @else
                             <label for="nim" class="form-label reqform">Student ID Number</label>
                             @endif
-                            <input type="text" class="form-control" id="nim" name="nim" value="{{ $amember->nim }}"
+                            <input type="text" class="form-control" id="nim" name="nim"
+                                <?php if ($amember->nim) echo 'disabled' ?> value="{{ $amember->nim }}"
                                 placeholder="Student ID Number">
                         </div>
                         <div class="mb-3">
                             <label for="institusi" class="form-label reqform">Institution</label>
                             <input type="text" class="form-control" id="institusi" name="institusi"
-                                value="{{ $amember->institusi }}" placeholder="Institution">
+                                <?php if ($amember->institusi) echo 'disabled' ?> value="{{ $amember->institusi }}"
+                                placeholder="Institution">
                         </div>
                         <div class="mb-3">
                             <label for="prov" class="form-label">Province</label>
-                            <input type="text" class="form-control" id="prov" name="prov" value="{{ $amember->prov }}"
+                            <input type="text" class="form-control" id="prov" name="prov"
+                                <?php if ($amember->prov) echo 'disabled' ?> value="{{ $amember->prov }}"
                                 placeholder="Province / State">
                         </div>
                         <div class="mb-3">
                             <label for="kota" class="form-label">City</label>
-                            <input type="text" class="form-control" id="kota" name="kota" value="{{ $amember->kota }}"
+                            <input type="text" class="form-control" id="kota" name="kota"
+                                <?php if ($amember->kota) echo 'disabled' ?> value="{{ $amember->kota }}"
                                 placeholder="City">
                         </div>
                         <div class="mb-3">
                             <label for="idline" class="form-label">Line ID</label>
                             <input type="text" class="form-control" id="idline" name="idline"
-                                value="{{ $amember->idline }}" placeholder="Line ID">
+                                <?php if ($amember->idline) echo 'disabled' ?> value="{{ $amember->idline }}"
+                                placeholder="Line ID">
                         </div>
                     </div>
                     <!-- kanan -->
@@ -427,12 +344,14 @@
                         <div class="mb-3">
                             <label for="email" class="form-label reqform">Email Address</label>
                             <input type="email" class="form-control" id="email" name="email"
-                                value="{{ $amember->email }}" placeholder="Email Address">
+                                <?php if ($amember->email) echo 'disabled' ?> value="{{ $amember->email }}"
+                                placeholder="Email Address">
                         </div>
                         <div class="mb-3">
                             <label for="phone2" class="form-label reqform">Phone Number</label>
                             <input type="text" class="form-control" id="phone2" name="phone"
-                                value="{{ $amember->phone }}" placeholder="Phone Number">
+                                <?php if ($amember->phone) echo 'disabled' ?> value="{{ $amember->phone }}"
+                                placeholder="Phone Number">
 
                             <div class="mt-2 d-flex">
                                 <input class="form-check-input rounded-pill me-2 my-auto checkContainer" id="numberCek2"
@@ -445,7 +364,8 @@
                         <div class="mb-3">
                             <label for="whatsapp2" class="form-label">Whatsapp</label>
                             <input type="text" class="form-control" id="whatsapp2" name="whatsapp"
-                                value="{{ $amember->whatsapp }}" placeholder="Whatsapp">
+                                <?php if ($amember->whatsapp) echo 'disabled' ?> value="{{ $amember->whatsapp }}"
+                                placeholder="Whatsapp">
                         </div>
                         <div class="mb-3">
                             @if ( $status_ktm[1] > 1 )
@@ -510,7 +430,8 @@
                         <!-- kiri -->
                         <div class="mb-3">
                             <label for="nama" class="form-label reqform">Member 2 Name</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $bmember->name }}"
+                            <input type="text" class="form-control" id="nama" name="nama"
+                                <?php if ($bmember->name) echo 'disabled' ?> value="{{ $bmember->name }}"
                                 placeholder="Member Name">
                         </div>
                         <div class="mb-3">
@@ -519,28 +440,33 @@
                             @else
                             <label for="nim" class="form-label reqform">Student ID Number</label>
                             @endif
-                            <input type="text" class="form-control" id="nim" name="nim" value="{{ $bmember->nim }}"
+                            <input type="text" class="form-control" id="nim" name="nim"
+                                <?php if ($bmember->nim) echo 'disabled' ?> value="{{ $bmember->nim }}"
                                 placeholder="Student ID Number">
                         </div>
                         <div class="mb-3">
                             <label for="institusi" class="form-label reqform">Institution</label>
                             <input type="text" class="form-control" id="institusi" name="institusi"
-                                value="{{ $bmember->institusi }}" placeholder="Institution">
+                                <?php if ($bmember->institusi) echo 'disabled' ?> value="{{ $bmember->institusi }}"
+                                placeholder="Institution">
                         </div>
                         <div class="mb-3">
                             <label for="prov" class="form-label">Province</label>
-                            <input type="text" class="form-control" id="prov" name="prov" value="{{ $bmember->prov }}"
+                            <input type="text" class="form-control" id="prov" name="prov"
+                                <?php if ($bmember->prov) echo 'disabled' ?> value="{{ $bmember->prov }}"
                                 placeholder="Province / State">
                         </div>
                         <div class="mb-3">
                             <label for="kota" class="form-label">City</label>
-                            <input type="text" class="form-control" id="kota" name="kota" value="{{ $bmember->kota }}"
+                            <input type="text" class="form-control" id="kota" name="kota"
+                                <?php if ($bmember->kota) echo 'disabled' ?> value="{{ $bmember->kota }}"
                                 placeholder="City">
                         </div>
                         <div class="mb-3">
                             <label for="idline" class="form-label">Line ID</label>
                             <input type="text" class="form-control" id="idline" name="idline"
-                                value="{{ $bmember->idline }}" placeholder="Line ID">
+                                <?php if ($bmember->idline) echo 'disabled' ?> value="{{ $bmember->idline }}"
+                                placeholder="Line ID">
                         </div>
                     </div>
                     <!-- kanan -->
@@ -548,12 +474,14 @@
                         <div class="mb-3">
                             <label for="email" class="form-label reqform">Email Address</label>
                             <input type="email" class="form-control" id="email" name="email"
-                                value="{{ $bmember->email }}" placeholder="Email Address">
+                                <?php if ($bmember->email) echo 'disabled' ?> value="{{ $bmember->email }}"
+                                placeholder="Email Address">
                         </div>
                         <div class="mb-3">
                             <label for="phone3" class="form-label reqform">Phone Number</label>
                             <input type="text" class="form-control" id="phone3" name="phone"
-                                value="{{ $bmember->phone }}" placeholder="Phone Number">
+                                <?php if ($bmember->phone) echo 'disabled' ?> value="{{ $bmember->phone }}"
+                                placeholder="Phone Number">
 
                             <div class="mt-2 d-flex">
                                 <input class="form-check-input rounded-pill me-2 my-auto checkContainer" id="numberCek3"
@@ -566,7 +494,8 @@
                         <div class="mb-3">
                             <label for="whatsapp3" class="form-label">Whatsapp</label>
                             <input type="text" class="form-control" id="whatsapp3" name="whatsapp"
-                                value="{{ $bmember->whatsapp }}" placeholder="Whatsapp">
+                                <?php if ($bmember->whatsapp) echo 'disabled' ?> value="{{ $bmember->whatsapp }}"
+                                placeholder="Whatsapp">
                         </div>
                         <div class="mb-3">
                             @if ( $status_ktm[2] > 1 )

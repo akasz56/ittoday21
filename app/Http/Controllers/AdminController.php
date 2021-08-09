@@ -189,21 +189,27 @@ class AdminController extends Controller
         $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
         
         $data = htcategory::all()->where('category', '=', 'Undergrad');
+        $i = 0;
         foreach ($data as $datum){
             $team = User::find($datum->team_id);
-            $response['data']['Undergrad'] = $this->getEmail($team);
+            $response['data']['Undergrad'][$i] = $this->getEmail($team);
+            $i++;
         }
         
         $data = htcategory::all()->where('category', '=', 'Student');
+        $i = 0;
         foreach ($data as $datum){
             $team = User::find($datum->team_id);
-            $response['data']['Student'] = $this->getEmail($team);
+            $response['data']['Student'][$i] = $this->getEmail($team);
+            $i++;
         }
         
         $data = htcategory::all()->where('category', '=', 'Public');
+        $i = 0;
         foreach ($data as $datum){
             $team = User::find($datum->team_id);
-            $response['data']['Public'] = $this->getEmail($team);
+            $response['data']['Public'][$i] = $this->getEmail($team);
+            $i++;
         }
 
         return response()->json($response);

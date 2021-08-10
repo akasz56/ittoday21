@@ -33,7 +33,7 @@ Ilkommunity | IT Today 2021
                         <p class="fw-bold">Preparing Career in Data Science World</p>
                         <p class="fw-bold fst-italic" style="color: gray;">Data Mining</p>
                         <p>Sabtu, 28 Agustus 2021</p>
-                        {{-- <!-- <a href="#" class="btn btn-primary">Buy Ticket</a> --> --}}
+                        <a href="https://loket.com/event/ilkommunity-webinar-data-mining_4UU31" class="btn btn-primary" target="_blank">Buy Ticket (Loket.com)</a>
                     </div>
                     <div class="d-flex justify-content-center align-items-center ilk-speakers">
                         <div class="speaker-container">
@@ -62,7 +62,7 @@ Ilkommunity | IT Today 2021
                         <p class="fw-bold">Indonesia Synergizes to Go Overseas</p>
                         <p class="fw-bold fst-italic" style="color: gray;">Game Reality</p>
                         <p>Minggu, 29 Agustus 2021</p>
-                        {{-- <!-- <a href="#" class="btn btn-primary">Buy Ticket</a> --> --}}
+                        <a href="https://loket.com/event/ilkommunity-webinar-game-reality_4UU33" class="btn btn-primary" target="_blank">Buy Ticket (Loket.com)</a>
                     </div>
                     <div class="d-flex justify-content-center align-items-center ilk-speakers">
                         <div class="speaker-container">
@@ -93,7 +93,7 @@ Ilkommunity | IT Today 2021
                         <div class="fw-bold">Interaksi Manusia Komputer Post Pandemic di Dunia Kerja</div>
                         <p class="fw-bold fst-italic" style="color: gray;">AgriUX</p>
                         <p>Sabtu, 4 September 2021</p>
-                        {{-- <!-- <a href="#" class="btn btn-primary">Buy Ticket</a> --> --}}
+                        <a href="https://loket.com/event/ilkommunity-webinar-agriux_4UU34" class="btn btn-primary" target="_blank">Buy Ticket (Loket.com)</a>
                     </div>
                     <div class="d-flex justify-content-center align-items-center ilk-speakers">
                         <div class="speaker-container">
@@ -116,7 +116,7 @@ Ilkommunity | IT Today 2021
                         <p class="fw-bold">Progressive Web Apps, A New Era of Applications</p>
                         <p class="fw-bold fst-italic" style="color: gray;">After Hours Dev Talks</p>
                         <p>Sabtu, 11 September 2021</p>
-                        {{-- <!-- <a href="#" class="btn btn-primary">Buy Ticket</a> --> --}}
+                        <a href="https://loket.com/event/ilkommunity-webinar-dev-talks_4UU39" class="btn btn-primary" target="_blank">Buy Ticket (Loket.com)</a>
                     </div>
                     <div class="d-flex justify-content-center align-items-center ilk-speakers">
                         <div class="speaker-container">

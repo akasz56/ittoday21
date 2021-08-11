@@ -126,7 +126,8 @@ class TicketController extends Controller
             $order->payFile = $namafile;
             $order->payStatus = "pending";
             $order->save();
-            $this->notifyAdmin($order->payMethod, $order->bundle->name, $order->ticketID);
+            $bundlename = ($order->bundle == null) ? 'Bundle 2' : $order->bundle->name;
+            $this->notifyAdmin($order->payMethod, $bundlename, $order->ticketID);
             return redirect()->route('ticket.ticket', ['uuid' => $order->ticketID])->with('success', 'Message');
         }
         return redirect()->route('ticket.ticket', ['uuid' => $order->ticketID])->with('fail', 'Message');

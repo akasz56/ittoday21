@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
+use App\Mail\AdminNotif;
+use App\Mail\PayConfirm;
+use App\Mail\PayPending;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +31,16 @@ Route::get('/home', function () {
 Route::view('/ilkommunity', 'event.ilk')->name('event.ilk');
 Route::view('/international', 'event.int')->name('event.int');
 Route::view('/workshop', 'event.work')->name('event.work');
+
+// Event Tickets
+Route::prefix('ticket')->group(function () {
+    Route::view('/', 'ticket.index')->name('ticket.index');
+    Route::get('/bundles', [TicketController::class, 'bundle'])->name('ticket.bundle');
+    Route::get('/{uuid}', [TicketController::class, 'ticketActions'])->name('ticket.ticket');
+    Route::post('/bundles', [TicketController::class, 'orderBundle'])->name('ticket.bundle');
+    Route::post('/payMethod', [TicketController::class, 'payMethodPost'])->name('ticket.payMethod');
+    Route::post('/payVerif', [TicketController::class, 'payConfirm'])->name('ticket.payVerif');
+});
 
 //Competition
 Route::view('/hacktoday', 'comp.hack')->name('comp.hack');
@@ -64,7 +78,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 //AdminDownloads
-Route::prefix('acasdl')->group(function() {
+Route::prefix('acasdl')->group(function () {
     Route::get('prop/{namafile}', [AdminController::class, 'downloadProp']);
     Route::get('trf/{namafile}', [AdminController::class, 'downloadtrf']);
     Route::get('ktm/{namafile}', [AdminController::class, 'downloadktm']);
@@ -72,10 +86,21 @@ Route::prefix('acasdl')->group(function() {
 });
 
 //AdminAPI
-Route::prefix('acasget')->group(function() {
+Route::prefix('acasget')->group(function () {
     Route::get('emails', [AdminController::class, 'getTeamEmails']);
     Route::get('contacts', [AdminController::class, 'getTeamContacts']);
     Route::get('unpaid', [AdminController::class, 'getUnpaidTeam']);
     Route::get('incomplete', [AdminController::class, 'getUnfinishedTeamData']);
     Route::get('category', [AdminController::class, 'getHTCategories']);
+    Route::get('tickets', [AdminController::class, 'getAllTickets']);
+    Route::get('ticket/{uuid}', [AdminController::class, 'getTicket']);
+    Route::get('postTicket/{uuid}/{status}', [AdminController::class, 'ticketAdminActions']);
+});
+
+Route::get('/mail', function () {
+    return new PayConfirm([
+        'name' => 'name',
+        'url' => '#',
+        'bundlename' => 'Bundle 2',
+    ]);
 });

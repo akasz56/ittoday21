@@ -102,15 +102,15 @@ class TeamController extends Controller
         switch ($id) {
             case 'hack':
                 if (Storage::exists('rulebook/HackToday.pdf')) {
-                    return Storage::disk('local')->download('rulebook/HackToday.pdf');
+                    return Storage::download('rulebook/HackToday.pdf');
                 }
             case 'ux':
                 if (Storage::exists('rulebook/UXToday.pdf')) {
-                    return Storage::disk('local')->download('rulebook/UXToday.pdf');
+                    return Storage::download('rulebook/UXToday.pdf');
                 }
             case 'busy':
                 if (Storage::exists('rulebook/ITBusiness.pdf')) {
-                    return Storage::disk('local')->download('rulebook/ITBusiness.pdf');
+                    return Storage::download('rulebook/ITBusiness.pdf');
                 }
             default:
                 return back();

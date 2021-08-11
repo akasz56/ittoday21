@@ -2,22 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PayConfirm;
 use App\Models\Amember;
 use App\Models\Bmember;
+use App\Models\Bundle;
 use App\Models\htcategory;
 use App\Models\Leader;
+use App\Models\Ticket;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Contracts\Cache\Store;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
     public function downloadProp($namafile)
     {
-        if (Storage::disk('local')->exists('proposal/' . $namafile)) {
-            return Storage::disk('local')->download('proposal/' . $namafile);
+        if (Storage::exists('proposal/' . $namafile)) {
+            return Storage::download('proposal/' . $namafile);
         } else {
             // They called me a madman
             echo "<div style='height: 100%; display: flex; ";
@@ -32,8 +34,8 @@ class AdminController extends Controller
 
     public function downloadtrf($namafile)
     {
-        if (Storage::disk('local')->exists('trf/' . $namafile)) {
-            return Storage::disk('local')->download('trf/' . $namafile);
+        if (Storage::exists('trf/' . $namafile)) {
+            return Storage::download('trf/' . $namafile);
         } else {
             // They called me a madman
             echo "<div style='height: 100%; display: flex; ";
@@ -48,8 +50,8 @@ class AdminController extends Controller
 
     public function downloadktm($namafile)
     {
-        if (Storage::disk('local')->exists('ktm/' . $namafile)) {
-            return Storage::disk('local')->download('ktm/' . $namafile);
+        if (Storage::exists('ktm/' . $namafile)) {
+            return Storage::download('ktm/' . $namafile);
         } else {
             // They called me a madman
             echo "<div style='height: 100%; display: flex; ";
@@ -64,8 +66,8 @@ class AdminController extends Controller
 
     public function downloadskma($namafile)
     {
-        if (Storage::disk('local')->exists('skma/' . $namafile)) {
-            return Storage::disk('local')->download('skma/' . $namafile);
+        if (Storage::exists('skma/' . $namafile)) {
+            return Storage::download('skma/' . $namafile);
         } else {
             // They called me a madman
             echo "<div style='height: 100%; display: flex; ";
@@ -78,14 +80,44 @@ class AdminController extends Controller
         }
     }
 
+    public function ticketAdminActions($uuid, $status)
+    {
+        $ticket = Ticket::where('ticketID', '=', $uuid)->first();
+        $ticket->payStatus = $status;
+        $ticket->save();
+        Mail::to($ticket->email)->queue(new PayConfirm(
+            [
+                'name' => $ticket->name,
+                'url' => $this->TicketURL($ticket->ticketID),
+                'bundlename' => (isset($ticket->bundle)) ? $ticket->bundle->name : 'Bundle 2',
+            ]
+        ));
+        if ($ticket->bundleID) {
+            $bundle = Bundle::find($ticket->bundleID)->first();
+            $bundle->stock--;
+            $bundle->save();
+        } else {
+            $bundle1 = Bundle::find($ticket->event1)->first();
+            $bundle1->stock--;
+            $bundle1->save();
+            $bundle2 = Bundle::find($ticket->event2)->first();
+            $bundle2->stock--;
+            $bundle2->save();
+        }
+        return back();
+    }
+
     // REST API ittoday
     // - get tim belom bayar                        getUnpaidTeam()
     // - get tim udah bayar belom lengkap data      getUnfinishedTeamData()
     // - get paid tim member emails                 getTeamEmails()
     // - get paid tim member no hp, wa, idline      getTeamContacts()
     // - get hacktoday team categories              getHTCategories()
+    // - get all tickets                            getAllTickets()
+    // - get ticket                                 getTicket()
 
-    public function getUnpaidTeam() {
+    public function getUnpaidTeam()
+    {
         $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
         $response['status'] = 'Unpaid';
         $i = 0;
@@ -96,10 +128,11 @@ class AdminController extends Controller
             $response['data'][$i] = $this->getEmail($team);
             $i++;
         }
-        return response()->json($response);        
+        return response()->json($response);
     }
-    
-    public function getUnfinishedTeamData() {
+
+    public function getUnfinishedTeamData()
+    {
         $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
         $response['status'] = 'Incomplete';
         $i = 0;
@@ -110,7 +143,7 @@ class AdminController extends Controller
             $response['data'][$i] = $this->getEmail($team);
             $i++;
         }
-        return response()->json($response);        
+        return response()->json($response);
     }
 
     public function getTeamEmails()
@@ -145,7 +178,7 @@ class AdminController extends Controller
             $response['busy'][$i] = $this->getEmails($team);
             $i++;
         }
-        
+
         return response()->json($response);
     }
 
@@ -181,32 +214,33 @@ class AdminController extends Controller
             $response['busy'][$i] = $this->getContacts($team);
             $i++;
         }
-        
+
         return response()->json($response);
     }
-    
-    public function getHTCategories() {
+
+    public function getHTCategories()
+    {
         $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
-        
+
         $data = htcategory::all()->where('category', '=', 'Undergrad');
         $i = 0;
-        foreach ($data as $datum){
+        foreach ($data as $datum) {
             $team = User::find($datum->team_id);
             $response['data']['Undergrad'][$i] = $this->getEmail($team);
             $i++;
         }
-        
+
         $data = htcategory::all()->where('category', '=', 'Student');
         $i = 0;
-        foreach ($data as $datum){
+        foreach ($data as $datum) {
             $team = User::find($datum->team_id);
             $response['data']['Student'][$i] = $this->getEmail($team);
             $i++;
         }
-        
+
         $data = htcategory::all()->where('category', '=', 'Public');
         $i = 0;
-        foreach ($data as $datum){
+        foreach ($data as $datum) {
             $team = User::find($datum->team_id);
             $response['data']['Public'][$i] = $this->getEmail($team);
             $i++;
@@ -215,8 +249,48 @@ class AdminController extends Controller
         return response()->json($response);
     }
 
-    // Methods
-    public function getEmail($datatim) {
+    public function getAllTickets()
+    {
+        $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
+        $i = 0;
+        foreach (Ticket::All()->sortBy('bundleID') as $ticket) {
+            $response['data'][$i] = (object) array(
+                'ticketID' => $ticket->ticketID,
+                'bundle' => (isset($ticket->bundle)) ? $ticket->bundle->name : 'Bundle 2',
+                'nama' => $ticket->name,
+                'metodePembayaran' => (isset($ticket->payMethod)) ? $ticket->payMethod : '-',
+                'statusPembayaran' => (isset($ticket->payStatus)) ? $ticket->payStatus : '-',
+            );
+            $i++;
+        }
+        return response()->json($response);
+    }
+
+    public function getTicket($uuid)
+    {
+        $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
+        $ticket = Ticket::where('ticketID', '=', $uuid)->first();
+        $response['data'] = (object) array(
+            'ticketID' => $ticket->ticketID,
+            'bundle' => (isset($ticket->bundle)) ? $ticket->bundle->name : 'Bundle 2',
+            'pembeli' => (object) array(
+                'nama' => $ticket->name,
+                'email' => $ticket->email,
+                'phone' => $ticket->phone,
+                'whatsapp' => (isset($ticket->whatsapp)) ? $ticket->whatsapp : '-',
+            ),
+            'pembayaran' => (object) array(
+                'metode' => (isset($ticket->payMethod)) ? $ticket->payMethod : '-',
+                'nama' => (isset($ticket->payName)) ? $ticket->payName : '-',
+                'file' => (isset($ticket->payFile)) ? asset('bukti/' . $ticket->payFile) : '-',
+                'status' => (isset($ticket->payStatus)) ? $ticket->payStatus : '-',
+            ),
+        );
+        return response()->json($response);
+    }
+    // ---------------------------------------------------------------- Methods 
+    public function getEmail($datatim)
+    {
         $arr['id'] = $datatim->id;
         if ($datatim->jenis_lomba == 'ux_1' || $datatim->jenis_lomba == 'ux_2') {
             $arr['lomba'] = 'UXToday';
@@ -270,5 +344,10 @@ class AdminController extends Controller
         $arr['nomor_wa_member2'] = Bmember::find($arr['id'])->whatsapp;
         $arr['idline_member2'] = Bmember::find($arr['id'])->idline;
         return $arr;
+    }
+
+    public function TicketURL($uuid)
+    {
+        return Url('/') . '/ticket' . '/' . $uuid;
     }
 }

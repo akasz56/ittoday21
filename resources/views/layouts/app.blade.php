@@ -95,7 +95,7 @@
         <h1 data-aos="fade-up" class="text-center fw-bold">Sponsors</h1>
         <div class="ittsmall itt-spon"></div>
         <div data-aos="fade-up" class="border sponsors-list">
-            <div class="col-9 my-sm-1 my-md-2 my-lg-4 mx-auto">
+            <div class="col-sm-4 col-md-3 col-lg-2 my-sm-1 my-md-2 my-lg-4 mx-auto">
                 <img class="img-fluid p-2" src="{{ asset('assets/images/sponsor/cloudkilat.jpg') }}" alt="cloudkilat">
             </div>
         </div>

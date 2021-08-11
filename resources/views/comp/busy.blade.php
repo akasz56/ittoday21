@@ -39,9 +39,9 @@
                     @auth
                         <a href={{ route('dashboard') }} class="btn btn-success">Go to Dashboard</a>
                     @endauth
-                    @guest
+                    {{-- @guest
                         <a href={{ route('auth.register') }} class="btn btn-success">Register your team</a>
-                    @endguest
+                    @endguest --}}
                     @endif
                     <a href="/rulebook/busy" class="btn btn-outline-success">Rulebook</a>
 

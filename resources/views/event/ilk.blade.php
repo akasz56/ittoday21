@@ -134,7 +134,7 @@ Ilkommunity | IT Today 2021
                                         alt="Rahmanda Wibowo" class="d-block m-auto">
                                 </div>
                                 <p class="fw-bold text-center">Rahmanda Wibowo</p>
-                                <p class="text-center">Tech Consultant di Kemendikbud Ristek</p>
+                                <p class="text-center">Tech Consultant di Telkom Indonesia</p>
                             </div>
                         </div>
                     </div>

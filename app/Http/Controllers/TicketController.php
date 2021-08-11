@@ -126,7 +126,7 @@ class TicketController extends Controller
             $order->payFile = $namafile;
             $order->payStatus = "pending";
             $order->save();
-            // $this->notifyAdmin($order->payMethod, $order->bundle->name, $order->ticketID);
+            $this->notifyAdmin($order->payMethod, $order->bundle->name, $order->ticketID);
             return redirect()->route('ticket.ticket', ['uuid' => $order->ticketID])->with('success', 'Message');
         }
         return redirect()->route('ticket.ticket', ['uuid' => $order->ticketID])->with('fail', 'Message');
@@ -173,8 +173,8 @@ class TicketController extends Controller
 
             case 'bundleux':
                 $bundle['BundleID'] = Bundle::find(7);
-                $bundle['Event1ID'] = Event::find(0);
-                $bundle['Event2ID'] = Event::find(0);
+                $bundle['Event1ID'] = Event::find(3);
+                $bundle['Event2ID'] = Event::find(6);
                 break;
 
             default:
@@ -190,7 +190,7 @@ class TicketController extends Controller
             'hari' => Carbon::now()->locale('id')->dayName,
             'jam' => Carbon::now()->timezone('Asia/Jakarta')->hour,
             'bundlename' => $bundlename,
-            'url' => 'acas.ittoday.id/infoticket?id=' . $uuid,
+            'url' => 'acas.ittoday.id/infoticket.php?id=' . $uuid,
         ];
         switch ($bank) {
             case 'bni':
@@ -317,11 +317,11 @@ class TicketController extends Controller
     public function cekStock($order)
     {
         if ($order->bundleID) {
-            return $order->event1->stock;
+            return $order->bundle->stock;
         } else {
-            if ($order->event1->stock <= 0) {
+            if ($order->bundle1->stock <= 0) {
                 return false;
-            } elseif ($order->event2->stock <= 0) {
+            } elseif ($order->bundle2->stock <= 0) {
                 return false;
             }
             return true;

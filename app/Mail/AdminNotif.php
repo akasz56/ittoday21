@@ -11,14 +11,22 @@ class AdminNotif extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $hari;
+    public $jam;
+    public $bundlename;
+    public $url;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->hari = $data['hari'];
+        $this->jam = $data['jam'];
+        $this->bundlename = $data['bundlename'];
+        $this->url = $data['url'];
     }
 
     /**
@@ -28,6 +36,6 @@ class AdminNotif extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.AdminNotif');
+        return $this->markdown('mail.AdminNotif')->subject($this->hari . ', jam ' . $this->jam . ' - Payment');
     }
 }

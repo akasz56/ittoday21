@@ -1,12 +1,14 @@
 @component('mail::message')
-# Introduction
+# Payment
+Hari : {{ $hari }} <br>
+Jam : {{ $jam }} <br>
+Bundle : {{ $bundlename }}
 
-The body of your message.
-
-@component('mail::button', ['url' => 'acas.ittoday.id'])
-Button Text
+@component('mail::button', ['url' => $url])
+MengVerif Gas
 @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
+Menggege,<br>
+Qerja Lembur Bagai Kuda
+IT Today 2021
 @endcomponent

@@ -11,33 +11,13 @@ class Ticket extends Model
 
     protected $fillable = ['name', 'ticketID', 'email', 'phone', 'whatsapp', 'bundleID', 'event1ID', 'event2ID', 'event3ID', 'event4ID', 'event5ID', 'payMethod', 'payName', 'payFile', 'payStatus',];
 
-    public function bundle()
-    {
-        return $this->hasOne(Bundle::class, 'id', 'bundleID');
-    }
-    
-    public function event1()
-    {
-        return $this->hasOne(Bundle::class, 'id', 'event1ID');
-    }
-    
-    public function event2()
-    {
-        return $this->hasOne(Bundle::class, 'id', 'event2ID');
-    }
-    
-    public function event3()
-    {
-        return $this->hasOne(Bundle::class, 'id', 'event3ID');
-    }
-    
-    public function event4()
-    {
-        return $this->hasOne(Bundle::class, 'id', 'event4ID');
-    }
-    
-    public function event5()
-    {
-        return $this->hasOne(Bundle::class, 'id', 'event5ID');
-    }
+    public function bundle() { return $this->hasOne(Bundle::class, 'id', 'bundleID'); }
+    public function bundle1() { return $this->hasOne(Bundle::class, 'id', 'event1ID'); }
+    public function bundle2() { return $this->hasOne(Bundle::class, 'id', 'event2ID'); }
+
+    public function event1() { return $this->hasOne(Event::class, 'id', 'event1ID'); }
+    public function event2() { return $this->hasOne(Event::class, 'id', 'event2ID'); }
+    public function event3() { return $this->hasOne(Event::class, 'id', 'event3ID'); }
+    public function event4() { return $this->hasOne(Event::class, 'id', 'event4ID'); }
+    public function event5() { return $this->hasOne(Event::class, 'id', 'event5ID'); }
 }

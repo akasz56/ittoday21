@@ -71,7 +71,6 @@
                             Us</a>
                     </div>
 
-                    @if (Carbon\Carbon::now('Asia/Jakarta')->gte(Carbon\Carbon::parse('01-06-2021', 'Asia/Jakarta')))
                     <div class="navbar-nav full-navbar-mobile ms-auto auth">
                         @auth
                         <a class="nav-link m-auto me-lg-2" href="{{ route('dashboard') }}">Dashboard</a>
@@ -79,10 +78,9 @@
                         @endauth
                         @guest
                         <a class="nav-link m-auto me-lg-2" href="{{ route('login') }}">Login</a>
-                        <a class="btn btn-primary" href="{{ route('register') }}">Register</a>
+                        <a class="btn btn-primary" href="{{ route('ticket.index') }}">Buy Ticket</a>
                         @endguest
                     </div>
-                    @endif
 
                 </div>
             </div>
@@ -96,7 +94,11 @@
     <section class="container sponsors">
         <h1 data-aos="fade-up" class="text-center fw-bold">Sponsors</h1>
         <div class="ittsmall itt-spon"></div>
-        <div data-aos="fade-up" class="border sponsors-list"></div>
+        <div data-aos="fade-up" class="border sponsors-list">
+            <div class="col-9 my-sm-1 my-md-2 my-lg-4 mx-auto">
+                <img class="img-fluid p-2" src="{{ asset('assets/images/sponsor/cloudkilat.jpg') }}" alt="cloudkilat">
+            </div>
+        </div>
         <div class="d-flex flex-column itt-sponmed">
             <div class="ittsmall itt-top"></div>
             <div class="ittsmall itt-bottom"></div>

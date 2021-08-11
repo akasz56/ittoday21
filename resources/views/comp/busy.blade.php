@@ -98,22 +98,22 @@
                     <div class="ittsmall itt-bottom"></div>
                 </div>
                 <h1 class="txt-heading1 text-center">Prize</h1>
-                <div class="text-center main">
-                    <h3>Total Prize</h3>
-                    <h2 class="txt-heading2">Up to IDR 10.000.000,-</h2>
-                </div>
                 <div class="d-flex">
                     <div class="flex-fill main">
-                        <h3>Juara 1</h3>
-                        <h2 class="fw-bold"> Certificate + IDR 5.000.000,-</h2>
+                        <h3>1st Place</h3>
+                        <h2 class="fw-bold"> Certificate + IDR 2.000.000,-</h2>
                     </div>
                     <div class="flex-fill main">
-                        <h3>Juara 2</h3>
-                        <h2 class="fw-bold"> Certificate + IDR 3.000.000,-</h2>
+                        <h3>2nd Place</h3>
+                        <h2 class="fw-bold"> Certificate + IDR 1.000.000,-</h2>
                     </div>
                     <div class="flex-fill main">
-                        <h3>Juara 3</h3>
-                        <h2 class="fw-bold"> Certificate + IDR 1.500.000,-</h2>
+                        <h3>3rd Place</h3>
+                        <h2 class="fw-bold"> Certificate + IDR 500.000,-</h2>
+                    </div>
+                    <div class="flex-fill main">
+                        <h3>Honorable Mention</h3>
+                        <h2 class="fw-bold"> Certificate + IDR 300.000,-</h2>
                     </div>
                 </div>
                 <div class="ittthin"></div>

@@ -55,7 +55,7 @@
             <h1 data-aos="fade-up" class="txt-outline position-absolute timeline-left">TIMELINE</h1>
             <div class="container">
                 <div class="ittsmall ittsmall-timeline"></div>
-                <img data-aos="fade-up" src={{ asset("/assets/illust/Illust1.svg") }} alt="timeline" class="img-fluid mx-auto d-block"
+                <img data-aos="fade-up" src={{ asset("/assets/illust/Illust1-timeline.svg") }} alt="timeline" class="img-fluid mx-auto d-block"
                     width="400px" height="400px">
             </div>
             <h1 data-aos="fade-up" class="txt-outline position-absolute timeline-right end-0">TIMELINE</h1>

@@ -135,6 +135,7 @@ class TicketController extends Controller
     public function showTicket($order)
     {
         return view('ticket.show', [
+            'paid' => 1,
             'viewModel' => $this->viewModel($order),
         ]);
     }

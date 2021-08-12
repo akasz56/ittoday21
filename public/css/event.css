@@ -15,10 +15,9 @@
 }
 
 .event-1speaker img {
-    max-width: 15vw;
+    max-height: 480px;
     width: auto;
     height: auto;
-    border-radius: 20px;
 }
 
 .event-1speaker h3 {
@@ -41,18 +40,9 @@
         width: 100%;
         margin: .5em 0;
     }
-
-    .event-1speaker img {
-        margin: 0 15%;
-    }
 }
 
 @media (max-width: 576px) {
-    .event-1speaker img {
-        max-width: 50%;
-        margin: 0 24%;
-    }
-
     .speakers {
         flex-direction: column;
     }

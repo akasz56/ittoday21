@@ -64,19 +64,23 @@ class EventSeeder extends Seeder
         Event::create([
             'name' => 'International Seminar',
             'datetime' => Carbon::create(2021, 9, 18, 13, 0, 0, 'Asia/Jakarta'),
-            'link' => null,
-            'desc' => "Seminar Internasional IT Today 2021 adalah salah satu
-            rangkaian acara dalam kegiatan IT Today 2021 yang ditujukan kepada
-            mahasiswa atau khalayak umum yang tertarik dengan bidang IT,
-            sebagaimana tema yang diusung pada IT Today 2021 yaitu \"The Synergy
-            Between Technology and Agro-Maritime 5.0\" yang membahas tentang
-            teknologi agro-maritim.",
+            'link' => "ipb.link/seminar-internasional",
+            'desc' => "An International Seminar attended by three notable
+            professional speakers in their respective fields. Discussing various
+            interesting topics regarding the application of Information Technology
+            on Agro-Maritime concerns. Enables interaction among speakers and
+            up to 300 webinar participants from around the world",
         ]);
         Event::create([
             'name' => 'Design System Workshop',
             'datetime' => Carbon::create(2021, 9, 5, 13, 0, 0, 'Asia/Jakarta'),
-            'link' => null,
-            'desc' => null,
+            'link' => "ipb.link/workshop-ux",
+            'desc' => "Merupakan workshop yang akan diisi oleh komunitas AgriUX
+            di Departemen Ilmu Komputer dengan mengundang pembicara yang ahli
+            dibidangnya. Workshop ini membahas tentang teknologi pada User
+            Experience dan Design. Seminar ini memungkinkan peserta melakukan
+            interaksi aktif bersama pembicara terkait topik-topik menarik
+            mengenai IT khususnya pada bidang User Experience",
         ]);
     }
 }

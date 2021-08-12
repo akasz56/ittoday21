@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Workshop | IT Today 2021
+Workshop | IT Today 2021
 @endsection
 
 @section('content')
@@ -14,33 +14,19 @@
             <div class="py-5 event-title">
                 <div class="ittsmall"></div>
                 <h1 class="txt-heading1 text-center">Workshop</h1>
-                <!-- {{-- <div class="txt-subtitle">To Be Announced</div> --}} -->
+                <div class="txt-subtitle">Design System Workshop</div>
             </div>
 
 
-            <div style="height: 15vh;"></div>
-            <h3 class="text-center px-5">Speakers To Be Announced</h3>
-            <div style="height: 20vh;"></div>
 
-
-
-            <!-- {{-- <div class="speakers">
+            <div class="speakers">
                 <div class="event-1speaker">
-                    <img src="{{ asset('/assets/images/speaker.jpeg') }}" alt="speaker">
-                    <h3 class="txt-heading3 text-center">Nama Pembicara</h3>
-                    <p class="txt-subtitle text-center">Jabatan</p>
+                    <img class="d-block mb-3 img-fluid m-auto"
+                        src="{{ asset('/assets/images/pembicara/Agil Cahyo Priyantono.png') }}" alt="speaker">
+                    <h3 class="txt-heading3 text-center">Agil Cahyo Priyantono</h3>
+                    <p class="txt-subtitle text-center">UI/UX Designer</p>
                 </div>
-                <div class="event-1speaker">
-                    <img src="{{ asset('/assets/images/speaker.jpeg') }}" alt="speaker">
-                    <h3 class="txt-heading3 text-center">Nama Pembicara</h3>
-                    <p class="txt-subtitle text-center">Jabatan</p>
-                </div>
-                <div class="event-1speaker">
-                    <img src="{{ asset('/assets/images/speaker.jpeg') }}" alt="speaker">
-                    <h3 class="txt-heading3 text-center">Nama Pembicara</h3>
-                    <p class="txt-subtitle text-center">Jabatan</p>
-                </div>
-            </div> --}} -->
+            </div>
 
 
 
@@ -58,9 +44,15 @@
             <div class="container event-actions">
                 <div class="desc">
                     <div>Sunday, 5th September 2021</div>
-                    <div>@ Online Platform</div>
+                    <div>@ Online Video Conference</div>
                 </div>
-                <!-- {{-- <a href="#" class="btn btn-primary txt-caption">Buy Ticket</a> --}} -->
+                <div class="d-flex flex-column flex-md-row">
+                    <a class="btn btn-primary txt-caption w-100 mb-md-3"
+                        href="https://loket.com/event/design-system-workshop-9ctu" target="_blank">Buy Ticket
+                        (Loket.com)</a>
+                    <a class="btn btn-primary txt-caption w-100 mb-md-3" href="{{ route('ticket.bundle') }}">Buy
+                        Bundle</a>
+                </div>
             </div>
 
 
@@ -72,11 +64,12 @@
                 </div>
                 <div class="my-5">
                     <h1 class="txt-heading1">About Workshop</h1>
-                    <!-- {{-- <div class="ittthin"></div> --}} -->
+                    <div class="ittthin"></div>
                     <p class="mt-4">
-                        A Workshop to provide a training platform around IT field. Enables interaction among
-                        the speakers and the trainees around the related topic. This Workshop is held with
-                        around 50 participants.
+                        Merupakan workshop yang akan diisi oleh komunitas AgriUX di Departemen Ilmu Komputer dengan
+                        mengundang pembicara yang ahli dibidangnya. Workshop ini membahas tentang teknologi pada User
+                        Experience dan Design. Seminar ini memungkinkan peserta melakukan interaksi aktif bersama
+                        pembicara terkait topik-topik menarik mengenai IT khususnya pada bidang User Experience
                     </p>
                 </div>
                 <div class="d-flex justify-content-end">

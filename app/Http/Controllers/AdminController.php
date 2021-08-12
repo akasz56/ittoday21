@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\PayConfirm;
+use App\Mail\PayFail;
 use App\Models\Amember;
 use App\Models\Bmember;
 use App\Models\Bundle;
@@ -83,28 +84,40 @@ class AdminController extends Controller
     public function ticketAdminActions($uuid, $status)
     {
         $ticket = Ticket::where('ticketID', '=', $uuid)->first();
+        if ($ticket->payStatus == $status) return redirect('/');
         $ticket->payStatus = $status;
         $ticket->save();
-        Mail::to($ticket->email)->queue(new PayConfirm(
-            [
-                'name' => $ticket->name,
-                'url' => $this->TicketURL($ticket->ticketID),
-                'bundlename' => (isset($ticket->bundle)) ? $ticket->bundle->name : 'Bundle 2',
-            ]
-        ));
-        if ($ticket->bundleID) {
-            $bundle = Bundle::find($ticket->bundleID)->first();
-            $bundle->stock--;
-            $bundle->save();
+        if ($ticket->payStatus == 'done') {
+            Mail::to($ticket->email)->queue(new PayConfirm(
+                [
+                    'name' => $ticket->name,
+                    'url' => $this->TicketURL($ticket->ticketID),
+                    'bundlename' => (isset($ticket->bundle)) ? $ticket->bundle->name : 'Bundle 2',
+                ]
+            ));
+            if ($ticket->bundleID) {
+                $bundle = Bundle::find($ticket->bundleID)->first();
+                $bundle->stock--;
+                $bundle->save();
+            } else {
+                $bundle1 = Bundle::find($ticket->event1)->first();
+                $bundle1->stock--;
+                $bundle1->save();
+                $bundle2 = Bundle::find($ticket->event2)->first();
+                $bundle2->stock--;
+                $bundle2->save();
+            }
+            return redirect('/');
         } else {
-            $bundle1 = Bundle::find($ticket->event1)->first();
-            $bundle1->stock--;
-            $bundle1->save();
-            $bundle2 = Bundle::find($ticket->event2)->first();
-            $bundle2->stock--;
-            $bundle2->save();
+            Mail::to($ticket->email)->queue(new PayFail(
+                [
+                    'name' => $ticket->name,
+                    'url' => $this->TicketURL($ticket->ticketID),
+                    'bundlename' => (isset($ticket->bundle)) ? $ticket->bundle->name : 'Bundle 2',
+                ]
+            ));
+            return redirect('/');
         }
-        return back();
     }
 
     // REST API ittoday

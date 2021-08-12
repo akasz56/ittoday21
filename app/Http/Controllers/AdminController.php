@@ -81,6 +81,22 @@ class AdminController extends Controller
         }
     }
 
+    public function downloadbukti($namafile)
+    {
+        if (Storage::exists('bukti/' . $namafile)) {
+            return Storage::download('bukti/' . $namafile);
+        } else {
+            // They called me a madman
+            echo "<div style='height: 100%; display: flex; ";
+            echo "justify-content: center; align-items: center; flex-direction: column; ";
+            echo "font-family: monospace; ";
+            echo "border: 1px solid black; font-size: 10em;'>";
+            echo "Filenya Gaada <br>";
+            echo ":(";
+            echo "</div>";
+        }
+    }
+
     public function ticketAdminActions($uuid, $status)
     {
         $ticket = Ticket::where('ticketID', '=', $uuid)->first();
@@ -295,7 +311,7 @@ class AdminController extends Controller
             'pembayaran' => (object) array(
                 'metode' => (isset($ticket->payMethod)) ? $ticket->payMethod : '-',
                 'nama' => (isset($ticket->payName)) ? $ticket->payName : '-',
-                'file' => (isset($ticket->payFile)) ? asset('bukti/' . $ticket->payFile) : '-',
+                'file' => (isset($ticket->payFile)) ? Url('/') . '/acasdl/bukti/' . $ticket->payFile : '-',
                 'status' => (isset($ticket->payStatus)) ? $ticket->payStatus : '-',
             ),
         );

@@ -83,6 +83,7 @@ Route::prefix('acasdl')->group(function () {
     Route::get('trf/{namafile}', [AdminController::class, 'downloadtrf']);
     Route::get('ktm/{namafile}', [AdminController::class, 'downloadktm']);
     Route::get('skma/{namafile}', [AdminController::class, 'downloadskma']);
+    Route::get('bukti/{namafile}', [AdminController::class, 'downloadbukti']);
 });
 
 //AdminAPI
@@ -95,12 +96,4 @@ Route::prefix('acasget')->group(function () {
     Route::get('tickets', [AdminController::class, 'getAllTickets']);
     Route::get('ticket/{uuid}', [AdminController::class, 'getTicket']);
     Route::get('postTicket/{uuid}/{status}', [AdminController::class, 'ticketAdminActions']);
-});
-
-Route::get('/mail', function () {
-    return new PayConfirm([
-        'name' => 'name',
-        'url' => '#',
-        'bundlename' => 'Bundle 2',
-    ]);
 });

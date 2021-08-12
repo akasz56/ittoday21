@@ -121,8 +121,7 @@ class TicketController extends Controller
 
         if ($request->hasFile('proof') && $request->file('proof')->isValid()) {
             $namafile = $order->ticketID . '.' . $request->file('proof')->getClientOriginalExtension();
-            // $request->file('proof')->move(public_path() . '/bukti', $namafile);      // DEV
-            $request->file('proof')->move(public_path() . '../../../bukti', $namafile); // PROD
+            $request->file('proof')->storeAs('bukti', $namafile);
             $order->payName = $request->nama;
             $order->payFile = $namafile;
             $order->payStatus = "pending";

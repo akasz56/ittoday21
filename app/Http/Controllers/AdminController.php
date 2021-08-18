@@ -256,6 +256,8 @@ class AdminController extends Controller
         foreach ($data as $datum) {
             $team = User::find($datum->team_id);
             $response['data']['Undergrad'][$i] = $this->getEmail($team);
+            $leader = Leader::find($datum->leader_id);
+            $response['data']['Undergrad'][$i]['univ'] = $leader->institusi;
             $i++;
         }
 

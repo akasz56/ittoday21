@@ -100,10 +100,10 @@ class AdminController extends Controller
     public function ticketAdminActions($uuid, $status)
     {
         $ticket = Ticket::where('ticketID', '=', $uuid)->first();
-        if ($ticket->payStatus == $status) return redirect('/');
+        if ($ticket->payStatus == $status) return redirect()->route('about');
         $ticket->payStatus = $status;
         $ticket->save();
-        if ($ticket->payStatus == 'done') {
+        if ($status == "done") {
             Mail::to($ticket->email)->queue(new PayConfirm(
                 [
                     'name' => $ticket->name,
@@ -112,7 +112,7 @@ class AdminController extends Controller
                 ]
             ));
             if ($ticket->bundleID) {
-                $bundle = Bundle::find($ticket->bundleID)->first();
+                $bundle = Bundle::find($ticket->bundleID);
                 $bundle->stock--;
                 $bundle->save();
             } else {
@@ -132,7 +132,7 @@ class AdminController extends Controller
                     'bundlename' => (isset($ticket->bundle)) ? $ticket->bundle->name : 'Bundle 2',
                 ]
             ));
-            return redirect('/');
+            return redirect('/')->route('about');
         }
     }
 

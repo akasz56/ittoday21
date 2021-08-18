@@ -48,25 +48,25 @@ Ticket Bundles | IT Today 2021
                             <div class="mb-3">
                                 <label for="nama" class="form-label reqform">Your Name</label>
                                 <input type="text" class="form-control" id="nama" name="nama" required
-                                    placeholder="Your Name">
+                                    value="{{ old('nama') }}" placeholder="Your Name">
                                 @error('nama') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label reqform">Email Address</label>
                                 <input type="email" class="form-control" id="email" name="email" required
-                                    placeholder="Your Email Address">
+                                    value="{{ old('email') }}" placeholder="Your Email Address">
                                 @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label reqform">Phone Number</label>
                                 <input type="text" class="form-control" id="phone" name="phone" required
-                                    placeholder="Phone Number">
+                                    value="{{ old('phone') }}" placeholder="Phone Number">
                                 @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="whatsapp" class="form-label">Whatsapp Number</label>
                                 <input type="text" class="form-control" id="whatsapp" name="whatsapp"
-                                    placeholder="Whatsapp Number">
+                                    value="{{ old('whatsapp') }}" placeholder="Whatsapp Number">
                                 @error('whatsapp') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>
@@ -136,25 +136,25 @@ Ticket Bundles | IT Today 2021
                             <div class="mb-3">
                                 <label for="nama" class="form-label reqform">Your Name</label>
                                 <input type="text" class="form-control" id="nama" name="nama" required
-                                    placeholder="Your Name">
+                                    value="{{ old('nama') }}" placeholder="Your Name">
                                 @error('nama') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label reqform">Email Address</label>
                                 <input type="email" class="form-control" id="email" name="email" required
-                                    placeholder="Your Email Address">
+                                    value="{{ old('email') }}" placeholder="Your Email Address">
                                 @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label reqform">Phone Number</label>
                                 <input type="text" class="form-control" id="phone" name="phone" required
-                                    placeholder="Phone Number">
+                                    value="{{ old('phone') }}" placeholder="Phone Number">
                                 @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="whatsapp" class="form-label">Whatsapp Number</label>
                                 <input type="text" class="form-control" id="whatsapp" name="whatsapp"
-                                    placeholder="Whatsapp Number">
+                                    value="{{ old('whatsapp') }}" placeholder="Whatsapp Number">
                                 @error('whatsapp') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>
@@ -179,25 +179,25 @@ Ticket Bundles | IT Today 2021
                             <div class="mb-3">
                                 <label for="nama" class="form-label reqform">Your Name</label>
                                 <input type="text" class="form-control" id="nama" name="nama" required
-                                    placeholder="Your Name">
+                                    value="{{ old('nama') }}" placeholder="Your Name">
                                 @error('nama') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label reqform">Email Address</label>
                                 <input type="email" class="form-control" id="email" name="email" required
-                                    placeholder="Your Email Address">
+                                    value="{{ old('email') }}" placeholder="Your Email Address">
                                 @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label reqform">Phone Number</label>
                                 <input type="text" class="form-control" id="phone" name="phone" required
-                                    placeholder="Phone Number">
+                                    value="{{ old('phone') }}" placeholder="Phone Number">
                                 @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="whatsapp" class="form-label">Whatsapp Number</label>
                                 <input type="text" class="form-control" id="whatsapp" name="whatsapp"
-                                    placeholder="Whatsapp Number">
+                                    value="{{ old('whatsapp') }}" placeholder="Whatsapp Number">
                                 @error('whatsapp') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>
@@ -224,33 +224,32 @@ Ticket Bundles | IT Today 2021
                             <div class="mb-3">
                                 <label for="nama" class="form-label reqform">Your Name</label>
                                 <input type="text" class="form-control" id="nama" name="nama" required
-                                    placeholder="Your Name">
+                                    value="{{ old('nama') }}" placeholder="Your Name">
                                 @error('nama') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label reqform">Email Address</label>
                                 <input type="email" class="form-control" id="email" name="email" required
-                                    placeholder="Your Email Address">
+                                    value="{{ old('email') }}" placeholder="Your Email Address">
                                 @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label reqform">Phone Number</label>
                                 <input type="text" class="form-control" id="phone" name="phone" required
-                                    placeholder="Phone Number">
+                                    value="{{ old('phone') }}" placeholder="Phone Number">
                                 @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="whatsapp" class="form-label">Whatsapp Number</label>
                                 <input type="text" class="form-control" id="whatsapp" name="whatsapp"
-                                    placeholder="Whatsapp Number">
+                                    value="{{ old('whatsapp') }}" placeholder="Whatsapp Number">
                                 @error('whatsapp') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         </div>
                         <!-- kanan -->
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <small>
-                                UX Bundle : <span
-                                    class="fw-bold text-primary">{{ $stock->uxbundle }}</span>
+                                UX Bundle : <span class="fw-bold text-primary">{{ $stock->uxbundle }}</span>
                             </small>
                         </div>
                     </div>

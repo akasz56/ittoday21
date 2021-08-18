@@ -48,7 +48,7 @@ class TicketController extends Controller
         $bundle = $this->getBundle($request->type, $request->event1, $request->event2);
         if (isset($bundle['error'])) {
             $message = ($bundle['error'] == 'ticketConflict') ? 'You can\'t buy 2 tickets for the same Ilkommunity' : 'an Error Occured, please try again later';
-            return back()->with($bundle['error'], $message);
+            return back()->withInput()->with($bundle['error'], $message);
         }
         $request->validate([
             'nama' => 'required',
@@ -196,10 +196,13 @@ class TicketController extends Controller
         ];
         switch ($bank) {
             case 'bni':
+            case 'dana':
+            case 'ovo':
                 Mail::to('indo14nurfath@apps.ipb.ac.id')->queue(new AdminNotif($data));
                 // Mail::to(dillah?)->queue(new AdminNotif($data));
                 break;
             case 'bca':
+            case 'gopay':
                 Mail::to('indo14nurfath@apps.ipb.ac.id')->queue(new AdminNotif($data));
                 // Mail::to(farhan?)->queue(new AdminNotif($data));
                 break;

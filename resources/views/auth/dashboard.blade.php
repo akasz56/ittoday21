@@ -98,6 +98,7 @@
     </div>
     @endif
 
+    @elseif ($jenis_lomba == "UXToday" && Carbon\Carbon::now('Asia/Jakarta')->gte(Carbon\Carbon::parse('19-08-2021', 'Asia/Jakarta')))
     @else
     <h2 class="mt-5 pt-5 fw-bold mt-4">Proposal Submission</h2>
     <div class="border p-3 rounded-3">

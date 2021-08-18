@@ -87,6 +87,10 @@
                         <h3>Presentation Video Submission</h3>
                         <p>4th - 11th September 2021</p>
                     </div>
+                    <div class=" flex-fill time">
+                        <h3>Finals</h3>
+                        <p>12th September 2021</p>
+                    </div>
                 </div>
             </div>
 

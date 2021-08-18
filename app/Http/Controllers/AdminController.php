@@ -256,8 +256,7 @@ class AdminController extends Controller
         foreach ($data as $datum) {
             $team = User::find($datum->team_id);
             $response['data']['Undergrad'][$i] = $this->getEmail($team);
-            $leader = Leader::find($datum->leader_id);
-            $response['data']['Undergrad'][$i]['univ'] = $leader->institusi;
+            $response['data']['Undergrad'][$i]['univ'] = $this->getUniv($datum->team_id);
             $i++;
         }
 
@@ -375,6 +374,23 @@ class AdminController extends Controller
         $arr['nomor_wa_member2'] = Bmember::find($arr['id'])->whatsapp;
         $arr['idline_member2'] = Bmember::find($arr['id'])->idline;
         return $arr;
+    }
+
+    public function getUniv($team_id)
+    {
+        $leader = Leader::find($team_id);
+        $amem = Amember::find($team_id);
+        $bmem = Bmember::find($team_id);
+        if ($leader->institusi) {
+            $univ = $leader->institusi;
+        } else if ($amem->institusi) {
+            $univ = $amem->institusi;
+        } else if ($bmem->institusi) {
+            $univ = $bmem->institusi;
+        } else {
+            $univ = 'belum ngisi (?)';
+        }
+        return $univ;
     }
 
     public function TicketURL($uuid)

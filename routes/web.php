@@ -29,7 +29,7 @@ Route::get('/home', function () {
 
 //Events
 Route::view('/ilkommunity', 'event.ilk')->name('event.ilk');
-Route::view('/international', 'event.int')->name('event.int');
+Route::view('/national-seminar', 'event.int')->name('event.int');
 Route::view('/workshop', 'event.work')->name('event.work');
 
 // Event Tickets

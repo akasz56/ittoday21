@@ -46,7 +46,7 @@
                                     class="bi bi-chevron-down icon-rotates"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownEvent">
-                                <li><a class="dropdown-item py-2" href="{{ route('event.int') }}">International
+                                <li><a class="dropdown-item py-2" href="{{ route('event.int') }}">National
                                         Seminar</a></li>
                                 <li><a class="dropdown-item py-2" href="{{ route('event.ilk') }}">Ilkommunity</a></li>
                                 <li><a class="dropdown-item py-2" href="{{ route('event.work') }}">Workshop</a></li>
@@ -159,7 +159,7 @@
                     <h6 class="text-white fw-bold">Events</h6>
                     <ul class="list-unstyled text-small">
                         <li><a href="{{ route('event.int') }}"
-                                class="text-decoration-none link-list-footer">International Seminar</a></li>
+                                class="text-decoration-none link-list-footer">National Seminar</a></li>
                         <li><a href="{{ route('event.ilk') }}"
                                 class="text-decoration-none link-list-footer">Ilkommunity</a></li>
                         <li><a href="{{ route('event.work') }}"

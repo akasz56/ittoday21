@@ -24,7 +24,7 @@ Workshop | IT Today 2021
                     <img class="d-block mb-3 img-fluid m-auto"
                         src="{{ asset('/assets/images/pembicara/Agil Cahyo Priyantono.png') }}" alt="speaker">
                     <h3 class="txt-heading3 text-center">Agil Cahyo Priyantono</h3>
-                    <p class="txt-subtitle text-center">UI/UX Designer</p>
+                    <p class="txt-subtitle text-center">UI/UX Designer at Hukumonline</p>
                 </div>
             </div>
 

@@ -25,7 +25,7 @@ Ticket Bundles | IT Today 2021
                     aria-selected="false">Ilkommunity Bundle</button>
                 <button class="nav-link tabs-dash fw-bold" id="nav-bundlefive-tab" data-bs-toggle="tab"
                     data-bs-target="#nav-bundlefive" type="button" role="tab" aria-controls="nav-bundlefive"
-                    aria-selected="false">Ilkommunity + International Seminar</button>
+                    aria-selected="false">Ilkommunity + National Seminar</button>
                 <button class="nav-link tabs-dash fw-bold" id="nav-bundleux-tab" data-bs-toggle="tab"
                     data-bs-target="#nav-bundleux" type="button" role="tab" aria-controls="nav-bundleux"
                     aria-selected="false">UX Bundle</button>
@@ -168,7 +168,7 @@ Ticket Bundles | IT Today 2021
                 </form>
             </div>
 
-            {{-- -----------------------------------------Ilkommunity + International Seminar----------------------------------------- --}}
+            {{-- -----------------------------------------Ilkommunity + National Seminar----------------------------------------- --}}
             <div class="tab-pane fade mt-4" id="nav-bundlefive" role="tabpanel" aria-labelledby="nav-bundlefive-tab">
                 <form action="{{ route('ticket.bundle') }}" method="POST">
                     @csrf
@@ -204,7 +204,7 @@ Ticket Bundles | IT Today 2021
                         <!-- kanan -->
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <small>
-                                Ilkommunity + International Seminar : <span
+                                Ilkommunity + National Seminar : <span
                                     class="fw-bold text-primary">{{ $stock->ilkintbundle }}</span>
                             </small>
                         </div>

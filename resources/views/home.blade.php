@@ -73,7 +73,7 @@
                         <div class="ittsmall itt-bottom"></div>
                     </div>
                     <h1 class="fw-bold text-center txt-heading3">COMPETITION TOTAL PRIZE</h1>
-                    <h1 class="fw-bold text-center txt-heading2" style="font-weight: bolder;">Rp30.000.000,00</h1>
+                    <h1 class="fw-bold text-center txt-heading2" style="font-weight: bolder;">Rp23.500.000,00</h1>
                     <div class="ittlarge ittlarge-prize"></div>
                 </div>
             </div>

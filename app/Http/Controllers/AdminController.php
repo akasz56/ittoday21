@@ -7,6 +7,7 @@ use App\Mail\PayFail;
 use App\Models\Amember;
 use App\Models\Bmember;
 use App\Models\Bundle;
+use App\Models\Event;
 use App\Models\htcategory;
 use App\Models\Leader;
 use App\Models\Ticket;
@@ -283,13 +284,14 @@ class AdminController extends Controller
     {
         $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
         $i = 0;
-        foreach (Ticket::All()->sortBy('bundleID') as $ticket) {
+        foreach (Ticket::All()->sortByDesc('updated_at') as $ticket) {
             $response['data'][$i] = (object) array(
                 'ticketID' => $ticket->ticketID,
-                'bundle' => (isset($ticket->bundle)) ? $ticket->bundle->name : 'Bundle 2',
+                'bundle' => (isset($ticket->bundle)) ? $ticket->bundle->name : $this->whatEvents($ticket),
                 'nama' => $ticket->name,
                 'metodePembayaran' => (isset($ticket->payMethod)) ? $ticket->payMethod : '-',
                 'statusPembayaran' => (isset($ticket->payStatus)) ? $ticket->payStatus : '-',
+                'lastUpdated' => Carbon::parse($ticket->updated_at)->toDateTimeString(),
             );
             $i++;
         }
@@ -396,5 +398,10 @@ class AdminController extends Controller
     public function TicketURL($uuid)
     {
         return Url('/') . '/ticket' . '/' . $uuid;
+    }
+
+    public function whatEvents($ticket)
+    {
+        return Event::find($ticket->event1ID)->name . ' & ' . Event::find($ticket->event2ID)->name;
     }
 }

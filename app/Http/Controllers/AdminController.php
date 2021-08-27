@@ -320,6 +320,32 @@ class AdminController extends Controller
         );
         return response()->json($response);
     }
+
+    public function getTicketCategorized()
+    {
+        $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
+        $events = Event::All();
+        $tickets = Ticket::Where('payStatus', 'done')->get();
+
+        foreach ($events as $event) {
+            $response['data'][$event->id]['name'] = $event->name;
+            $response['data'][$event->id]['data'] = $this->ticketCategorized($tickets, $event->id);
+        }
+        
+        return response()->json($response);
+    }
+    
+    public function getTicketByEvents($id)
+    {
+        $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
+        $tickets = Ticket::Where('payStatus', 'done')->get();
+
+        $response['name'] = Event::find($id)->name;
+        $response['data'] = $this->ticketCategorized($tickets, $id);
+
+        return response()->json($response);
+    }
+
     // ---------------------------------------------------------------- Methods 
     public function getEmail($datatim)
     {
@@ -403,5 +429,142 @@ class AdminController extends Controller
     public function whatEvents($ticket)
     {
         return Event::find($ticket->event1ID)->name . ' & ' . Event::find($ticket->event2ID)->name;
+    }
+
+    public function getTicketSummary(Ticket $t)
+    {
+        $arr['ticketID'] = $t->ticketID;
+        $arr['bundle'] = (isset($t->bundle)) ? $t->bundle->name : 'Bundle 2';
+        $arr['name'] = $t->name;
+        $arr['email'] = $t->email;
+        $arr['phone'] = $t->phone;
+        $arr['whatsapp'] = $t->whatsapp;
+        return $arr;
+    }
+
+    public function ticketCategorized($tickets, int $id)
+    {
+        $arr = array();
+        switch ($id) {
+            case 0:
+                $i = 0;
+                foreach ($tickets as $t) {
+                    if ($t->bundleID == 6) {
+                        $arr[$i] = $this->getTicketSummary($t);
+                        $i++;
+                    }
+                }
+                return $arr;
+
+            case 1:
+                $i = 0;
+                foreach ($tickets as $t) {
+                    switch ($t->bundleID) {
+                        case null:
+                            if (($t->event1ID == 1) || ($t->event2ID == 1)) {
+                                $arr[$i] = $this->getTicketSummary($t);
+                                $i++;
+                            }
+                            break;
+                        case 5:
+                            $arr[$i] = $this->getTicketSummary($t);
+                            $i++;
+                            break;
+                        case 6:
+                            $arr[$i] = $this->getTicketSummary($t);
+                            $i++;
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+                return $arr;
+
+            case 2:
+                $i = 0;
+                foreach ($tickets as $t) {
+                    switch ($t->bundleID) {
+                        case null:
+                            if (($t->event1ID == 2) || ($t->event2ID == 2)) {
+                                $arr[$i] = $this->getTicketSummary($t);
+                                $i++;
+                            }
+                            break;
+                        case 5:
+                            $arr[$i] = $this->getTicketSummary($t);
+                            $i++;
+                            break;
+                        case 6:
+                            $arr[$i] = $this->getTicketSummary($t);
+                            $i++;
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+                return $arr;
+
+            case 4:
+                $i = 0;
+                foreach ($tickets as $t) {
+                    switch ($t->bundleID) {
+                        case null:
+                            if (($t->event1ID == 4) || ($t->event2ID == 4)) {
+                                $arr[$i] = $this->getTicketSummary($t);
+                                $i++;
+                            }
+                            break;
+                        case 5:
+                            $arr[$i] = $this->getTicketSummary($t);
+                            $i++;
+                            break;
+                        case 6:
+                            $arr[$i] = $this->getTicketSummary($t);
+                            $i++;
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+                return $arr;
+
+            case 3:
+                $i = 0;
+                foreach ($tickets as $t) {
+                    switch ($t->bundleID) {
+                        case null:
+                            if (($t->event1ID == 3) || ($t->event2ID == 3)) {
+                                $arr[$i] = $this->getTicketSummary($t);
+                                $i++;
+                            }
+                            break;
+                        case 5:
+                            $arr[$i] = $this->getTicketSummary($t);
+                            $i++;
+                            break;
+                        case 6:
+                            $arr[$i] = $this->getTicketSummary($t);
+                            $i++;
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+                return $arr;
+
+            case 5:
+                $i = 0;
+                foreach ($tickets as $t) {
+                    if ($t->bundleID == 7) {
+                        $arr[$i] = $this->getTicketSummary($t);
+                        $i++;
+                    }
+                }
+                return $arr;
+        }
     }
 }

@@ -94,6 +94,8 @@ Route::prefix('acasget')->group(function () {
     Route::get('incomplete', [AdminController::class, 'getUnfinishedTeamData']);
     Route::get('category', [AdminController::class, 'getHTCategories']);
     Route::get('tickets', [AdminController::class, 'getAllTickets']);
+    Route::get('tickets/category', [AdminController::class, 'getTicketCategorized']);
+    Route::get('tickets/category/{id}', [AdminController::class, 'getTicketByEvents']);
     Route::get('ticket/{uuid}', [AdminController::class, 'getTicket']);
     Route::get('postTicket/{uuid}/{status}', [AdminController::class, 'ticketAdminActions']);
 });

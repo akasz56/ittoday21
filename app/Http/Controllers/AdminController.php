@@ -325,7 +325,7 @@ class AdminController extends Controller
     {
         $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
         $events = Event::All();
-        $tickets = Ticket::Where('payStatus', 'done')->get();
+        $tickets = Ticket::Where('payStatus', 'done')->get()->sortBy('bundleID');
 
         foreach ($events as $event) {
             $response['data'][$event->id]['name'] = $event->name;
@@ -446,7 +446,7 @@ class AdminController extends Controller
     {
         $arr = array();
         switch ($id) {
-            case 0:
+            case 5:
                 $i = 0;
                 foreach ($tickets as $t) {
                     if ($t->bundleID == 6) {
@@ -549,6 +549,10 @@ class AdminController extends Controller
                             $arr[$i] = $this->getTicketSummary($t);
                             $i++;
                             break;
+                        case 7:
+                            $arr[$i] = $this->getTicketSummary($t);
+                            $i++;
+                            break;
 
                         default:
                             break;
@@ -556,7 +560,7 @@ class AdminController extends Controller
                 }
                 return $arr;
 
-            case 5:
+            case 6:
                 $i = 0;
                 foreach ($tickets as $t) {
                     if ($t->bundleID == 7) {

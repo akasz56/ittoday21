@@ -338,7 +338,7 @@ class AdminController extends Controller
     public function getTicketByEvents($id)
     {
         $response['tanggal'] = Carbon::now('Asia/Jakarta')->toDateTimeString();
-        $tickets = Ticket::Where('payStatus', 'done')->get();
+        $tickets = Ticket::Where('payStatus', 'done')->get()->sortBy('bundleID');
 
         $response['name'] = Event::find($id)->name;
         $response['data'] = $this->ticketCategorized($tickets, $id);

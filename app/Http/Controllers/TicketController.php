@@ -46,10 +46,11 @@ class TicketController extends Controller
     public function orderBundle(Request $request)
     {
         $bundle = $this->getBundle($request->type, $request->event1, $request->event2);
+        
         if (isset($bundle['error'])) {
-            $message = ($bundle['error'] == 'ticketConflict') ? 'You can\'t buy 2 tickets for the same Ilkommunity' : 'an Error Occured, please try again later';
-            return back()->withInput()->with($bundle['error'], $message);
+            return back()->withInput()->with('bundle_error', $bundle['error']);
         }
+
         $request->validate([
             'nama' => 'required',
             'email' => 'required|email',
@@ -149,7 +150,7 @@ class TicketController extends Controller
         switch ($bundlename) {
             case 'bundletwo':
                 if ($Event1 == $Event2) {
-                    $bundle['error'] = 'ticketConflict';
+                    $bundle['error'] = 'You can\'t buy 2 tickets for the same Ilkommunity';
                     break;
                 }
                 $bundle['Event1ID'] = Event::find($Event1);
@@ -180,7 +181,7 @@ class TicketController extends Controller
                 break;
 
             default:
-                $bundle['error'] = 'null';
+                $bundle['error'] = 'an Error Occured, please try again later';
                 break;
         }
         return $bundle;

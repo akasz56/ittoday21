@@ -8,8 +8,8 @@ Ticket Bundles | IT Today 2021
 <main class="container pt-5">
     <div class="row">
         <h1 class="fw-bold">Buy Ticket Bundle</h1>
-        @if ( session()->has('ticketConflict') )
-        <div class="alert alert-danger">{{ session()->get('ticketConflict') }}</div>
+        @if ( session()->has('bundle_error') )
+        <div class="alert alert-danger">{{ session()->get('bundle_error') }}</div>
         @endif
         <img src="{{ asset('/assets/illust/Illust2-ticketing.svg') }}" alt="Tickets Illustration">
         <p class="mb-5 pb-5">*Bundle 2 is for 2 Ilkommunity Webinars</p>
@@ -20,12 +20,12 @@ Ticket Bundles | IT Today 2021
                 <button class="nav-link tabs-dash fw-bold active" id="nav-bundletwo-tab" data-bs-toggle="tab"
                     data-bs-target="#nav-bundletwo" type="button" role="tab" aria-controls="nav-bundletwo"
                     aria-selected="true">Bundle 2</button>
-                <button class="nav-link tabs-dash fw-bold" id="nav-bundlefour-tab" data-bs-toggle="tab"
+                {{-- <button class="nav-link tabs-dash fw-bold" id="nav-bundlefour-tab" data-bs-toggle="tab"
                     data-bs-target="#nav-bundlefour" type="button" role="tab" aria-controls="nav-bundlefour"
                     aria-selected="false">Ilkommunity Bundle</button>
                 <button class="nav-link tabs-dash fw-bold" id="nav-bundlefive-tab" data-bs-toggle="tab"
                     data-bs-target="#nav-bundlefive" type="button" role="tab" aria-controls="nav-bundlefive"
-                    aria-selected="false">Ilkommunity + National Seminar</button>
+                    aria-selected="false">Ilkommunity + National Seminar</button> --}}
                 <button class="nav-link tabs-dash fw-bold" id="nav-bundleux-tab" data-bs-toggle="tab"
                     data-bs-target="#nav-bundleux" type="button" role="tab" aria-controls="nav-bundleux"
                     aria-selected="false">UX Bundle</button>
@@ -40,9 +40,6 @@ Ticket Bundles | IT Today 2021
                     @csrf
                     <input type="hidden" name="type" value="bundletwo">
                     <div class="row">
-                        @if ( session()->has('ticketConflict') )
-                        <div class="alert alert-danger">{{ session()->get('ticketConflict') }}</div>
-                        @endif
                         <!-- kiri -->
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
@@ -76,26 +73,24 @@ Ticket Bundles | IT Today 2021
                                 <label for="event1" class="form-label reqform">Ticket 1</label>
                                 <select class="form-select" aria-label="Default select example" id="event1"
                                     name="event1">
-                                    <option value="1">Ilkommunity Data Mining</option>
-                                    <option value="2">Ilkommunity Game Reality</option>
+                                    {{-- <option value="1">Ilkommunity Data Mining</option>
+                                    <option value="2">Ilkommunity Game Reality</option> --}}
                                     <option value="3">Ilkommunity AgriUX</option>
                                     <option value="4">Ilkommunity Afterhour Dev Talks</option>
                                 </select>
-                                {{-- <p>Stock : xx</p> --}}
                             </div>
                             <div class="mb-3">
                                 <label for="event2" class="form-label reqform">Ticket 2</label>
                                 <select class="form-select" aria-label="Default select example" id="event2"
                                     name="event2">
-                                    <option value="1">Ilkommunity Data Mining</option>
-                                    <option value="2">Ilkommunity Game Reality</option>
+                                    {{-- <option value="1">Ilkommunity Data Mining</option>
+                                    <option value="2">Ilkommunity Game Reality</option> --}}
                                     <option value="3">Ilkommunity AgriUX</option>
                                     <option value="4">Ilkommunity Afterhour Dev Talks</option>
                                 </select>
-                                {{-- <p>Stock : xx</p> --}}
                             </div>
                             <div class="mb-3">
-                                <div>
+                                {{-- <div>
                                     <small>
                                         Ilkommunity Data Mining : <span
                                             class="fw-bold text-primary">{{ $stock->daming }}</span>
@@ -106,7 +101,7 @@ Ticket Bundles | IT Today 2021
                                         Ilkommunity Game Reality : <span
                                             class="fw-bold text-primary">{{ $stock->gary }}</span>
                                     </small>
-                                </div>
+                                </div> --}}
                                 <div>
                                     <small>
                                         Ilkommunity AgriUX : <span class="fw-bold text-primary">{{ $stock->ux }}</span>
@@ -125,7 +120,7 @@ Ticket Bundles | IT Today 2021
                 </form>
             </div>
 
-            {{-- -----------------------------------------Ilkommunity Bundle----------------------------------------- --}}
+            {{-- -----------------------------------------Ilkommunity Bundle-----------------------------------------
             <div class="tab-pane fade mt-4" id="nav-bundlefour" role="tabpanel" aria-labelledby="nav-bundlefour-tab">
                 <form action="{{ route('ticket.bundle') }}" method="POST">
                     @csrf
@@ -168,7 +163,7 @@ Ticket Bundles | IT Today 2021
                 </form>
             </div>
 
-            {{-- -----------------------------------------Ilkommunity + National Seminar----------------------------------------- --}}
+            {{-- -----------------------------------------Ilkommunity + National Seminar-----------------------------------------
             <div class="tab-pane fade mt-4" id="nav-bundlefive" role="tabpanel" aria-labelledby="nav-bundlefive-tab">
                 <form action="{{ route('ticket.bundle') }}" method="POST">
                     @csrf

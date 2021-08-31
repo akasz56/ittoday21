@@ -83,7 +83,7 @@
                     </div>
                     <div class=" flex-fill time">
                         <h3>Finals</h3>
-                        <p>4th September 2021</p>
+                        <p>5th September 2021</p>
                     </div>
                 </div>
             </div>

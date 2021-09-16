@@ -34,8 +34,8 @@ Route::view('/workshop', 'event.work')->name('event.work');
 
 // Event Tickets
 Route::prefix('ticket')->group(function () {
-    Route::view('/', 'ticket.index')->name('ticket.index');
-    Route::get('/bundles', [TicketController::class, 'bundle'])->name('ticket.bundle');
+    // Route::view('/', 'ticket.index')->name('ticket.index');
+    // Route::get('/bundles', [TicketController::class, 'bundle'])->name('ticket.bundle');
     Route::get('/{uuid}', [TicketController::class, 'ticketActions'])->name('ticket.ticket');
     Route::post('/bundles', [TicketController::class, 'orderBundle'])->name('ticket.bundle');
     Route::post('/payMethod', [TicketController::class, 'payMethodPost'])->name('ticket.payMethod');
@@ -49,33 +49,33 @@ Route::view('/itbusiness', 'comp.busy')->name('comp.busy');
 Route::get('/rulebook/{id}', [TeamController::class, 'rulebook']);  //Rulebooks
 
 //UserController
-Route::middleware(['guest'])->group(function () {
-    Route::get('/register', [UserController::class, 'indexRegister'])->name('register');
-    Route::post('/register', [UserController::class, 'register'])->name('auth.register');
+// Route::middleware(['guest'])->group(function () {
+//     Route::get('/register', [UserController::class, 'indexRegister'])->name('register');
+//     Route::post('/register', [UserController::class, 'register'])->name('auth.register');
 
-    Route::get('/login', [UserController::class, 'indexLogin'])->name('login');
-    Route::post('/login', [UserController::class, 'login'])->name('auth.login');
+//     Route::get('/login', [UserController::class, 'indexLogin'])->name('login');
+//     Route::post('/login', [UserController::class, 'login'])->name('auth.login');
 
-    Route::get('/forgot', [UserController::class, 'indexForgot'])->name('forgotpass');
-    Route::post('/forgot', [UserController::class, 'forgot'])->name('auth.forgotpass');
+//     Route::get('/forgot', [UserController::class, 'indexForgot'])->name('forgotpass');
+//     Route::post('/forgot', [UserController::class, 'forgot'])->name('auth.forgotpass');
 
-    Route::get('/reset/{user}/{token}', [UserController::class, 'indexReset'])->name('resetpass');
-    Route::post('/reset', [UserController::class, 'reset'])->name('auth.resetpass');
-});
-Route::middleware(['auth'])->group(function () {
-    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-});
+//     Route::get('/reset/{user}/{token}', [UserController::class, 'indexReset'])->name('resetpass');
+//     Route::post('/reset', [UserController::class, 'reset'])->name('auth.resetpass');
+// });
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+// });
 
 //TeamController
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [TeamController::class, 'index'])->name('dashboard');
-    Route::post('/uploadtrf', [TeamController::class, 'uploadtrf'])->name('upload.trf');
-    Route::post('/uploadprop', [TeamController::class, 'uploadprop'])->name('upload.proposal');
-    Route::post('/uploadlead', [TeamController::class, 'uploadlead'])->name('upload.leader');
-    Route::post('/uploadamem', [TeamController::class, 'uploadamem'])->name('upload.amember');
-    Route::post('/uploadbmem', [TeamController::class, 'uploadbmem'])->name('upload.bmember');
-    Route::post('/HTCategory', [TeamController::class, 'HacktodayCategory'])->name('htcategory');
-});
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/dashboard', [TeamController::class, 'index'])->name('dashboard');
+//     Route::post('/uploadtrf', [TeamController::class, 'uploadtrf'])->name('upload.trf');
+//     Route::post('/uploadprop', [TeamController::class, 'uploadprop'])->name('upload.proposal');
+//     Route::post('/uploadlead', [TeamController::class, 'uploadlead'])->name('upload.leader');
+//     Route::post('/uploadamem', [TeamController::class, 'uploadamem'])->name('upload.amember');
+//     Route::post('/uploadbmem', [TeamController::class, 'uploadbmem'])->name('upload.bmember');
+//     Route::post('/HTCategory', [TeamController::class, 'HacktodayCategory'])->name('htcategory');
+// });
 
 //AdminDownloads
 Route::prefix('acasdl')->group(function () {

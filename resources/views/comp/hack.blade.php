@@ -42,7 +42,7 @@
                         <a href={{ route('auth.register') }} class="btn btn-success">Register your team</a>
                     @endguest --}}
                     @endif
-                    <a href="/rulebook/hack" class="btn btn-outline-success">Rulebook</a>
+                    {{-- <a href="/rulebook/hack" class="btn btn-outline-success">Rulebook</a> --}}
 
                     <p class="fw-bold mt-4">Contact Person :</p>
                     <p style="line-height: 1em;">Rizal : <a href="https://wa.me/+6289644417286"

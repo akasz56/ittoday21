@@ -46,13 +46,13 @@ Workshop | IT Today 2021
                     <div>Sunday, 5th September 2021</div>
                     <div>@ Online Video Conference</div>
                 </div>
-                <div class="d-flex flex-column flex-md-row">
+                {{-- <div class="d-flex flex-column flex-md-row">
                     <a class="btn btn-primary txt-caption w-100 mb-md-3"
                         href="https://loket.com/event/design-system-workshop-9ctu" target="_blank">Buy Ticket
                         (Loket.com)</a>
                     <a class="btn btn-primary txt-caption w-100 mb-md-3" href="{{ route('ticket.bundle') }}">Buy
                         Bundle</a>
-                </div>
+                </div> --}}
             </div>
 
 

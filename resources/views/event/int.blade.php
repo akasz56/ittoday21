@@ -56,8 +56,8 @@ National Seminar | IT Today 2021
                     <a class="btn btn-primary txt-caption w-100 mb-md-3"
                         href="https://loket.com/event/ittoday-national-seminar" target="_blank">Buy
                         Ticket (Loket.com)</a>
-                    <a class="btn btn-primary txt-caption w-100 mb-md-3" href="{{ route('ticket.bundle') }}">Buy
-                        Bundle</a>
+                    {{-- <a class="btn btn-primary txt-caption w-100 mb-md-3" href="{{ route('ticket.bundle') }}">Buy
+                        Bundle</a> --}}
                 </div>
             </div>
 

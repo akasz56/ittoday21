@@ -17,7 +17,7 @@
                 <div class="w-75 mx-auto">
                     <img src="{{ asset('/assets/icons/logo-ux.svg') }}" alt="Logo UXtoday" class="d-block">
                 </div>
-                <div class="txt-subtitle">International</div>
+                <div class="txt-subtitle">National with english</div>
             </div>
 
 
@@ -25,7 +25,7 @@
             <div class="d-flex justify-content-center competition-desc">
                 <div class="mx-4">
                     <p>
-                        UX Today is an international online competition that focuses on user experience design on
+                        UX Today is a national online competition that focuses on user experience design on
                         user comfort, satisfaction and efficiency. The competition is open to undergraduate students
                         from all over the world. In this competition, the main focus is the experience felt by the
                         user while using the application as a whole. Participants are expected to provide solutions
@@ -44,7 +44,7 @@
                         <a href={{ route('auth.register') }} class="btn btn-success">Register your team</a>
                     @endguest --}}
                     @endif
-                    <a href="/rulebook/ux" class="btn btn-outline-success">Rulebook</a>
+                    {{-- <a href="/rulebook/ux" class="btn btn-outline-success">Rulebook</a> --}}
 
                     <p class="fw-bold mt-4">Contact Person :</p>
                     <p style="line-height: 1em;">Amelia :

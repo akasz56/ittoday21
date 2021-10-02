@@ -11,8 +11,10 @@
     <title>@yield('title', 'IT TODAY 2021 | The Synergy Between Technology and Agro-Maritime 5.0')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- favicon -->
-    <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('/assets/favicon/android-chrome-512x512.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('/assets/favicon/android-chrome-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="512x512"
+        href="{{ asset('/assets/favicon/android-chrome-512x512.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="{{ asset('/assets/favicon/android-chrome-192x192.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/assets/favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/assets/favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/assets/favicon/favicon-16x16.png') }}">
@@ -25,8 +27,9 @@
         <a class="skip-link btn btn-success" href="#main">Skip to main</a>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1 _bg-color-purple">
             <div class="container">
-                <a class="navbar-brand p-0" href="{{ route('home') }}"><img src="{{ asset('/assets/icons/brand.svg') }}"
-                        alt="It Today Logo" width="70px" height="50px"></a>
+                <a class="navbar-brand p-0" href="{{ route('home') }}"><img
+                        src="{{ asset('/assets/icons/brand.svg') }}" alt="It Today Logo" width="70px"
+                        height="50px"></a>
                 <!-- hamburger button when mobile -->
                 <button class="hamburger hamburger--spin" id="hamburger-btn" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -37,7 +40,7 @@
                 </button>
 
                 <!-- nav link -->
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                {{-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav _m-nav-mobile">
                         <li class="nav-item py-1 dropdown ms-lg-2">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownEvent" role="button"
@@ -71,7 +74,7 @@
                             Us</a>
                     </div>
 
-                    {{-- <div class="navbar-nav full-navbar-mobile ms-auto auth">
+                        <div class="navbar-nav full-navbar-mobile ms-auto auth">
                         @auth
                         <a class="nav-link m-auto me-lg-2" href="{{ route('dashboard') }}">Dashboard</a>
                         <a class="nav-link m-auto me-lg-2" href="{{ route('logout') }}">Logout</a>
@@ -80,9 +83,9 @@
                         <a class="nav-link m-auto me-lg-2" href="{{ route('login') }}">Login</a>
                         <a class="btn btn-primary" href="{{ route('ticket.index') }}">Buy Ticket</a>
                         @endguest
-                    </div> --}}
-
-                </div>
+                    </div>
+                    
+                </div> --}}
             </div>
         </nav>
     </header>
@@ -96,7 +99,8 @@
         <div class="ittsmall itt-spon"></div>
         <div data-aos="fade-up" class="border sponsors-list">
             <div class="col-sm-4 col-md-3 col-lg-2 my-sm-1 my-md-2 my-lg-4 mx-auto">
-                <img class="img-fluid p-2" src="{{ asset('assets/images/sponsor/cloudkilat.jpg') }}" alt="cloudkilat">
+                <img class="img-fluid p-2" src="{{ asset('assets/images/sponsor/cloudkilat.jpg') }}"
+                    alt="cloudkilat">
             </div>
         </div>
         <div class="d-flex flex-column itt-sponmed">
@@ -114,57 +118,59 @@
         <div class="container pt-5">
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-6">
-                    <img src={{ asset("/assets/icons/brand.svg") }} alt="IT Today Logo" class="img-fluid" height="150px"
-                        width="150px">
+                    <img src={{ asset('/assets/icons/brand.svg') }} alt="IT Today Logo" class="img-fluid"
+                        height="150px" width="150px">
                     <p class="text-white mt-3 fw-light">The Synergy Between Technology and Agro-Maritime 5.0</p>
 
                     <!-- social media -->
                     <div class="d-flex mb-4">
                         <a href="https://www.facebook.com/ipbittoday/" target="_blank">
-                            <img src={{ asset("/assets/icons/fb.svg") }} alt="facebook" class="img-fluid" height="30px"
-                                width="30px">
+                            <img src={{ asset('/assets/icons/fb.svg') }} alt="facebook" class="img-fluid"
+                                height="30px" width="30px">
                         </a>
                         <a href="https://www.instagram.com/ittoday_ipb/" target="_blank">
-                            <img src={{ asset("/assets/icons/ig.svg") }} alt="instagram" class="img-fluid ms-3"
+                            <img src={{ asset('/assets/icons/ig.svg') }} alt="instagram" class="img-fluid ms-3"
                                 height="30px" width="30px">
                         </a>
                         <a href="http://line.me/ti/p/@ukd0443x" target="_blank">
-                            <img src={{ asset("assets/icons/line.svg") }} alt="line" class="img-fluid ms-3"
+                            <img src={{ asset('assets/icons/line.svg') }} alt="line" class="img-fluid ms-3"
                                 height="30px" width="30px">
                         </a>
                         <a href="https://twitter.com/ittoday_ipb?lang=en" target="_blank">
-                            <img src={{ asset("/assets/icons/twitter.svg") }} alt="twitter" class="img-fluid ms-3"
+                            <img src={{ asset('/assets/icons/twitter.svg') }} alt="twitter" class="img-fluid ms-3"
                                 height="30px" width="30px">
                         </a>
                         <a href="https://www.youtube.com/c/ITTodayIPB/videos" target="_blank">
-                            <img src={{ asset("/assets/icons/youtube.svg") }} alt="youtube" class="img-fluid ms-3"
+                            <img src={{ asset('/assets/icons/youtube.svg') }} alt="youtube" class="img-fluid ms-3"
                                 height="30px" width="30px">
                         </a>
                     </div>
                 </div>
 
                 <div class="col-sm-12 col-md-4 col-lg-2">
-                    <h6 class="text-white fw-bold">Competition</h6>
+                    {{-- <h6 class="text-white fw-bold">Competition</h6>
                     <ul class="list-unstyled text-small">
                         <li><a href="{{ route('comp.hack') }}"
                                 class="text-decoration-none link-list-footer">Hacktoday</a></li>
-                        <li><a href="{{ route('comp.ux') }}" class="text-decoration-none link-list-footer">UX Today</a>
+                        <li><a href="{{ route('comp.ux') }}" class="text-decoration-none link-list-footer">UX
+                                Today</a>
                         </li>
-                        <li><a href="{{ route('comp.busy') }}" class="text-decoration-none link-list-footer">IT Business
+                        <li><a href="{{ route('comp.busy') }}" class="text-decoration-none link-list-footer">IT
+                                Business
                                 Competition</a></li>
-                    </ul>
+                    </ul> --}}
                 </div>
 
                 <div class="col-sm-12 col-md-4 col-lg-2">
-                    <h6 class="text-white fw-bold">Events</h6>
+                    {{-- <h6 class="text-white fw-bold">Events</h6>
                     <ul class="list-unstyled text-small">
-                        <li><a href="{{ route('event.int') }}"
-                                class="text-decoration-none link-list-footer">National Seminar</a></li>
+                        <li><a href="{{ route('event.int') }}" class="text-decoration-none link-list-footer">National
+                                Seminar</a></li>
                         <li><a href="{{ route('event.ilk') }}"
                                 class="text-decoration-none link-list-footer">Ilkommunity</a></li>
                         <li><a href="{{ route('event.work') }}"
                                 class="text-decoration-none link-list-footer">Workshop</a></li>
-                    </ul>
+                    </ul> --}}
                 </div>
 
                 <div class="col-sm-12 col-md-4 col-lg-2">
@@ -191,7 +197,6 @@
         AOS.init({
             once: true
         });
-
     </script>
 </body>
 
